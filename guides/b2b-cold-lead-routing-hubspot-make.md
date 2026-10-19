@@ -2,7 +2,7 @@
 layout: default
 title: "Real-Time B2B Inbound Lead Routing & Scoring"
 ---
-{% raw %}
+
 # Real-Time B2B Inbound Lead Routing & Scoring Using HubSpot and Make
 *Disclosure: This guide contains partner links for software tools we architect with. If you deploy via these links, we may earn a commission at no additional cost to you.*
 
@@ -18,14 +18,17 @@ Consider a sales development team handling 350 inbound leads per month across mu
 
 ```
 +------------------------------------+--------------------------+-------------------------+
+
 | Operational Step                   | Manual Execution Time    | Automated SLA (System)  |
 +------------------------------------+--------------------------+-------------------------+
+
 | Payload Inspection & Verification  | 3.0 min / lead           | < 100 ms                |
 | Email Normalization & Domain Parse | 1.5 min / lead           | < 50 ms                 |
 | ICP Scoring (Firmographics/Intent) | 4.0 min / lead           | < 250 ms                |
 | Account Match & Territory Routing  | 3.5 min / lead           | < 200 ms                |
 | CRM Owner Assignment & Escalation  | 2.0 min / lead           | < 400 ms                |
 +------------------------------------+--------------------------+-------------------------+
+
 | Total Lead Latency                 | 14.0 minutes             | ~ 1.0 second            |
 +------------------------------------+--------------------------+-------------------------+
 ```
@@ -46,31 +49,40 @@ The pipeline executes as an event-driven micro-service. A form submission or con
 
 ```
 [Inbound Form / CRM Event]
+
             |
             v
    [HubSpot Webhook]
+
             |
             v
    [Make: Custom Webhook Listener]
+
             |
             v
    [Data Sanitization & Domain Extraction Engine]
+
             |
             v
    [Scoring Matrix (Firmographic + Intent Weighted Calculations)]
+
             |
    +--------+--------+------------------------+
+
    | (Score >= 80)   | (Score 50-79)          | (Score < 50)
    v                 v                        v
 [Tier 1: Enterprise] [Tier 2: Mid-Market]     [Tier 3: SMB / Nurture]
+
    |                 |                        |
    |                 +---> [Data Store:       |
    |                       Round-Robin State] |
    |                               |          |
    +-------------------------------+          |
+
    |                                          |
    v                                          v
 [HubSpot API: Assign Owner & Deal]         [HubSpot API: Assign Nurture]
+
    |                                          |
    v                                          v
 [Slack API: High-Priority AE Ping]         [End Pipeline]
@@ -186,4 +198,5 @@ In real-world traffic, free email domains, messy inputs, subdomains, and corpora
 #### Google Sheets / Formula Engine Implementation
 
 ```
-{% endraw %}
+
+<!-- table-safe-v2 -->
