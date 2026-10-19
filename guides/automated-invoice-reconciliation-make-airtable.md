@@ -2,7 +2,7 @@
 layout: default
 title: "Automated Invoice Reconciliation for Small Agencies"
 ---
-
+{% raw %}
 *Disclosure: This guide contains partner links for software tools we architect with. If you deploy via these links, we may earn a commission at no additional cost to you.*
 
 ---
@@ -195,3 +195,4 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <div style="border: 2px solid #2563eb; padding: 24px; border-radius: 8px; background-color: #f8fafc; margin: 32px 0;">
 <h3 style="margin-top: 0; color: #1e3a8a;">Ready to Deploy the Reconciliation Stack?</h3>
 <p style="font-size: 15px; line-height
+{% endraw %}
