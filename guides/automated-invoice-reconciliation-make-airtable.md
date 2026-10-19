@@ -2,7 +2,7 @@
 layout: default
 title: "Automated Invoice Reconciliation for Small Agencies"
 ---
-{% raw %}
+
 *Disclosure: This guide contains partner links for software tools we architect with. If you deploy via these links, we may earn a commission at no additional cost to you.*
 
 ---
@@ -58,6 +58,7 @@ The reconciliation architecture decouples transaction receipt ingestion from led
 #### Database Schema: Relational Structure
 
 ##### Table 1: `Invoices`
+
 | Field Name | Data Type | Validation Rules / Constraints | Description |
 | :--- | :--- | :--- | :--- |
 | `Invoice_ID` | Single line text | Unique, Regex: `^INV-[0-9]{4}-[0-9]{3,}$` | Primary Key identifier |
@@ -68,6 +69,7 @@ The reconciliation architecture decouples transaction receipt ingestion from led
 | `Due_Date` | Date | ISO 8601 (`YYYY-MM-DD`) | Contractual payment limit |
 
 ##### Table 2: `Bank_Transactions`
+
 | Field Name | Data Type | Validation Rules / Constraints | Description |
 | :--- | :--- | :--- | :--- |
 | `Transaction_UID` | Single line text | Unique, Non-empty | Bank/Stripe charge/transfer ID |
@@ -79,6 +81,7 @@ The reconciliation architecture decouples transaction receipt ingestion from led
 | `Match_Status` | Single Select | Options: `Auto_Matched`, `Review_Required` | Routing flag |
 
 ##### Table 3: `Reconciliation_Audit`
+
 | Field Name | Data Type | Validation Rules / Constraints | Description |
 | :--- | :--- | :--- | :--- |
 | `Audit_ID` | Auto Number | Primary Key | Sequential audit ID |
@@ -106,12 +109,12 @@ The reconciliation architecture decouples transaction receipt ingestion from led
 
 #### Step 2: Data Normalization (Make)
 1. Add a **Set Variable** module:
-   * **Gross Amount Float**: `{{parseNumber(formatNumber(1.amount / 100; 2; "."; ""))}}`
-   * **Fee Float**: `{{parseNumber(formatNumber(1.fee / 100; 2; "."; ""))}}`
-   * **Net Settlement**: `{{parseNumber(formatNumber((1.amount - 1.fee) / 100; 2; "."; ""))}}`
+   * **Gross Amount Float**: `{% raw %}{{{% endraw %}parseNumber(formatNumber(1.amount / 100; 2; "."; ""))}}`
+   * **Fee Float**: `{% raw %}{{{% endraw %}parseNumber(formatNumber(1.fee / 100; 2; "."; ""))}}`
+   * **Net Settlement**: `{% raw %}{{{% endraw %}parseNumber(formatNumber((1.amount - 1.fee) / 100; 2; "."; ""))}}`
 2. Add a **Text Parser: Match Pattern** module:
    * **Pattern**: `(INV-\d{4}-\d+)`
-   * **Text**: `{{1.description}}`
+   * **Text**: `{% raw %}{{{% endraw %}1.description}}`
 
 #### Step 3: Record Lookup (Airtable)
 1. Add the **[Airtable](https://www.airtable.com): Search Records** module:
@@ -120,10 +123,10 @@ The reconciliation architecture decouples transaction receipt ingestion from led
    * **Formula**:
      ```text
      IF(
-       LEN("{{2.$1}}") > 0,
-       {Invoice_ID} = "{{2.$1}}",
+       LEN("{% raw %}{{{% endraw %}2.$1}}") > 0,
+       {Invoice_ID} = "{% raw %}{{{% endraw %}2.$1}}",
        AND(
-         {Amount_Billed} = {{Gross Amount Float}},
+         {Amount_Billed} = {% raw %}{{{% endraw %}Gross Amount Float}},
          {Status} != "Paid"
        )
      )
@@ -135,27 +138,27 @@ Add a **Router** module with two branches:
 ##### Branch A: Deterministic Match
 * **Filter Conditions**:
   * `Total number of bundles` from Airtable Search = `1`
-  * `Amount_Billed` EQUALS `{{Gross Amount Float}}`
+  * `Amount_Billed` EQUALS `{% raw %}{{{% endraw %}Gross Amount Float}}`
 * **Modules**:
   1. **Airtable: Create a Record** (`Bank_Transactions`):
-     * `Transaction_UID` = `{{1.transaction_id}}`
-     * `Settled_Amount` = `{{Net Settlement}}`
-     * `Processor_Fee` = `{{Fee Float}}`
-     * `Matched_Invoice` = `[{{3.id}}]`
+     * `Transaction_UID` = `{% raw %}{{{% endraw %}1.transaction_id}}`
+     * `Settled_Amount` = `{% raw %}{{{% endraw %}Net Settlement}}`
+     * `Processor_Fee` = `{% raw %}{{{% endraw %}Fee Float}}`
+     * `Matched_Invoice` = `[{% raw %}{{{% endraw %}3.id}}]`
      * `Match_Status` = `Auto_Matched`
   2. **Airtable: Update a Record** (`Invoices`):
-     * Record ID: `{{3.id}}`
+     * Record ID: `{% raw %}{{{% endraw %}3.id}}`
      * `Status` = `Paid`
 
 ##### Branch B: Discrepancy / Exception Handling
 * **Filter Conditions**:
-  * Fallback route (Else) OR `Amount_Billed` DOES NOT EQUAL `{{Gross Amount Float}}`
+  * Fallback route (Else) OR `Amount_Billed` DOES NOT EQUAL `{% raw %}{{{% endraw %}Gross Amount Float}}`
 * **Modules**:
   1. **Airtable: Create a Record** (`Bank_Transactions`):
      * Write record with `Match_Status` set to `Review_Required`.
   2. **Airtable: Create a Record** (`Reconciliation_Audit`):
      * `Transaction_Ref` = New transaction record ID.
-     * `Exception_Code` = `IF({{3.id}} = null; "NOT_FOUND"; "SHORT_PAY")`
+     * `Exception_Code` = `IF({% raw %}{{{% endraw %}3.id}} = null; "NOT_FOUND"; "SHORT_PAY")`
   3. **Slack: Create a Message**:
      * Alert `#ops-finance` with `Transaction_UID`, settled amounts, parsed memo, and direct link to the record.
 
@@ -177,7 +180,7 @@ Legacy bank memo strings routinely embed unformatted transaction tokens. Use thi
 Place this expression inside the Airtable Update Module to normalize user-facing raw reference fields and eliminate standard bank-injected whitespace:
 
 ```javascript
-{{ifempty(first(match(upper(1.description); "/(?:INV|BILL|REC)[\-\s_]?[0-9]{4}[\-\s_]?[0-9]{3,}/g")); "MANUAL_REVIEW_REQUIRED")}}
+{% raw %}{{{% endraw %}ifempty(first(match(upper(1.description); "/(?:INV|BILL|REC)[\-\s_]?[0-9]{4}[\-\s_]?[0-9]{3,}/g")); "MANUAL_REVIEW_REQUIRED")}}
 ```
 
 This regular expression evaluates all common account receivable invoicing patterns:
@@ -195,4 +198,5 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <div style="border: 2px solid #2563eb; padding: 24px; border-radius: 8px; background-color: #f8fafc; margin: 32px 0;">
 <h3 style="margin-top: 0; color: #1e3a8a;">Ready to Deploy the Reconciliation Stack?</h3>
 <p style="font-size: 15px; line-height
-{% endraw %}
+
+<!-- table-safe-v2 -->
