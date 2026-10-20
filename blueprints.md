@@ -9,11 +9,20 @@ title: "Turnkey B2B Make.com JSON Blueprints & Database Schemas"
 
 ---
 
-## Step 1: Activate Your 10,000 Free Make.com Operations
+## Option A: Get the Complete 70-Workflow Pro Bundle ($19 Instant Access)
 
-Before importing the JSON scenario blueprints below, claim your partner workspace so your webhook routers, HTTP retry modules, and scheduled pollers can run on the Core tier for 30 days at $0.00 cost:
+Want all 70+ production-ready Make.com JSON blueprints, multi-table Airtable & Notion relational schemas, and regex validation formulas in one turnkey package?
+
+* **[Download the Complete Turnkey B2B Make.com JSON Blueprint & Schema Pack ($19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng)**
+
+---
+
+## Option B: Activate Your Free Make.com Core Plan & Airtable Workspace
+
+Before importing the JSON scenario blueprints below, claim your partner workspaces so your webhook routers, HTTP retry modules, and relational ledgers can run at $0.00 cost:
 
 * **[Claim 1 Month of Make.com Core Free (10,000 Credits Included)](https://www.make.com/en/register?pc=b2bworkflow)**
+* **[Launch Your Free Airtable Relational Database Workspace](https://airtable.com/invite/r/85BpxD3P)**
 
 ---
 
@@ -100,4 +109,6 @@ Save the JSON block below as `b2b-core-blueprint.json`, open your [Make.com Scen
 
 ## Step 3: Deploy with Your Implementation Guide
 
-Return to the **[B2B Workflow Guides Directory](./index.html)** to copy the exact field schemas and regex validation formulas for your workflow, or **[Deploy Directly on Make.com (1 Month Core Plan Free)](https://www.make.com/en/register?pc=b2bworkflow)**.
+* **[Get the Complete 70-Workflow JSON & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)**
+* **[Return to the B2B Workflow Guides Directory](./index.html)**
+* **[Deploy Directly on Make.com (1 Month Core Plan Free)](https://www.make.com/en/register?pc=b2bworkflow)**
