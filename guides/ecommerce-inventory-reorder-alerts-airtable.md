@@ -19,7 +19,7 @@ Consider the arithmetic of manual stock audits:
 * **Weekly Labor Loss:** 1,000 SKUs $\times$ 1.5 minutes = 1,500 minutes per audit pass. Across 3 weekly passes, operators spend **75 hours per week** (nearly two full-time headcount equivalents) executing mechanical spreadsheet lookups.
 * **Financial Impact:** Beyond labor waste, manual lag guarantees stockouts on high-velocity items and capital lockup in dead inventory. Stockouts result in lost B2B contract revenue, while over-ordering strains working capital lines of credit.
 
-By architecting an automated forecasting loop using [Airtable](https://www.airtable.com) as the relational database and [Make](https://www.make.com/en/register?pc=b2bworkflow) as the orchestration engine, we eliminate 98% of this manual overhead. The system calculates dynamic reorder triggers based on real-time inventory adjustments and flags critical deficits instantly, reducing audit labor from 75 hours weekly to zero.
+By architecting an automated forecasting loop using [Airtable](${affiliateAirtable}) as the relational database and [Make](https://www.make.com/en/register?pc=b2bworkflow) as the orchestration engine, we eliminate 98% of this manual overhead. The system calculates dynamic reorder triggers based on real-time inventory adjustments and flags critical deficits instantly, reducing audit labor from 75 hours weekly to zero.
 
 ## 2. Architecture Blueprint
 
@@ -76,7 +76,7 @@ To support this architecture, configure your Airtable base with the following pr
 
 ## 3. Step-by-Step Webhook & Module Configuration
 
-Deploying this integration requires linking [Airtable](https://www.airtable.com) and [Make](https://www.make.com/en/register?pc=b2bworkflow) via authenticated API endpoints. Follow these steps to construct the Make scenario.
+Deploying this integration requires linking [Airtable](${affiliateAirtable}) and [Make](https://www.make.com/en/register?pc=b2bworkflow) via authenticated API endpoints. Follow these steps to construct the Make scenario.
 
 1. **Initialize the Scenario & Trigger Module:**
    Log into [Make](https://www.make.com/en/register?pc=b2bworkflow) and create a new scenario. Add an **Airtable > Watch Records** module as the trigger. Connect your Airtable account using a Personal Access Token with `data.records:read` and `schema.bases:read` scopes. Select your Base and the `Inventory` table, targeting a view named `Reorder Alerts` (filtered where `Reorder Status` equals `Reorder Now`). Set the trigger frequency to run every 4 hours.
@@ -132,7 +132,7 @@ Deploying this system eliminates manual tracking, protects against catastrophic 
 
 * [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
 * [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
-* [Airtable](https://www.airtable.com)
+* [Airtable](${affiliateAirtable})
 * [Make](https://www.make.com/en/register?pc=b2bworkflow)
 
-<!-- table-safe-v6 -->
+<!-- table-safe-v7 -->
