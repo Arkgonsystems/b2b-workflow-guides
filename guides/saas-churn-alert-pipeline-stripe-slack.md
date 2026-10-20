@@ -1,3 +1,9 @@
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download our [**Turnkey Make + Airtable JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 ---
 layout: default
 title: "Automated SaaS Failed Payment & Churn Recovery Pipeline"
@@ -23,7 +29,7 @@ The manual breakdown per week typically includes:
 
 Total operational overhead reaches **16.0 hours per week**—the equivalent of 0.4 FTE diverted from strategic revenue growth. 
 
-By replacing this manual loop with an event-driven state engine combining [Make](https://www.make.com/en/register?pc=b2bworkflow) for pipeline orchestration and [Airtable](${affiliateAirtable}) for real-time lifecycle tracking, operational overhead drops to **under 0.5 hours per week** (spent strictly on escalated enterprise edge cases). More importantly, time-to-first-dunning-contact falls from 48 hours to under 60 seconds, recovering 35% to 55% of revenue that would otherwise convert into permanent churn.
+{affiliateAirtable}) for real-time lifecycle tracking, operational overhead drops to **under 0.5 hours per week** (spent strictly on escalated enterprise edge cases). More importantly, time-to-first-dunning-contact falls from 48 hours to under 60 seconds, recovering 35% to 55% of revenue that would otherwise convert into permanent churn.
 
 ---
 
@@ -139,13 +145,13 @@ Place a **Router** module directly after the search step:
   * **Filter Condition:** Set filter to `Total number of bundles` from Search Records equal to `0`.
   * **Module:** Airtable **Create a Record**.
   * Map incoming webhook attributes:
-    * `Invoice ID` $\rightarrow$ `1.data.object.id`
-    * `Customer ID` $\rightarrow$ `1.data.object.customer`
-    * `Customer Email` $\rightarrow$ `1.data.object.customer_email`
-    * `Amount Due` $\rightarrow$ `1.data.object.amount_due / 100` *(convert cents to standard currency)*
-    * `Hosted Invoice URL` $\rightarrow$ `1.data.object.hosted_invoice_url`
-    * `Failure Code` $\rightarrow$ `1.data.object.charge.failure_code`
-    * `Dunning Stage` $\rightarrow$ `Initial_Failed`
+ `1.data.object.id`
+ `1.data.object.customer`
+ `1.data.object.customer_email`
+ `1.data.object.amount_due / 100` *(convert cents to standard currency)*
+ `1.data.object.hosted_invoice_url`
+ `1.data.object.charge.failure_code`
+ `Initial_Failed`
 
 * **Route B (Existing Record Update):**
   * **Filter Condition:** Set filter to `Total number of bundles` greater than `0`.
@@ -160,7 +166,7 @@ Insert a second Router conditioned on the `Customer Tier` field:
   * Message body:
     ```text
     :alert: *Enterprise Payment Failure*: <{% raw %}{{{% endraw %}1.data.object.customer_email}}>
-    Amount: ${% raw %}{{{% endraw %}1.data.object.amount_due / 100}}
+{% raw %}{{{% endraw %}1.data.object.amount_due / 100}}
     Reason: {% raw %}{{{% endraw %}1.data.object.charge.failure_code}}
     Action Required: Direct CSM outreach before next automated retry.
     Airtable Reference: https://airtable.com/appXXXXXXXX/tblYYYYYYYY
@@ -174,8 +180,8 @@ Create a distinct, secondary scenario within [Make](https://www.make.com/en/regi
 1. **Custom Webhook** listening exclusively for Stripe's `invoice.payment_succeeded` event.
 2. **Airtable Search Records** by `{Invoice ID} = '{% raw %}{{{% endraw %}1.data.object.id}}'`.
 3. **Airtable Update Record**:
-   * Set `Dunning Stage` $\rightarrow$ `Recovered`
-   * Set `Recovered At` $\rightarrow$ `{% raw %}{{{% endraw %}now}}`
+ `Recovered`
+ `{% raw %}{{{% endraw %}now}}`
 4. Send an internal notification closing the recovery loop and halting further dunning actions.
 
 ---
@@ -242,7 +248,13 @@ To launch this architecture with minimal configuration overhead, use the turnkey
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 * **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
 
-
 <!-- table-safe-v8 -->
 
 <!-- table-safe-v6 -->
+
+---
+
+## Deploy This Workflow in 60 Seconds
+
+* **Start Building Free:** [Launch Make (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Airtable workspace](https://airtable.com/invite/r/85BpxD3P).
+* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
