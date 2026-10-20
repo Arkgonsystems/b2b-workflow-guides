@@ -1,5 +1,5 @@
 {
-  "name": "Automated Weekly Client KPI Executive Rollup (Make + Notion)",
+  "name": "Arkgon Systems — Automated Weekly Client KPI Executive Rollup (Make + Notion)",
   "flow": [
     {
       "id": 1,
@@ -127,6 +127,7 @@
       "orphans": []
     },
     "zone": "eu2.make.com",
-    "documentation_url": "https://loudplatypus6-blip.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html"
+    "publisher": "Arkgon Systems",
+    "documentation_url": "https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html"
   }
 }
