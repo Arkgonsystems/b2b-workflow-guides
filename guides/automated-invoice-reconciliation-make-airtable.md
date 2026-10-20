@@ -1,13 +1,16 @@
+---
+layout: default
+title: "Automated Invoice Reconciliation for Small Agencies"
+---
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download our [**Turnkey Make + Airtable JSON Blueprint & Schema Pack ($19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 [← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
 > **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download our [**Turnkey Make + Airtable JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
-
----
-layout: default
-title: "Automated Invoice Reconciliation for Small Agencies"
----
 
 *Disclosure: This guide contains partner links for software tools we architect with. If you deploy via these links, we may earn a commission at no additional cost to you.*
 
@@ -224,10 +227,11 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <!-- table-safe-v8 -->
 
 <!-- table-safe-v6 -->
+19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
 
 ## Deploy This Workflow in 60 Seconds
 
 * **Start Building Free:** [Launch Make (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Airtable workspace](https://airtable.com/invite/r/85BpxD3P).
-* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+* **Get the Ready-to-Import JSON Pack on Gumroad:** [Download the Turnkey JSON Blueprint & Schema Pack ($19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
