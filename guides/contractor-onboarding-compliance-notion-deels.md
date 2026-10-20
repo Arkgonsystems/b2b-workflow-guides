@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Automated Contractor Onboarding & Document Collection"
+title: "Automated Contractor Onboarding & Document Collection — Arkgon Systems"
 ---
+> **FTC Affiliate Disclosure:** Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Implementation Stack:** Deploy this architecture using [**Notion** (1 Month Free Core Plan / 10,000 Operations)](https://www.notion.com/) and [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download the ready-to-import [**Arkgon Notion + Make JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
+
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
-> **Implementation Stack:** Deploy this architecture using [**Notion** (1 Month Free Core Plan / 10,000 Operations)](https://www.notion.com/) and [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download the ready-to-import [**Notion + Make JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
+19)**](https://platypusprime.gumroad.com/l/dncmng).
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
@@ -106,7 +110,7 @@ Deploying enterprise-grade automation requires robust error handling, rate-limit
 
 Ready to deploy this exact system in under 30 minutes? Access our pre-built scenario blueprints, JSON data models, and step-by-step deployment assets below:
 
-- [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
+- [Download the Complete Turnkey Blueprint](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html)
 - [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
 - [Explore Notion Enterprise Workspace Setup](https://www.notion.so)
 
@@ -115,7 +119,7 @@ Ready to deploy this exact system in under 30 minutes? Access our pre-built scen
 ## Turnkey Implementation Blueprint & Partner Promo
 
 * **Get the Complete 70-Workflow JSON & Schema Pack ($19):** [Download the Complete Turnkey Blueprint Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
-* **Free Starter JSON Blueprint:** [View the Starter JSON Scenario Hub](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
+* **Free Starter JSON Blueprint:** [View the Starter JSON Scenario Hub](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html)
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 * **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
 
@@ -125,10 +129,11 @@ Ready to deploy this exact system in under 30 minutes? Access our pre-built scen
 19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
 
 ---
 
 ## Deploy This Architecture
 
 * **Provision Free Trial Workspaces:** [Create a Notion Account (10,000 Free Operations)](https://www.notion.com/) and connect your [Make database](https://www.make.com/en/register?pc=b2bworkflow).
-* **Import the Production Scenario:** [Download the Complete JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
+* **Import the Production Scenario:** [Download the Arkgon Complete JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Arkgon Blueprint Directory](../blueprints.html).
