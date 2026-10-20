@@ -11,3 +11,4 @@ Production implementation guides, relational database schemas, and turnkey Make.
 * [Real-Time B2B Inbound Lead Routing & Scoring (HubSpot + Make)](./guides/b2b-cold-lead-routing-hubspot-make.html)
 * [Automated Contractor Onboarding & Document Collection (Notion + Make)](./guides/contractor-onboarding-compliance-notion-deels.html)
 * [Automated SaaS Failed Payment & Churn Recovery Pipeline (Make + Airtable)](./guides/saas-churn-alert-pipeline-stripe-slack.html)
+* [Multi-SKU Low Inventory Reorder Forecasting System (Airtable + Make)](./guides/ecommerce-inventory-reorder-alerts-airtable.html)
