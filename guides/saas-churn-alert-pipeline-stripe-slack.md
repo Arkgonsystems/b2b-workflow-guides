@@ -4,7 +4,11 @@ title: "Automated SaaS Failed Payment & Churn Recovery Pipeline"
 ---
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
-> **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download our [**Turnkey Make + Airtable JSON Blueprint & Schema Pack ($19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+> **Implementation Stack:** Deploy this architecture using [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) and [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download the ready-to-import [**Make + Airtable JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
@@ -260,10 +264,11 @@ To launch this architecture with minimal configuration overhead, use the turnkey
 <!-- table-safe-v6 -->
 19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
 
-## Deploy This Workflow in 60 Seconds
+## Deploy This Architecture
 
-* **Start Building Free:** [Launch Make (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Airtable workspace](https://airtable.com/invite/r/85BpxD3P).
-* **Get the Ready-to-Import JSON Pack on Gumroad:** [Download the Turnkey JSON Blueprint & Schema Pack ($19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+* **Provision Free Trial Workspaces:** [Create a Make Account (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Airtable database](https://airtable.com/invite/r/85BpxD3P).
+* **Import the Production Scenario:** [Download the Complete JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
