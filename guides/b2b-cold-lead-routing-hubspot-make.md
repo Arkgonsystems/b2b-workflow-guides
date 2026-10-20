@@ -4,7 +4,11 @@ title: "Real-Time B2B Inbound Lead Routing & Scoring"
 ---
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
-> **Quick-Start Stack:** Deploy this workflow with [**HubSpot** (1 Month Free Core Plan / 10,000 Operations)](https://www.hubspot.com/products/crm) + [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download our [**Turnkey HubSpot + Make JSON Blueprint & Schema Pack ($19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+> **Implementation Stack:** Deploy this architecture using [**HubSpot** (1 Month Free Core Plan / 10,000 Operations)](https://www.hubspot.com/products/crm) and [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download the ready-to-import [**HubSpot + Make JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
@@ -225,10 +229,11 @@ Deploying this architecture from scratch requires careful field mapping and robu
 <!-- table-safe-v6 -->
 19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
 
-## Deploy This Workflow in 60 Seconds
+## Deploy This Architecture
 
-* **Start Building Free:** [Launch HubSpot (10,000 Free Operations)](https://www.hubspot.com/products/crm) and connect your [Make workspace](https://www.make.com/en/register?pc=b2bworkflow).
-* **Get the Ready-to-Import JSON Pack on Gumroad:** [Download the Turnkey JSON Blueprint & Schema Pack ($19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+* **Provision Free Trial Workspaces:** [Create a HubSpot Account (10,000 Free Operations)](https://www.hubspot.com/products/crm) and connect your [Make database](https://www.make.com/en/register?pc=b2bworkflow).
+* **Import the Production Scenario:** [Download the Complete JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
