@@ -1,23 +1,22 @@
-<meta name='impact-site-verification' value='ceae703f-f3cf-4a6e-8d88-6c753829f28e' />
+# B2B Workflow Automation & RevOps Implementation Guides
 
-# B2B Operations & No-Code Workflow Blueprints
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
-Production implementation guides, relational database schemas, and turnkey Make.com automation blueprints for B2B operations.
+Production-grade architectural blueprints for FinOps, RevOps, Agency Operations, and Supply Chain engineering teams building on [**Make (1 Month Free Core Plan / 10,000 Operations)**](https://www.make.com/en/register?pc=b2bworkflow), [**Airtable**](https://airtable.com/invite/r/85BpxD3P), **HubSpot**, and **Notion**.
 
-* **Complete 70-Workflow JSON & Schema Pack ($19):** [Download the Turnkey B2B Make.com Blueprint Bundle on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
-* **Free Starter JSON Scenario:** [View the Starter JSON Blueprint & Schema Hub](./blueprints.html)
-* **Make.com Partner Promo:** [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
-* **Airtable Database Promo:** [Launch Your Free Airtable Relational Database Workspace](https://airtable.com/invite/r/85BpxD3P)
+### ⚡ [Browse the Turnkey JSON Blueprint Hub](./blueprints.html) | [Download All Ready-to-Import JSON Scenarios ($19)](https://platypusprime.gumroad.com/l/dncmng)
 
-## Published Implementation Guides
+## Latest Published Implementation Guides
 
-* [Automated Invoice Reconciliation for Small Agencies (Make + Airtable)](./guides/automated-invoice-reconciliation-make-airtable.html)
-* [Real-Time B2B Inbound Lead Routing & Scoring (HubSpot + Make)](./guides/b2b-cold-lead-routing-hubspot-make.html)
-* [Automated Contractor Onboarding & Document Collection (Notion + Make)](./guides/contractor-onboarding-compliance-notion-deels.html)
-* [Automated SaaS Failed Payment & Churn Recovery Pipeline (Make + Airtable)](./guides/saas-churn-alert-pipeline-stripe-slack.html)
-* [Multi-SKU Low Inventory Reorder Forecasting System (Airtable + Make)](./guides/ecommerce-inventory-reorder-alerts-airtable.html)
-* [Automated Weekly Client KPI Executive Rollup (Make + Notion)](./guides/client-reporting-kpi-dashboard-looker-sheets.html)
+| Implementation Guide | Core Stack | Turnkey Asset | Published |
+| :--- | :--- | :--- | :--- |
+| [**client-reporting-kpi-dashboard-looker-sheets**](./guides/Notion.html) | `Automated Weekly Client KPI Executive Rollup` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**ecommerce-inventory-reorder-alerts-airtable**](./guides/Make.html) | `Multi-SKU Low Inventory Reorder Forecasting System` + `Airtable` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**saas-churn-alert-pipeline-stripe-slack**](./guides/Airtable.html) | `Automated SaaS Failed Payment & Churn Recovery Pipeline` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**contractor-onboarding-compliance-notion-deels**](./guides/Make.html) | `Automated Contractor Onboarding & Document Collection` + `Notion` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**b2b-cold-lead-routing-hubspot-make**](./guides/Make.html) | `Real-Time B2B Inbound Lead Routing & Scoring` + `HubSpot` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**automated-invoice-reconciliation-make-airtable**](./guides/Airtable.html) | `Automated Invoice Reconciliation for Small Agencies` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
 
 ---
-
-Impact-Site-Verification: ceae703f-f3cf-4a6e-8d88-6c753829f28e
+<!-- Impact-Site-Verification: ceae703f-f3cf-4a6e-8d88-6c753829f28e -->
+*Verification ID: `Impact-Site-Verification: ceae703f-f3cf-4a6e-8d88-6c753829f28e`*
