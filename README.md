@@ -3,7 +3,8 @@
 Production implementation guides, relational database schemas, and turnkey Make.com automation blueprints for B2B operations.
 
 * **Turnkey JSON Scenario Pack:** [Download the B2B Make.com JSON Blueprints & Schemas](./blueprints.html)
-* **Partner Promo:** [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
+* **Make.com Partner Promo:** [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
+* **Airtable Database Promo:** [Launch Your Free Airtable Relational Database Workspace](https://airtable.com/invite/r/85BpxD3P)
 
 ## Published Implementation Guides
 
