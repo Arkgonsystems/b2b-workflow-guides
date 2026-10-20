@@ -217,3 +217,5 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 
 
 <!-- table-safe-v8 -->
+
+<!-- table-safe-v6 -->
