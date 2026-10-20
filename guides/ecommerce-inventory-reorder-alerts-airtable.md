@@ -6,6 +6,10 @@ title: "Multi-SKU Low Inventory Reorder Forecasting System — Arkgon Systems"
 
 > **Implementation Stack:** Deploy this architecture using [**Airtable** (1 Month Free Core Plan / 10,000 Operations)](https://airtable.com/invite/r/85BpxD3P) and [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download the ready-to-import [**Arkgon Airtable + Make JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
 
+> **FTC Affiliate Disclosure:** Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+19)**](https://platypusprime.gumroad.com/l/dncmng).
+
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
 19)**](https://platypusprime.gumroad.com/l/dncmng).
@@ -172,6 +176,7 @@ Deploying this system eliminates manual tracking, protects against catastrophic 
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
+19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Arkgon Blueprint Directory](../blueprints.html).
 
 ---
 
