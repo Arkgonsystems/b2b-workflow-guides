@@ -31,7 +31,7 @@ At a blended agency billing rate of $150/hour, dedicating 32.5 hours per month t
 
 ### Section 2: Architecture Blueprint
 
-The reconciliation architecture decouples transaction receipt ingestion from ledger balancing through an immutable audit model. Bank feeds and processor settlement webhooks ingest data into [Make](https://www.make.com), where transactions are normalized, parsed against invoice patterns, and cross-matched against an [Airtable](https://www.airtable.com) system of record.
+The reconciliation architecture decouples transaction receipt ingestion from ledger balancing through an immutable audit model. Bank feeds and processor settlement webhooks ingest data into [Make](${affiliateMake}), where transactions are normalized, parsed against invoice patterns, and cross-matched against an [Airtable](https://www.airtable.com) system of record.
 
 ```
 [ Bank Feed / Stripe ]
@@ -94,7 +94,7 @@ The reconciliation architecture decouples transaction receipt ingestion from led
 ### Section 3: Step-by-Step Webhook & Module Configuration
 
 #### Step 1: Webhook Ingestion (Make)
-1. Add a **Custom Webhook** module inside [Make](https://www.make.com). Name it `WH - Transaction Ingest`.
+1. Add a **Custom Webhook** module inside [Make](${affiliateMake}). Name it `WH - Transaction Ingest`.
 2. Configure your financial edge provider (Stripe, Plaid, or bank automation middleware) to forward `charge.succeeded` or `settlement.created` events to the generated endpoint.
 3. Configure the output structure to deliver the standard JSON payload:
    ```json
@@ -199,4 +199,4 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <h3 style="margin-top: 0; color: #1e3a8a;">Ready to Deploy the Reconciliation Stack?</h3>
 <p style="font-size: 15px; line-height
 
-<!-- table-safe-v2 -->
+<!-- table-safe-v3 -->
