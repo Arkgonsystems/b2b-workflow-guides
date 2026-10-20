@@ -199,4 +199,4 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <h3 style="margin-top: 0; color: #1e3a8a;">Ready to Deploy the Reconciliation Stack?</h3>
 <p style="font-size: 15px; line-height
 
-<!-- table-safe-v3 -->
+<!-- table-safe-v4 -->
