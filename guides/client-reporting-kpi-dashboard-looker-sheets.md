@@ -1,3 +1,9 @@
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Notion**](https://www.notion.com/), or download our [**Turnkey Make + Notion JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 ---
 layout: default
 title: "Automated Weekly Client KPI Executive Rollup"
@@ -20,7 +26,7 @@ Scaling B2B professional services and multi-account consultancies inevitably run
 *   **Executive Synthesis and Dashboard Updates:** Manually drafting progress summaries and entering numbers into client-facing portals consumes **5.2 hours per week**.
 *   **Total Manual Burden:** **24.0 hours per week** of senior operator capacity.
 
-At a fully loaded blended internal billing rate of $125 per hour, this administrative routine costs **$3,000 weekly**, or **$156,000 annually** in non-billable overhead. Furthermore, manual reporting introduces latency and human transcription error, leading to delayed interventions on underperforming accounts.
+156,000 annually** in non-billable overhead. Furthermore, manual reporting introduces latency and human transcription error, leading to delayed interventions on underperforming accounts.
 
 ### The Automated Architecture
 
@@ -254,3 +260,10 @@ To deploy this architecture without manual module-by-module configuration, use t
 *   [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow) to run your entire client reporting framework without hitting operation limits.
 
 <!-- table-safe-v8 -->
+
+---
+
+## Deploy This Workflow in 60 Seconds
+
+* **Start Building Free:** [Launch Make (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Notion workspace](https://www.notion.com/).
+* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
