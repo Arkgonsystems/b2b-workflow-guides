@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="impact-site-verification" value="ceae703f-f3cf-4a6e-8d88-6c753829f28e">
-<title>B2B Workflow Systems — Make.com, HubSpot, Airtable & Notion Architecture Directory</title>
+<title>Arkgon Systems — B2B Workflow Automation & Make.com JSON Blueprint Directory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,8 +13,8 @@ body{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;background:
 .ftc-notice{background:#f1f5f9;border-bottom:1px solid #e2e8f0;color:#475569;font-size:0.78rem;padding:8px 20px;text-align:center;}
 .navbar{background:#ffffff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:50;}
 .nav-inner{max-width:1220px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
-.logo{font-weight:800;font-size:1.05rem;color:#0f172a;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-0.02em;}
-.logo-mark{width:28px;height:28px;border-radius:7px;background:#6d00cc;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-size:0.78rem;font-weight:700;}
+.logo{font-weight:800;font-size:0.98rem;color:#0f172a;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:0.04em;}
+.logo-mark{width:28px;height:28px;border-radius:50%;background:#0f172a;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-size:0.78rem;font-weight:700;}
 .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 .nav-links a{color:#334155;text-decoration:none;font-size:0.84rem;font-weight:600;padding:8px 14px;border-radius:7px;border:1px solid #e2e8f0;background:#ffffff;transition:all 0.15s;}
 .nav-links a:hover{background:#f1f5f9;color:#0f172a;}
@@ -33,29 +33,29 @@ body{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;background:
 .btn-main:hover{background:#1e293b;}
 .btn-make{background:#6d00cc;color:#ffffff;font-weight:700;font-size:0.9rem;padding:13px 22px;border-radius:8px;text-decoration:none;transition:opacity 0.15s;}
 .btn-make:hover{opacity:0.92;}
-.sku-box{background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:24px;}
-.sku-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #e2e8f0;padding-bottom:14px;margin-bottom:16px;}
-.sku-badge{font-family:"JetBrains Mono",monospace;font-size:0.72rem;font-weight:700;color:#6d00cc;background:#f3e8ff;padding:3px 8px;border-radius:4px;border:1px solid #d8b4fe;}
-.sku-price{font-family:"JetBrains Mono",monospace;font-size:1.5rem;font-weight:800;color:#0f172a;}
+.sku-box{background:#0e0e10;border:1px solid #27272a;border-radius:12px;padding:26px;color:#f4f4f5;}
+.sku-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #27272a;padding-bottom:14px;margin-bottom:16px;}
+.sku-badge{font-family:"JetBrains Mono",monospace;font-size:0.68rem;font-weight:600;color:#a1a1aa;letter-spacing:0.08em;}
+.sku-price{font-family:"JetBrains Mono",monospace;font-size:1.5rem;font-weight:800;color:#ffffff;}
 .sku-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
-.sku-stat{background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:10px;text-align:center;}
-.sku-stat .k{display:block;font-size:0.68rem;color:#64748b;font-weight:700;text-transform:uppercase;font-family:"JetBrains Mono",monospace;}
-.sku-stat .v{font-size:0.95rem;font-weight:800;color:#0f172a;font-family:"JetBrains Mono",monospace;}
-.sku-list{list-style:none;font-size:0.83rem;color:#334155;display:grid;gap:7px;}
+.sku-stat{background:#18181b;border:1px solid #27272a;border-radius:8px;padding:10px;text-align:center;}
+.sku-stat .k{display:block;font-size:0.65rem;color:#a1a1aa;font-weight:600;text-transform:uppercase;font-family:"JetBrains Mono",monospace;}
+.sku-stat .v{font-size:0.9rem;font-weight:700;color:#ffffff;font-family:"JetBrains Mono",monospace;}
+.sku-list{list-style:none;font-size:0.82rem;color:#d4d4d8;display:grid;gap:7px;}
 .sku-list li{display:flex;align-items:center;gap:8px;}
-.sku-list li::before{content:"✓";color:#059669;font-weight:800;font-family:"JetBrains Mono",monospace;}
+.sku-list li::before{content:"✓";color:#10b981;font-weight:800;font-family:"JetBrains Mono",monospace;}
 .controls-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:24px;}
 .filter-group{display:flex;gap:8px;flex-wrap:wrap;}
 .filter-pill{background:#ffffff;border:1px solid #cbd5e1;color:#475569;padding:8px 16px;border-radius:8px;font-size:0.83rem;font-weight:600;cursor:pointer;transition:all 0.15s;}
 .filter-pill.active,.filter-pill:hover{background:#0f172a;border-color:#0f172a;color:#ffffff;}
 .search-box{background:#ffffff;border:1px solid #cbd5e1;color:#0f172a;padding:9px 14px;border-radius:8px;font-size:0.86rem;min-width:260px;outline:none;}
-.search-box:focus{border-color:#6d00cc;}
+.search-box:focus{border-color:#0f172a;}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:22px;margin-bottom:56px;}
 .tpl-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow 0.15s,border-color 0.15s;}
 .tpl-card:hover{border-color:#94a3b8;box-shadow:0 10px 24px rgba(15,23,42,0.06);}
 .tpl-canvas{background-color:#f8fafc;background-image:radial-gradient(#cbd5e1 1px,transparent 1px);background-size:14px 14px;border-bottom:1px solid #e2e8f0;padding:18px 20px;}
 .canvas-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.verified-tag{font-family:"JetBrains Mono",monospace;font-size:0.68rem;font-weight:700;color:#059669;background:#ecfdf5;border:1px solid #a7f3d0;padding:2px 8px;border-radius:4px;}
+.verified-tag{font-family:"JetBrains Mono",monospace;font-size:0.66rem;font-weight:700;color:#0f172a;background:#e2e8f0;padding:2px 8px;border-radius:4px;letter-spacing:0.04em;}
 .id-tag{font-family:"JetBrains Mono",monospace;font-size:0.72rem;color:#64748b;font-weight:600;}
 .node-pipeline{display:flex;align-items:center;justify-content:center;gap:6px;}
 .node-pill{background:#ffffff;border:1.5px solid #6d00cc;border-radius:8px;padding:6px 11px;font-size:0.76rem;font-weight:700;color:#0f172a;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 4px rgba(15,23,42,0.05);}
@@ -73,8 +73,8 @@ body{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;background:
 .tpl-actions{display:flex;gap:10px;margin-bottom:12px;}
 .btn-spec{flex:1;text-align:center;background:#0f172a;color:#ffffff;text-decoration:none;font-size:0.82rem;font-weight:600;padding:9px 12px;border-radius:7px;}
 .btn-spec:hover{background:#334155;}
-.btn-json{background:#f3e8ff;border:1px solid #d8b4fe;color:#6d00cc;text-decoration:none;font-size:0.82rem;font-weight:700;padding:9px 14px;border-radius:7px;}
-.btn-json:hover{background:#6d00cc;color:#ffffff;}
+.btn-json{background:#f8fafc;border:1px solid #cbd5e1;color:#0f172a;text-decoration:none;font-size:0.82rem;font-weight:700;padding:9px 14px;border-radius:7px;}
+.btn-json:hover{background:#0f172a;color:#ffffff;}
 .tpl-footer{display:flex;justify-content:space-between;font-size:0.74rem;color:#64748b;font-family:"JetBrains Mono",monospace;}
 .tpl-footer a{color:#475569;text-decoration:none;font-weight:600;}
 .tpl-footer a:hover{color:#0f172a;text-decoration:underline;}
@@ -91,34 +91,34 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </style>
 </head>
 <body>
-<div class="ftc-notice"><strong>FTC Affiliate Disclosure:</strong> We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This directory contains affiliate links to Make, HubSpot, Airtable, and Notion—if you click through and subscribe, we may earn a commission at no additional cost to you.</div>
+<div class="ftc-notice"><strong>FTC Affiliate Disclosure:</strong> Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This directory contains affiliate links to Make, HubSpot, Airtable, and Notion—if you click through and subscribe, we may earn a commission at no additional cost to you.</div>
 <header class="navbar">
   <div class="nav-inner">
-    <a class="logo" href="./index.html"><span class="logo-mark">M</span> B2B Workflow Systems Directory</a>
+    <a class="logo" href="./index.html"><span class="logo-mark">A</span> ARKGON SYSTEMS // WORKFLOW DIRECTORY</a>
     <div class="nav-links">
       <a href="#directory-matrix">ROI Matrix</a>
       <a href="./blueprints.html">Blueprint Catalog</a>
       <a class="make-cta" href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Make.com (10,000 Free Ops)</a>
-      <a class="primary-cta" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download All JSON Blueprints ($19) &rarr;</a>
+      <a class="primary-cta" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download JSON Blueprints ($19) &rarr;</a>
     </div>
   </div>
 </header>
 <main class="container">
   <section class="hero-section">
     <div>
-      <div class="eyebrow"><span class="live-dot"></span> VERIFIED B2B AUTOMATION ARCHITECTURES</div>
-      <h1>Production Make.com, HubSpot, Airtable &amp; Notion Systems.</h1>
+      <div class="eyebrow"><span class="live-dot"></span> ARKGON SYSTEMS // PRODUCTION ARCHITECTURES</div>
+      <h1>Enterprise Make.com, HubSpot, Airtable &amp; Notion Systems.</h1>
       <p>Verified technical implementation guides and importable Make.com <code>.json</code> scenario blueprints engineered for RevOps, FinOps, and Agency Operations teams—complete with HTTP 429 exponential backoff and dead-letter error handling.</p>
       <div class="hero-btns">
-        <a class="btn-main" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download Turnkey JSON Blueprint Pack ($19) &rarr;</a>
+        <a class="btn-main" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download Arkgon JSON Blueprint Pack ($19) &rarr;</a>
         <a class="btn-make" href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Claim 1 Month Free Make Core Plan (10,000 Ops) &rarr;</a>
       </div>
     </div>
     <div class="sku-box">
       <div class="sku-header">
         <div>
-          <span class="sku-badge">TURNKEY REPOSITORY</span>
-          <h3 style="font-size:1.05rem;margin-top:6px;">Master Make.com JSON &amp; Schema Pack</h3>
+          <span class="sku-badge">ARKGON // SYS-01</span>
+          <h3 style="font-size:1.05rem;margin-top:6px;color:#ffffff;">Turnkey B2B Make.com JSON &amp; Schema Pack</h3>
         </div>
         <div class="sku-price">$19</div>
       </div>
@@ -148,8 +148,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 <div class="tpl-card" data-stack="make notion" data-title="automated weekly client kpi executive rollup">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-6</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-06</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#6d00cc;"><span class="dot" style="background:#6d00cc;"></span>Make</div>
@@ -179,8 +179,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </div><div class="tpl-card" data-stack="airtable make" data-title="multi-sku low inventory reorder forecasting system">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-5</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-05</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#0284c7;"><span class="dot" style="background:#0284c7;"></span>Airtable</div>
@@ -210,8 +210,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </div><div class="tpl-card" data-stack="make airtable" data-title="automated saas failed payment &amp; churn recovery pipeline">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-4</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-04</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#6d00cc;"><span class="dot" style="background:#6d00cc;"></span>Make</div>
@@ -241,8 +241,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </div><div class="tpl-card" data-stack="notion make" data-title="automated contractor onboarding &amp; document collection">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-3</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-03</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#0f172a;"><span class="dot" style="background:#0f172a;"></span>Notion</div>
@@ -272,8 +272,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </div><div class="tpl-card" data-stack="hubspot make" data-title="real-time b2b inbound lead routing &amp; scoring">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-2</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-02</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#ff7a59;"><span class="dot" style="background:#ff7a59;"></span>HubSpot</div>
@@ -303,8 +303,8 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
 </div><div class="tpl-card" data-stack="make airtable" data-title="automated invoice reconciliation for small agencies">
   <div class="tpl-canvas">
     <div class="canvas-top">
-      <span class="verified-tag">VERIFIED BLUEPRINT</span>
-      <span class="id-tag">SYS-1</span>
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-01</span>
     </div>
     <div class="node-pipeline">
       <div class="node-pill" style="border-color:#6d00cc;"><span class="dot" style="background:#6d00cc;"></span>Make</div>
@@ -343,7 +343,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
         <thead><tr><th>ID</th><th>System Architecture</th><th>Integration Stack</th><th>Est. Annual ROI</th><th>Ops Saved</th><th>Specification</th><th>Turnkey Asset</th></tr></thead>
         <tbody>
 <tr>
-  <td class="mono" style="color:#64748b;">#6</td>
+  <td class="mono" style="color:#64748b;">#06</td>
   <td><a href="./guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Automated Weekly Client KPI Executive Rollup</a></td>
   <td><span class="table-stack">Make + Notion</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$18,400/yr</td>
@@ -351,7 +351,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   <td><a href="./guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
   <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
 </tr><tr>
-  <td class="mono" style="color:#64748b;">#5</td>
+  <td class="mono" style="color:#64748b;">#05</td>
   <td><a href="./guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Multi-SKU Low Inventory Reorder Forecasting System</a></td>
   <td><span class="table-stack">Airtable + Make</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$14,400/yr</td>
@@ -359,7 +359,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   <td><a href="./guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
   <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
 </tr><tr>
-  <td class="mono" style="color:#64748b;">#4</td>
+  <td class="mono" style="color:#64748b;">#04</td>
   <td><a href="./guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Automated SaaS Failed Payment &amp; Churn Recovery Pipeline</a></td>
   <td><span class="table-stack">Make + Airtable</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$28,400/yr</td>
@@ -367,7 +367,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   <td><a href="./guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
   <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
 </tr><tr>
-  <td class="mono" style="color:#64748b;">#3</td>
+  <td class="mono" style="color:#64748b;">#03</td>
   <td><a href="./guides/contractor-onboarding-compliance-notion-deels.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Automated Contractor Onboarding &amp; Document Collection</a></td>
   <td><span class="table-stack">Notion + Make</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$24,400/yr</td>
@@ -375,7 +375,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   <td><a href="./guides/contractor-onboarding-compliance-notion-deels.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
   <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
 </tr><tr>
-  <td class="mono" style="color:#64748b;">#2</td>
+  <td class="mono" style="color:#64748b;">#02</td>
   <td><a href="./guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Real-Time B2B Inbound Lead Routing &amp; Scoring</a></td>
   <td><span class="table-stack">HubSpot + Make</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$20,400/yr</td>
@@ -383,7 +383,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   <td><a href="./guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
   <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
 </tr><tr>
-  <td class="mono" style="color:#64748b;">#1</td>
+  <td class="mono" style="color:#64748b;">#01</td>
   <td><a href="./guides/automated-invoice-reconciliation-make-airtable.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Automated Invoice Reconciliation for Small Agencies</a></td>
   <td><span class="table-stack">Make + Airtable</span></td>
   <td class="mono" style="color:#059669;font-weight:600;">$16,400/yr</td>
@@ -397,7 +397,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   </section>
 </main>
 <footer>
-  <div>&copy; 2026 B2B Workflow Systems Directory &middot; Digital Blueprints fulfilled via <a href="https://platypusprime.gumroad.com/l/dncmng" style="color:#0f172a;font-weight:600;">Gumroad</a></div>
+  <div>&copy; 2026 Arkgon Systems &middot; Digital Blueprints fulfilled via <a href="https://platypusprime.gumroad.com/l/dncmng" style="color:#0f172a;font-weight:600;">Gumroad</a></div>
   <div class="mono">Impact-Site-Verification: ceae703f-f3cf-4a6e-8d88-6c753829f28e</div>
 </footer>
 <script>
