@@ -10,6 +10,10 @@ title: "Automated Invoice Reconciliation for Small Agencies"
 
 19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
 
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+19 on Gumroad)**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 [← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
@@ -232,6 +236,7 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 
 <!-- table-safe-v6 -->
 19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
