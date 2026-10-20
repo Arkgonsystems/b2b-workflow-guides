@@ -9,11 +9,12 @@ title: "Turnkey B2B Make.com JSON Blueprints & Database Schemas"
 
 ---
 
-## Step 1: Activate Your 10,000 Free Make.com Operations
+## Step 1: Activate Your Free Make.com Core Plan & Airtable Workspace
 
-Before importing the JSON scenario blueprints below, claim your partner workspace so your webhook routers, HTTP retry modules, and scheduled pollers can run on the Core tier for 30 days at $0.00 cost:
+Before importing the JSON scenario blueprints below, claim your partner workspaces so your webhook routers, HTTP retry modules, and relational ledgers can run at $0.00 cost:
 
 * **[Claim 1 Month of Make.com Core Free (10,000 Credits Included)](https://www.make.com/en/register?pc=b2bworkflow)**
+* **[Launch Your Free Airtable Relational Database Workspace](https://airtable.com/invite/r/85BpxD3P)**
 
 ---
 
