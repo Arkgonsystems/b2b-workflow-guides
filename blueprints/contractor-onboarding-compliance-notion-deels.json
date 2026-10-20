@@ -1,5 +1,5 @@
 {
-  "name": "Automated Contractor Onboarding & Document Collection (Notion + Make)",
+  "name": "Arkgon Systems — Automated Contractor Onboarding & Document Collection (Notion + Make)",
   "flow": [
     {
       "id": 1,
@@ -127,6 +127,7 @@
       "orphans": []
     },
     "zone": "eu2.make.com",
-    "documentation_url": "https://loudplatypus6-blip.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html"
+    "publisher": "Arkgon Systems",
+    "documentation_url": "https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html"
   }
 }
