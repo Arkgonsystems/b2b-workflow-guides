@@ -1,0 +1,132 @@
+{
+  "name": "Automated Weekly Client KPI Executive Rollup (Make + Notion)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hook": null,
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Step 1: Ingress Webhook Trigger with SHA-256 HMAC & Idempotency Key extraction for Automated Weekly Client KPI Executive Rollup"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:FunctionSleep",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "delay": "1"
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "Step 2: Rate-Limit Guard & Payload Normalization (Make -> Notion)"
+      }
+    },
+    {
+      "id": 3,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Step 3: Primary Upsert Route vs Dead-Letter Error Handler Route"
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "http:ActionSendData",
+              "version": 3,
+              "parameters": {
+                "handleErrors": true,
+                "useNewZLibDeCompress": true
+              },
+              "mapper": {
+                "url": "https://api.example.com/v1/client-reporting-kpi-dashboard-looker-sheets",
+                "method": "post",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "name": "Idempotency-Key",
+                    "value": "{{1.event_id}}"
+                  }
+                ],
+                "qs": [],
+                "bodyType": "raw",
+                "contentType": "application/json",
+                "data": "{\"workflow\":\"client-reporting-kpi-dashboard-looker-sheets\",\"source\":\"Make\",\"target\":\"Notion\",\"timestamp\":\"{{now}}\"}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 900,
+                  "y": -120
+                },
+                "notes": "Step 4A: Primary Notion API Upsert Module with HTTP 429 Exponential Backoff"
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "json:CreateJSON",
+              "version": 1,
+              "parameters": {},
+              "mapper": {
+                "workflow_slug": "client-reporting-kpi-dashboard-looker-sheets",
+                "error_status": "DLQ_CAPTURED",
+                "retry_count": 3
+              },
+              "metadata": {
+                "designer": {
+                  "x": 900,
+                  "y": 120
+                },
+                "notes": "Step 4B: Dead-Letter Queue (DLQ) Fallback & Alert Logger"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": true
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu2.make.com",
+    "documentation_url": "https://loudplatypus6-blip.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html"
+  }
+}
