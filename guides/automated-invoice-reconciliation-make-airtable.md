@@ -206,4 +206,14 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 * **Download the JSON Scenario & Schema Pack:** [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 
-<!-- table-safe-v7 -->
+---
+
+## Turnkey Implementation Blueprint & Partner Promo
+
+* **Get the Complete 70-Workflow JSON & Schema Pack ($19):** [Download the Complete Turnkey Blueprint Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
+* **Free Starter JSON Blueprint:** [View the Starter JSON Scenario Hub](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
+* **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
+* **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
+
+
+<!-- table-safe-v8 -->
