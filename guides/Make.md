@@ -2,6 +2,12 @@
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
+> **Quick-Start Stack:** Deploy this workflow with [**Automated Contractor Onboarding & Document Collection** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Notion**](https://www.notion.com/), or download our [**Turnkey Automated Contractor Onboarding & Document Collection + Notion JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
 > **Quick-Start Stack:** Deploy this workflow with [**Real-Time B2B Inbound Lead Routing & Scoring** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**HubSpot**](https://www.hubspot.com/products/crm), or download our [**Turnkey Real-Time B2B Inbound Lead Routing & Scoring + HubSpot JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
 
 # b2b-cold-lead-routing-hubspot-make
@@ -191,10 +197,11 @@ Before promoting this scenario to your production environment, verify every conf
 - [ ] **Load Testing**: Simulate a burst of 50 concurrent incoming payloads to validate rate-limit backoff behavior and concurrency handling.
 
 To accelerate your deployment, you can download our Turnkey JSON Blueprint Pack (https://platypusprime.gumroad.com/l/dncmng). This package contains the ready-to-import scenario schema, predefined routing data structures, and pre-configured error handling branches designed to drop directly into your orchestration workspace.
+19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
 
 ## Deploy This Workflow in 60 Seconds
 
-* **Start Building Free:** [Launch Real-Time B2B Inbound Lead Routing & Scoring (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [HubSpot workspace](https://www.hubspot.com/products/crm).
+* **Start Building Free:** [Launch Automated Contractor Onboarding & Document Collection (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Notion workspace](https://www.notion.com/).
 * **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
