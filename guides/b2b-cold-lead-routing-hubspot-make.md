@@ -198,4 +198,4 @@ Deploying this architecture from scratch requires careful field mapping and robu
 * **Step 4:** Navigate to your Make dashboard, select **Create a new scenario**, click the **More options (...)** menu, select **Import Blueprint**, and upload the downloaded JSON file.
 * **Step 5:** Map your HubSpot private app access token, configure your team's owner IDs in the assignment Data Store, and toggle the scenario to **Active**. Run three sandbox records to verify end-to-end routing before deploying to live traffic.
 
-<!-- table-safe-v6 -->
+<!-- table-safe-v7 -->
