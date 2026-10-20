@@ -189,4 +189,4 @@ Use this Google Sheets / RegEx formula to sanitize, structurally validate, and s
 * **`is_valid_len`**: Verifies exact conformity to the 9-digit US Federal Tax ID requirement.
 * **`is_not_test`**: Rejects widespread placeholder inputs (`000000
 
-<!-- table-safe-v3 -->
+<!-- table-safe-v4 -->
