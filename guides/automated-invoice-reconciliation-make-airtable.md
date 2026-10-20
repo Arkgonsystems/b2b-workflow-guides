@@ -1,3 +1,9 @@
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Airtable**](https://airtable.com/invite/r/85BpxD3P), or download our [**Turnkey Make + Airtable JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 ---
 layout: default
 title: "Automated Invoice Reconciliation for Small Agencies"
@@ -25,7 +31,7 @@ Manual Baseline vs. Automated Throughput
 Total Reclaimed Velocity: 7.5 hours/week (~32.5 hours/month)
 ```
 
-At a blended agency billing rate of $150/hour, dedicating 32.5 hours per month to routine transaction ledgering equates to **$4,875/month in squandered capacity**. Shifting to an event-driven automation framework mitigates human ledger errors, closes multi-currency discrepancies immediately upon settlement, and provides real-time cash position visibility.
+4,875/month in squandered capacity**. Shifting to an event-driven automation framework mitigates human ledger errors, closes multi-currency discrepancies immediately upon settlement, and provides real-time cash position visibility.
 
 ---
 
@@ -123,8 +129,8 @@ The reconciliation architecture decouples transaction receipt ingestion from led
    * **Formula**:
      ```text
      IF(
-       LEN("{% raw %}{{{% endraw %}2.$1}}") > 0,
-       {Invoice_ID} = "{% raw %}{{{% endraw %}2.$1}}",
+1}}") > 0,
+1}}",
        AND(
          {Amount_Billed} = {% raw %}{{{% endraw %}Gross Amount Float}},
          {Status} != "Paid"
@@ -215,7 +221,13 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 * **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
 
-
 <!-- table-safe-v8 -->
 
 <!-- table-safe-v6 -->
+
+---
+
+## Deploy This Workflow in 60 Seconds
+
+* **Start Building Free:** [Launch Make (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Airtable workspace](https://airtable.com/invite/r/85BpxD3P).
+* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
