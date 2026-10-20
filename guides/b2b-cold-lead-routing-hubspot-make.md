@@ -37,13 +37,13 @@ Consider a sales development team handling 350 inbound leads per month across mu
 * **Hours Lost:** 350 leads/month $\times$ 14 minutes = **81.6 hours per month** (~**20.4 hours per week**) lost to data entry and triage.
 * **Pipeline Leakage:** At a 14-minute average triage delay (often extending to 2–4 hours during peak volume or off-hours), speed-to-lead falls out of the critical conversion window. For a pipeline with an average contract value (ACV) of $25,000, recovering a 3% loss in conversion rate on 350 leads yields **$262,500 in annualized net new ARR**.
 
-Automating this workflow through [HubSpot](https://www.hubspot.com) webhooks and [Make](https://www.make.com) eliminates operational triage time entirely, driving end-to-end routing latency below **3 seconds**.
+Automating this workflow through [HubSpot](https://www.hubspot.com) webhooks and [Make](${affiliateMake}) eliminates operational triage time entirely, driving end-to-end routing latency below **3 seconds**.
 
 ---
 
 ### Section 2: Architecture Blueprint
 
-The pipeline executes as an event-driven micro-service. A form submission or contact update triggers an asynchronous webhook out of [HubSpot](https://www.hubspot.com) into a multi-branch scenario executed in [Make](https://www.make.com).
+The pipeline executes as an event-driven micro-service. A form submission or contact update triggers an asynchronous webhook out of [HubSpot](https://www.hubspot.com) into a multi-branch scenario executed in [Make](${affiliateMake}).
 
 #### Data-Flow Topology
 
@@ -132,7 +132,7 @@ The pipeline executes as an event-driven micro-service. A form submission or con
 ```
 
 #### Step 2: Make.com Webhook & Parsing Core
-1. In [Make](https://www.make.com), instantiate a new scenario.
+1. In [Make](${affiliateMake}), instantiate a new scenario.
 2. Add a **Custom Webhook** module (`Custom webhook`).
    * Label: `Inbound Lead Listener`
    * Click **Save** and copy the generated Webhook URL back into the HubSpot Workflow configuration.
@@ -199,4 +199,4 @@ In real-world traffic, free email domains, messy inputs, subdomains, and corpora
 
 ```
 
-<!-- table-safe-v2 -->
+<!-- table-safe-v3 -->
