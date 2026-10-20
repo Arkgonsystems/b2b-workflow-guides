@@ -93,4 +93,4 @@ Ready to deploy this exact system in under 30 minutes? Access our pre-built scen
 - [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow)
 - [Explore Notion Enterprise Workspace Setup](https://www.notion.so)
 
-<!-- table-safe-v6 -->
+<!-- table-safe-v7 -->
