@@ -11,193 +11,226 @@ title: "Automated SaaS Failed Payment & Churn Recovery Pipeline"
 
 ## 1. Executive Bottleneck Analysis
 
-Involuntary churn accounts for 20% to 40% of overall B2B SaaS customer attrition. The primary driver is not product dissatisfaction, but friction in financial infrastructure: expired corporate credit cards, processor soft declines, unhandled bank fraud heuristics, and stale billing contact records.
+Involuntary churn accounts for 20% to 40% of total SaaS customer turnover. When a recurring subscription payment fails due to card expiration, insufficient funds, or fraud heuristics, standard billing engine behaviors (such as native Stripe retries) operate blindly without contextual escalation. 
 
-Organizations managing recovery manually operate in a reactive, uncoordinated state:
+In a B2B SaaS organization generating $3M to $10M ARR with 1,000 to 3,000 active subscriptions, payment failures average a 4% to 8% monthly rate. This generates roughly 80 to 240 failed invoices each month. Without an automated, cross-functional dunning pipeline, teams manage this workload manually across Finance, Customer Success (CS), and Account Management.
 
-```
-[Stripe/Billing Failure] 
-       │
-       ▼
-[RevOps / Finance CSV Export] (Lag: 24–72 hours)
-       │
-       ▼
-[Manual CSM / Billing Email]  (Lag: 12–24 hours)
-       │
-       ▼
-[Uncoordinated Dunning]       (Result: High friction, low win-back)
-```
+The manual breakdown per week typically includes:
+- **Triage & Webhook Auditing:** Manually pulling CSVs of failed charges from Stripe/Braintree and filtering out trial churn: **3.5 hours/week**.
+- **Cross-Referencing Customer Context:** Looking up subscription value, account owner, contract status, and CRM history across HubSpot or Salesforce: **4.0 hours/week**.
+- **Ad-Hoc Communications:** Manually emailing billing contacts, chasing account owners to intervene, and drafting bespoke notices: **5.5 hours/week**.
+- **Reconciliation & Status Verification:** Checking bank feeds against CRM updates, resetting account entitlements, or cancelling service: **3.0 hours/week**.
 
-### Quantifying the Manual Operational Drag
+Total operational overhead reaches **16.0 hours per week**—the equivalent of 0.4 FTE diverted from strategic revenue growth. 
 
-For a mid-market SaaS company processing 1,200 active subscriptions per month with an average ACV of $12,000 ($1,000 MRR):
-
-*   **Payment Failure Rate:** 4.5% average monthly failure rate = 54 failed invoices/month.
-*   **Manual Touch Time:** Reconciling gateway errors, identifying enterprise account owners, auditing product usage telemetry to verify active usage, and manually dispatching dunning communications requires 45 minutes per incident across Finance, Customer Success, and RevOps.
-*   **Total Time Lost:** 40.5 hours per month (~10.1 hours per week) spent purely on billing administrative triage.
-*   **Financial Impact:** At a fully loaded engineering/operations rate of $95/hour, direct labor waste is **$3,847.50/month ($46,170/year)**. 
-*   **The Churn Delta:** The true cost is delayed mean time to recovery (MTTR). Involuntary recovery probability drops by 1.8% for every 24 hours an outreach attempt is delayed. Manual reconciliation creates an average 72-hour lag, directly driving a **$162,000 ARR baseline loss** annually due to preventable subscription cancellations.
-
-Deploying an event-driven recovery pipeline using [Make](${affiliateMake}) and [Airtable](https://www.airtable.com) drops MTTR to under 90 seconds, automates triage routing, and reduces internal operational overhead to less than 15 minutes per week for hard exception handling.
+By replacing this manual loop with an event-driven state engine combining [Make](https://www.make.com/en/register?pc=b2bworkflow) for pipeline orchestration and [Airtable](https://www.airtable.com) for real-time lifecycle tracking, operational overhead drops to **under 0.5 hours per week** (spent strictly on escalated enterprise edge cases). More importantly, time-to-first-dunning-contact falls from 48 hours to under 60 seconds, recovering 35% to 55% of revenue that would otherwise convert into permanent churn.
 
 ---
 
 ## 2. Architecture Blueprint
 
-The pipeline decouples the payment gateway's raw webhooks from the outreach tier. Webhook payloads are received, parsed, enriched, normalized, and written to an [Airtable](https://www.airtable.com) ledger. The ledger drives stateful, multi-channel recovery workflows executed by [Make](${affiliateMake}).
-
-### ASCII Data-Flow Topology
+The recovery system uses an event-driven architecture. Real-time billing events push via webhooks directly to [Make](https://www.make.com/en/register?pc=b2bworkflow), which validates, normalizes, and logs them into [Airtable](https://www.airtable.com). Airtable functions as an operational datastore and state machine that drives downstream automated dunning campaigns and human escalation.
 
 ```
 +-----------------------------------------------------------------------------------+
 
-| PAYMENT ENGINE (Stripe)                                                           |
-| Event: invoice.payment_failed (Soft Decline / Hard Decline / Insufficient Funds)  |
-+-----------------------------------------------------------------------------------+
-                                          │
-                                          │ (Raw Webhook POST)
-                                          ▼
+|                              BILLING GATEWAY (STRIPE)                             |
+|        [invoice.payment_failed]                     [invoice.payment_succeeded]   |
++---------------------------+--------------------------------------+----------------+
+
+                            |                                      |
+                            v                                      v
 +-----------------------------------------------------------------------------------+
 
-| MAKE.COM WEBHOOK LISTENER                                                         |
-| 1. HMAC Signature Verification & Payload De-duplication                           |
-| 2. Error Categorization Engine (Regex Match: soft_decline vs hard_decline)        |
-+-----------------------------------------------------------------------------------+
-                                          │
-                                          │ (Parsed & Normalized Schema)
-                                          ▼
+|                           MAKE.COM INGESTION ENGINE                               |
+|   +------------------------------------+   +------------------------------------+ |
+|   | 1. Custom Webhook (HMAC Verif.)    |   | 1. Recovery Webhook Listener        | |
+|   | 2. Idempotency Key Validation      |   | 2. Search Existing Failed Record   | |
+|   | 3. Customer Tier Segmentation Logic|   | 3. Patch Record -> 'Recovered'     | |
+|   +-----------------+------------------+   +-----------------+------------------+ |
++---------------------|----------------------------------------|--------------------+
+                      v                                        v
 +-----------------------------------------------------------------------------------+
 
-| AIRTABLE DUNNING ENGINE (Base: "Billing Recovery Matrix")                          |
-| 1. Upsert Customer Record                                                         |
-| 2. Link/Create Failed Invoice Record                                              |
-| 3. Set Recovery Stage (Stage 1: Soft Ping | Stage 2: CSM Escalation | Stage 3: Lock)|
-+-----------------------------------------------------------------------------------+
-                                          │
-                    ┌─────────────────────┴─────────────────────┐
-                    ▼                                           ▼
-      [Soft Decline Path (< $5k ACV)]             [Hard Decline / Enterprise ACV]
-                    │                                           │
-                    ▼                                           ▼
-+-----------------------------------------+ +---------------------------------------+
+|                        AIRTABLE RECOVERY STATE ENGINE                             |
+|  +------------------------------------------------------------------------------+ |
+|  | Base: 'Revenue Recovery Orchestrator'                                        | |
+|  | - Evaluates Failure Code & Tier                                             | |
+|  | - Computes Escalation Path (Grace Period, Retry Cadence, CS Notification)    | |
+|  +------------------------------------------------------------------------------+ |
++---------------------+-------------------------------------------------------------+
 
-| Automated Email Dispatch via Transactional | | Escalation Routing to Dedicated Account |
-| Provider (Self-Serve Magic Update Link) | | Executive via Slack / CRM Task Alert  |
-+-----------------------------------------+ +---------------------------------------+
+                      |
+        +-------------+-------------+
+
+        |                           |
+        v (Tier: SMB / Growth)      v (Tier: Enterprise / Key Account)
++-----------------------+   +-------------------------------------------------------+
+
+| AUTOMATED DUNNING     |   | CONTEXTUAL ESCALATION                                 |
+| - Transactional Email |   | - Internal Slack Alert to Dedicated CSM               |
+| - Self-Serve Pay Link |   | - CRM Deal Stage Updated to 'At-Risk'                 |
+| - In-App Banner Event |   | - Executive Escalation Sequence (14-Day Overdue)       |
++-----------------------+   +-------------------------------------------------------+
 ```
 
-### Relational Schema: Billing Recovery Matrix
+### Datastore Schema: Failed Invoices Table
 
-The core data store is built within [Airtable](https://www.airtable.com) using two linked tables: `Accounts` and `Failed Invoices`.
+The core Airtable table requires strict field validations to prevent race conditions during automated updates:
 
-#### Table 1: `Accounts`
-
-| Field Name | Data Type | Airtable Field Config | Validation Rules / Constraints |
+| Field Name | Data Type | Validation Rules / Configuration | Purpose |
 | :--- | :--- | :--- | :--- |
-| `Account ID` | Single line text | Primary Field | Required; Matches Stripe `cus_xxx` |
-| `Company Name` | Single line text | Standard Text | Non-empty |
-| `Billing Contact Email` | Email | Standard Email | Must be valid email address syntax |
-| `Account Tier` | Single select | Options: Enterprise, Mid-Market, SMB | Default: SMB |
-| `ARR Value` | Currency | Precision: $1.00 | Non-negative numeric |
-| `Assigned CSM Email` | Email | Standard Email | Required if Tier is Enterprise |
-| `Account Health Status` | Single select | Options: Active, Delinquent, Churned, Grace Period | Controlled by recovery workflow |
-
-#### Table 2: `Failed Invoices`
-
-| Field Name | Data Type | Airtable Field Config | Validation Rules / Constraints |
-| :--- | :--- | :--- | :--- |
-| `Invoice ID` | Single line text | Primary Field | Required; Matches Stripe `in_xxx` |
-| `Account Link` | Link to another record | Links to `Accounts` | Required; 1 Account to Many Invoices |
-| `Amount Due (USD)` | Currency | Precision: $0.01 | Must be > 0 |
-| `Attempt Count` | Number | Integer | Default: 1 |
-| `Decline Code` | Single line text | Standard Text | e.g., `insufficient_funds`, `expired_card` |
-| `Decline Category` | Single select | Options: Soft Decline, Hard Decline, Authentication Required | Evaluated by Make processor |
-| `Recovery Status` | Single select | Options: Retrying, Recovered, Uncollectible, Written Off | Default: Retrying |
-| `Next Retry Timestamp` | Date | Include time (ISO 8601) | Must be future date |
-| `Hosted Invoice URL` | URL | Standard URL | Valid HTTPS URI |
-| `Created At` | Created time | Automatic timestamp | System populated |
+| Record ID | Auto-number | System-generated, indexed primary key | Primary identifier |
+| Invoice ID | Single line text | Unique, Regex constraint: ^in_[a-zA-Z0-9]+$ | Stripe invoice identifier |
+| Customer ID | Single line text | Required, Regex constraint: ^cus_[a-zA-Z0-9]+$ | Stripe customer identifier |
+| Customer Email | Email | Validated RFC 5322 format | Target address for automated dunning |
+| Amount Due | Currency | Precision: 2 decimals, minimum value 0.01 | Outstanding balance |
+| Customer Tier | Single select | Options: Enterprise, Growth, Self-Serve | Routing condition for recovery paths |
+| Failure Code | Single select | Options: insufficient_funds, card_expired, do_not_honor, generic_decline | Determines messaging variant |
+| Dunning Stage | Single select | Options: Initial_Failed, Day_3_Retry, Day_7_Escalated, Day_14_Lockout, Recovered, Written_Off | Drives scenario triggers |
+| Hosted Invoice URL | URL | Validated HTTPS protocol, domain: stripe.com | Direct payment update link |
+| Next Action Due | Formula | DATETIME_DIFF and DATEADD computation | Dictates execution window |
+| CS Account Owner | Collaborator | Must map to internal workspace user | Notification target for Tier 1 accounts |
 
 ---
 
 ## 3. Step-by-Step Webhook & Module Configuration
 
-Follow this end-to-end execution path within [Make](${affiliateMake}) to wire the recovery pipeline.
+Follow this sequential configuration inside [Make](https://www.make.com/en/register?pc=b2bworkflow) to establish the primary recovery pipeline.
 
-```
-+--------------------------------------------------------------------------------------------------+
+### Step 1: Webhook Ingestion & HMAC Verification
+1. Add a **Custom Webhook** module. Label it `Stripe Ingestion: Failed Payments`.
+2. Copy the generated URL and register it in Stripe under **Developers > Webhooks**. Select the event `invoice.payment_failed`.
+3. Add a **Crypto: Create a HMAC** module immediately following the webhook to verify the `stripe-signature` header against your endpoint secret to mitigate replay and spoofing attacks.
 
-| MAKE SCENARIO: Dunning Pipeline Orchestrator                                                     |
-|                                                                                                  |
-| [Custom Webhook] ──> [JSON Parser] ──> [Router] ──> (Route A: Upsert Account & Invoice)         |
-|                                                  ──> (Route B: Recovery Action Dispatcher)       |
-+--------------------------------------------------------------------------------------------------+
-```
-
-### Step 1: Webhook Ingestion & Cryptographic Verification
-1. Log into your [Make](${affiliateMake}) workspace. Create a new Scenario and add a **Custom Webhook** module as the trigger.
-2. Label the webhook `Stripe Payment Failures`. Copy the generated endpoint URL.
-3. In your Stripe Developer Dashboard, navigate to **Webhooks > Add endpoint**.
-4. Paste the Make webhook URL. Select the `invoice.payment_failed` event explicitly.
-5. In Make, click **Re-query** and send a test event from Stripe (via CLI: `stripe trigger invoice.payment_failed`) to populate the schema.
-
-### Step 2: Payload Extraction and Error Normalization
-Add a **Set Variable** module directly after the Webhook listener to normalize the nested Stripe gateway payload:
-
-*   **Variable Name:** `NormalizedError`
-*   **Variable Value Expression:**
-    ```
-    ifempty(1.data.object.payment_intent.last_payment_error.decline_code; 1.data.object.payment_intent.last_payment_error.code)
-    ```
-*   **Variable Name:** `DeclineType`
-*   **Variable Value Expression:**
-    ```
-    switch(1.data.object.payment_intent.last_payment_error.decline_code; "insufficient_funds"; "Soft Decline"; "card_velocity_exceeded"; "Soft Decline"; "expired_card"; "Hard Decline"; "stolen_card"; "Hard Decline"; "do_not_honor"; "Hard Decline"; "Soft Decline")
-    ```
-
-### Step 3: Upsert Operation into Airtable
-To avoid duplicate customer profiles while keeping billing metrics synchronized, implement an idempotent read/write loop using [Airtable](https://www.airtable.com):
-
-1. Add an **Airtable: Search Records** module:
-   *   **Base:** `Billing Recovery Matrix`
-   *   **Table:** `Accounts`
-   *   **Formula:** `{Account ID} = '{% raw %}{{{% endraw %}1.data.object.customer}}'`
-2. Add a **Router** module:
-   *   **Branch 1 (New Account):** If total bundles returned equals `0`.
-       *   Module: **Airtable: Create a Record** (`Accounts`). Map `Account ID` = `1.data.object.customer`, `Company Name` = `1.data.object.customer_name`, `Billing Contact Email` = `1.data.object.customer_email`.
-   *   **Branch 2 (Existing Account):** If total bundles returned is greater than `0`.
-       *   Pass through to step 3.
-3. Add an **Airtable: Upsert a Record** module targeting the `Failed Invoices` table:
-   *   **Base:** `Billing Recovery Matrix`
-   *   **Table:** `Failed Invoices`
-   *   **Search Field:** `Invoice ID`
-   *   **Record Data:**
-       *   `Invoice ID`: `1.data.object.id`
-       *   `Account Link`: Array containing the Airtable Record ID from the customer search/creation step.
-       *   `Amount Due (USD)`: `divide(1.data.object.amount_due; 100)`
-       *   `Attempt Count`: `1.data.object.attempt_count`
-       *   `Decline Code`: `NormalizedError`
-       *   `Decline Category`: `DeclineType`
-       *   `Recovery Status`: `"Retrying"`
-       *   `Hosted Invoice URL`: `1.data.object.hosted_invoice_url`
-
-```
-  (Total = 0)  ┌──> [Airtable: Create Account Record] ──┐
-[Airtable Search]                                        ├──> [Airtable: Upsert Invoice Record]
-  (Total > 0)  └──> [Pass-Through / Verify ID] ────────┘
+```json
+{
+  "event": "invoice.payment_failed",
+  "data": {
+    "object": {
+      "id": "in_1N4cXYZExample998",
+      "customer": "cus_M123456789",
+      "customer_email": "ops@targetclient.com",
+      "amount_due": 450000,
+      "currency": "usd",
+      "hosted_invoice_url": "https://invoice.stripe.com/i/acct_123/test_xyz",
+      "attempt_count": 1,
+      "charge": {
+        "failure_code": "card_expired"
+      }
+    }
+  }
+}
 ```
 
-### Step 4: Conditional Triage & Communications Engine
-Add an additional Router after the upsert operation to split traffic by account ARR and error severity:
+### Step 2: Idempotency & Duplicate Check
+1. Add an [Airtable](https://www.airtable.com) **Search Records** module.
+2. Select your Base: `Revenue Recovery Orchestrator` and Table: `Failed Invoices`.
+3. Set the Filter Formula to:
+   ```text
+   {Invoice ID} = '{% raw %}{{{% endraw %}1.data.object.id}}'
+   ```
+4. Configure an execution limit of `1`.
 
-#### Route A: High-Value Enterprise Accounts (`ARR Value` >= $10,000 OR `Decline Category` = "Hard Decline")
-*   **Filter:** `Accounts: ARR Value`
+### Step 3: Conditional Branching (Router)
+Place a **Router** module directly after the search step:
+
+* **Route A (New Record Insertion):**
+  * **Filter Condition:** Set filter to `Total number of bundles` from Search Records equal to `0`.
+  * **Module:** Airtable **Create a Record**.
+  * Map incoming webhook attributes:
+    * `Invoice ID` $\rightarrow$ `1.data.object.id`
+    * `Customer ID` $\rightarrow$ `1.data.object.customer`
+    * `Customer Email` $\rightarrow$ `1.data.object.customer_email`
+    * `Amount Due` $\rightarrow$ `1.data.object.amount_due / 100` *(convert cents to standard currency)*
+    * `Hosted Invoice URL` $\rightarrow$ `1.data.object.hosted_invoice_url`
+    * `Failure Code` $\rightarrow$ `1.data.object.charge.failure_code`
+    * `Dunning Stage` $\rightarrow$ `Initial_Failed`
+
+* **Route B (Existing Record Update):**
+  * **Filter Condition:** Set filter to `Total number of bundles` greater than `0`.
+  * **Module:** Airtable **Update a Record**.
+  * Target Record ID from the initial search step. Increment the `Attempt Count` field and update the `Failure Code` if it has changed from the initial run.
+
+### Step 4: Segmentation & Dispatch Router
+Insert a second Router conditioned on the `Customer Tier` field:
+
+* **Branch 1 (Enterprise Accounts - Amount $\ge$ $2,000):**
+  * Add a **Slack: Create a Message** module targeting your private `#cs-revenue-alerts` channel.
+  * Message body:
+    ```text
+    :alert: *Enterprise Payment Failure*: <{% raw %}{{{% endraw %}1.data.object.customer_email}}>
+    Amount: ${% raw %}{{{% endraw %}1.data.object.amount_due / 100}}
+    Reason: {% raw %}{{{% endraw %}1.data.object.charge.failure_code}}
+    Action Required: Direct CSM outreach before next automated retry.
+    Airtable Reference: https://airtable.com/appXXXXXXXX/tblYYYYYYYY
+    ```
+* **Branch 2 (Self-Serve / Growth Accounts - Amount < $2,000):**
+  * Add an Email/Transactional Delivery module (e.g., SendGrid, Postmark, or native Make SMTP).
+  * Set dynamic template parameters passing the `hosted_invoice_url` to a prominent "Update Payment Method" button.
+
+### Step 5: Webhook Listener for Successful Recovery
+Create a distinct, secondary scenario within [Make](https://www.make.com/en/register?pc=b2bworkflow):
+1. **Custom Webhook** listening exclusively for Stripe's `invoice.payment_succeeded` event.
+2. **Airtable Search Records** by `{Invoice ID} = '{% raw %}{{{% endraw %}1.data.object.id}}'`.
+3. **Airtable Update Record**:
+   * Set `Dunning Stage` $\rightarrow$ `Recovered`
+   * Set `Recovered At` $\rightarrow$ `{% raw %}{{{% endraw %}now}}`
+4. Send an internal notification closing the recovery loop and halting further dunning actions.
 
 ---
 
-## Turnkey Implementation Blueprint & Partner Promo
+## 4. Data Transformation & Validation Formula
 
-* **Download the JSON Scenario & Schema Pack:** [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
-* **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
+The most fragile component of SaaS payment recovery is calculating dynamic escalation cadences based on failure classifications. Hard declines (`stolen_card`, `do_not_honor`) require immediate customer action, whereas soft declines (`insufficient_funds`) should be delayed to match common payroll windows.
 
+Paste the following formula into the `Next Action Due` field in [Airtable](https://www.airtable.com):
 
-<!-- table-safe-v5 -->
+```text
+IF(
+  {Dunning Stage} = "Recovered",
+  BLANK(),
+  IF(
+    OR({Failure Code} = "card_expired", {Failure Code} = "do_not_honor"),
+    /* Hard decline: Short cycle (24-hour escalation) */
+    DATEADD(CREATED_TIME(), 1, "days"),
+    /* Soft decline: Algorithmic staging based on current dunning tier */
+    SWITCH(
+      {Dunning Stage},
+      "Initial_Failed", DATEADD(CREATED_TIME(), 3, "days"),
+      "Day_3_Retry", DATEADD(CREATED_TIME(), 7, "days"),
+      "Day_7_Escalated", DATEADD(CREATED_TIME(), 14, "days"),
+      "Day_14_Lockout", DATEADD(CREATED_TIME(), 21, "days"),
+      BLANK()
+    )
+  )
+)
+```
+
+### Formula Logic Explained:
+1. **Terminal Condition Check:** If `{Dunning Stage}` is marked as `Recovered`, the formula evaluates to blank, terminating active scheduling views.
+2. **Failure Categorization:** The `OR()` logical block inspects the specific decline code passed down by Stripe. For non-retryable events (`card_expired`, `do_not_honor`), it overrides default delays and forces the next escalation event to trigger within **24 hours** (`DATEADD(..., 1, "days")`).
+3. **Algorithmic Dunning Tiering:** For non-critical failures, the `SWITCH()` statement dynamically increases the runway between retries. This spaces communications out to Day 3, Day 7, Day 14, and Day 21, matching standard B2B accounts payable processing schedules without spamming finance teams.
+
+---
+
+## 5. Turnkey Implementation Blueprint & Deployment
+
+To launch this architecture with minimal configuration overhead, use the turnkey deployment checklist:
+
+### Pre-Deployment Checklist
+1. **Base Instantiation:** Create your base within [Airtable](https://www.airtable.com). Ensure column API identifiers mirror the schema table from Section 2.
+2. **Environment Authorization:** Set up your webhook connections using [Make](https://www.make.com/en/register?pc=b2bworkflow). Authenticate your production Stripe instance with restricted read/write permissions scoped to Invoices, Charges, and Customers.
+3. **Error Directives:** Implement a Make `Commit` and `Break` directive on the primary Webhook module. Set it to store failed executions for 30 days to protect against webhook drops during downstream API maintenance.
+4. **End-to-End Test Execution:** Trigger a synthetic `invoice.payment_failed` event using Stripe CLI:
+   ```bash
+   stripe trigger invoice.payment_failed
+   ```
+   Verify that the record instantly appears in Airtable with its correctly computed `Next Action Due` date.
+
+### Deployment Resources
+* Accelerate deployment by using pre-configured blueprints: [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html).
+* Need execution capacity for this pipeline? [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow).
+* Sign up for [Make](https://www.make.com/en/register?pc=b2bworkflow) and configure your database on [Airtable](https://www.airtable.com) to deploy your automated recovery engine today.
+
+<!-- table-safe-v6 -->
