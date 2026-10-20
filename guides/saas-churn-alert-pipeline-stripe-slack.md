@@ -38,13 +38,13 @@ For a mid-market SaaS company processing 1,200 active subscriptions per month wi
 *   **Financial Impact:** At a fully loaded engineering/operations rate of $95/hour, direct labor waste is **$3,847.50/month ($46,170/year)**. 
 *   **The Churn Delta:** The true cost is delayed mean time to recovery (MTTR). Involuntary recovery probability drops by 1.8% for every 24 hours an outreach attempt is delayed. Manual reconciliation creates an average 72-hour lag, directly driving a **$162,000 ARR baseline loss** annually due to preventable subscription cancellations.
 
-Deploying an event-driven recovery pipeline using [Make](https://www.make.com) and [Airtable](https://www.airtable.com) drops MTTR to under 90 seconds, automates triage routing, and reduces internal operational overhead to less than 15 minutes per week for hard exception handling.
+Deploying an event-driven recovery pipeline using [Make](${affiliateMake}) and [Airtable](https://www.airtable.com) drops MTTR to under 90 seconds, automates triage routing, and reduces internal operational overhead to less than 15 minutes per week for hard exception handling.
 
 ---
 
 ## 2. Architecture Blueprint
 
-The pipeline decouples the payment gateway's raw webhooks from the outreach tier. Webhook payloads are received, parsed, enriched, normalized, and written to an [Airtable](https://www.airtable.com) ledger. The ledger drives stateful, multi-channel recovery workflows executed by [Make](https://www.make.com).
+The pipeline decouples the payment gateway's raw webhooks from the outreach tier. Webhook payloads are received, parsed, enriched, normalized, and written to an [Airtable](https://www.airtable.com) ledger. The ledger drives stateful, multi-channel recovery workflows executed by [Make](${affiliateMake}).
 
 ### ASCII Data-Flow Topology
 
@@ -121,7 +121,7 @@ The core data store is built within [Airtable](https://www.airtable.com) using t
 
 ## 3. Step-by-Step Webhook & Module Configuration
 
-Follow this end-to-end execution path within [Make](https://www.make.com) to wire the recovery pipeline.
+Follow this end-to-end execution path within [Make](${affiliateMake}) to wire the recovery pipeline.
 
 ```
 +--------------------------------------------------------------------------------------------------+
@@ -134,7 +134,7 @@ Follow this end-to-end execution path within [Make](https://www.make.com) to wir
 ```
 
 ### Step 1: Webhook Ingestion & Cryptographic Verification
-1. Log into your [Make](https://www.make.com) workspace. Create a new Scenario and add a **Custom Webhook** module as the trigger.
+1. Log into your [Make](${affiliateMake}) workspace. Create a new Scenario and add a **Custom Webhook** module as the trigger.
 2. Label the webhook `Stripe Payment Failures`. Copy the generated endpoint URL.
 3. In your Stripe Developer Dashboard, navigate to **Webhooks > Add endpoint**.
 4. Paste the Make webhook URL. Select the `invoice.payment_failed` event explicitly.
@@ -192,4 +192,4 @@ Add an additional Router after the upsert operation to split traffic by account 
 #### Route A: High-Value Enterprise Accounts (`ARR Value` >= $10,000 OR `Decline Category` = "Hard Decline")
 *   **Filter:** `Accounts: ARR Value`
 
-<!-- table-safe-v2 -->
+<!-- table-safe-v3 -->
