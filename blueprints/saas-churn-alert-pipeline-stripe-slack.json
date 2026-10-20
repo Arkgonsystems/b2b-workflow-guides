@@ -1,5 +1,5 @@
 {
-  "name": "Automated SaaS Failed Payment & Churn Recovery Pipeline (Make + Airtable)",
+  "name": "Arkgon Systems — Automated SaaS Failed Payment & Churn Recovery Pipeline (Make + Airtable)",
   "flow": [
     {
       "id": 1,
@@ -127,6 +127,7 @@
       "orphans": []
     },
     "zone": "eu2.make.com",
-    "documentation_url": "https://loudplatypus6-blip.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html"
+    "publisher": "Arkgon Systems",
+    "documentation_url": "https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html"
   }
 }
