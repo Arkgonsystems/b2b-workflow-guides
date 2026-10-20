@@ -11,10 +11,10 @@ Production-grade architectural blueprints for FinOps, RevOps, Agency Operations,
 | Implementation Guide | Core Stack | Turnkey Asset | Published |
 | :--- | :--- | :--- | :--- |
 | [**client-reporting-kpi-dashboard-looker-sheets**](./guides/Notion.html) | `Automated Weekly Client KPI Executive Rollup` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
-| [**ecommerce-inventory-reorder-alerts-airtable**](./guides/Make.html) | `Multi-SKU Low Inventory Reorder Forecasting System` + `Airtable` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**ecommerce-inventory-reorder-alerts-airtable**](./guides/Multi-SKU Low Inventory Reorder Forecasting System.html) | `Airtable` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
 | [**saas-churn-alert-pipeline-stripe-slack**](./guides/Airtable.html) | `Automated SaaS Failed Payment & Churn Recovery Pipeline` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
 | [**contractor-onboarding-compliance-notion-deels**](./guides/Make.html) | `Automated Contractor Onboarding & Document Collection` + `Notion` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
-| [**b2b-cold-lead-routing-hubspot-make**](./guides/Make.html) | `Real-Time B2B Inbound Lead Routing & Scoring` + `HubSpot` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
+| [**b2b-cold-lead-routing-hubspot-make**](./guides/Real-Time B2B Inbound Lead Routing & Scoring.html) | `HubSpot` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
 | [**automated-invoice-reconciliation-make-airtable**](./guides/Airtable.html) | `Automated Invoice Reconciliation for Small Agencies` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
 
 ---
