@@ -9,7 +9,7 @@ title: "Automated Contractor Onboarding & Document Collection"
 
 Manual contractor onboarding introduces severe operational drag, compliance liabilities, and security vulnerabilities. When operations teams manually collect W-9/W-8BEN tax forms, bank routing details, proof of insurance, and independent contractor agreements (ICAs), sensitive PII ends up scattered across unencrypted email threads, shared drives, and Slack messages.
 
-This architecture guide outlines a zero-touch, enterprise-grade onboarding pipeline using [Notion](https://www.notion.so) as the centralized relational database and [Make](https://www.make.com) as the orchestration middleware.
+This architecture guide outlines a zero-touch, enterprise-grade onboarding pipeline using [Notion](https://www.notion.so) as the centralized relational database and [Make](${affiliateMake}) as the orchestration middleware.
 
 ---
 
@@ -39,7 +39,7 @@ For an organization onboarding an average of **18 contractors per month**:
 
 ## 2. Architecture Blueprint
 
-The pipeline leverages [Make](https://www.make.com) to coordinate event triggers, validate identity and tax payloads, manage secure document transit, and write standardized records directly into [Notion](https://www.notion.so).
+The pipeline leverages [Make](${affiliateMake}) to coordinate event triggers, validate identity and tax payloads, manage secure document transit, and write standardized records directly into [Notion](https://www.notion.so).
 
 ```
    [Contractor Intake Portal]
@@ -90,7 +90,7 @@ The target Notion database must be provisioned with rigid typing to prevent down
 
 ## 3. Step-by-Step Webhook & Module Configuration
 
-Follow this end-to-end integration flow inside [Make](https://www.make.com) pointing to [Notion](https://www.notion.so).
+Follow this end-to-end integration flow inside [Make](${affiliateMake}) pointing to [Notion](https://www.notion.so).
 
 ### Step 1: Webhook Ingestion Configuration
 1. In Make, add a **Custom Webhook** module (Core Webhooks).
@@ -189,4 +189,4 @@ Use this Google Sheets / RegEx formula to sanitize, structurally validate, and s
 * **`is_valid_len`**: Verifies exact conformity to the 9-digit US Federal Tax ID requirement.
 * **`is_not_test`**: Rejects widespread placeholder inputs (`000000
 
-<!-- table-safe-v2 -->
+<!-- table-safe-v3 -->
