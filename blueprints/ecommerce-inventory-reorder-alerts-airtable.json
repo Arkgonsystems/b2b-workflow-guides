@@ -1,5 +1,5 @@
 {
-  "name": "Multi-SKU Low Inventory Reorder Forecasting System (Airtable + Make)",
+  "name": "Arkgon Systems — Multi-SKU Low Inventory Reorder Forecasting System (Airtable + Make)",
   "flow": [
     {
       "id": 1,
@@ -127,6 +127,7 @@
       "orphans": []
     },
     "zone": "eu2.make.com",
-    "documentation_url": "https://loudplatypus6-blip.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html"
+    "publisher": "Arkgon Systems",
+    "documentation_url": "https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html"
   }
 }
