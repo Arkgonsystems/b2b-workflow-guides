@@ -23,13 +23,13 @@ The manual breakdown per week typically includes:
 
 Total operational overhead reaches **16.0 hours per week**—the equivalent of 0.4 FTE diverted from strategic revenue growth. 
 
-By replacing this manual loop with an event-driven state engine combining [Make](https://www.make.com/en/register?pc=b2bworkflow) for pipeline orchestration and [Airtable](https://www.airtable.com) for real-time lifecycle tracking, operational overhead drops to **under 0.5 hours per week** (spent strictly on escalated enterprise edge cases). More importantly, time-to-first-dunning-contact falls from 48 hours to under 60 seconds, recovering 35% to 55% of revenue that would otherwise convert into permanent churn.
+By replacing this manual loop with an event-driven state engine combining [Make](https://www.make.com/en/register?pc=b2bworkflow) for pipeline orchestration and [Airtable](${affiliateAirtable}) for real-time lifecycle tracking, operational overhead drops to **under 0.5 hours per week** (spent strictly on escalated enterprise edge cases). More importantly, time-to-first-dunning-contact falls from 48 hours to under 60 seconds, recovering 35% to 55% of revenue that would otherwise convert into permanent churn.
 
 ---
 
 ## 2. Architecture Blueprint
 
-The recovery system uses an event-driven architecture. Real-time billing events push via webhooks directly to [Make](https://www.make.com/en/register?pc=b2bworkflow), which validates, normalizes, and logs them into [Airtable](https://www.airtable.com). Airtable functions as an operational datastore and state machine that drives downstream automated dunning campaigns and human escalation.
+The recovery system uses an event-driven architecture. Real-time billing events push via webhooks directly to [Make](https://www.make.com/en/register?pc=b2bworkflow), which validates, normalizes, and logs them into [Airtable](${affiliateAirtable}). Airtable functions as an operational datastore and state machine that drives downstream automated dunning campaigns and human escalation.
 
 ```
 +-----------------------------------------------------------------------------------+
@@ -124,7 +124,7 @@ Follow this sequential configuration inside [Make](https://www.make.com/en/regis
 ```
 
 ### Step 2: Idempotency & Duplicate Check
-1. Add an [Airtable](https://www.airtable.com) **Search Records** module.
+1. Add an [Airtable](${affiliateAirtable}) **Search Records** module.
 2. Select your Base: `Revenue Recovery Orchestrator` and Table: `Failed Invoices`.
 3. Set the Filter Formula to:
    ```text
@@ -184,7 +184,7 @@ Create a distinct, secondary scenario within [Make](https://www.make.com/en/regi
 
 The most fragile component of SaaS payment recovery is calculating dynamic escalation cadences based on failure classifications. Hard declines (`stolen_card`, `do_not_honor`) require immediate customer action, whereas soft declines (`insufficient_funds`) should be delayed to match common payroll windows.
 
-Paste the following formula into the `Next Action Due` field in [Airtable](https://www.airtable.com):
+Paste the following formula into the `Next Action Due` field in [Airtable](${affiliateAirtable}):
 
 ```text
 IF(
@@ -219,7 +219,7 @@ IF(
 To launch this architecture with minimal configuration overhead, use the turnkey deployment checklist:
 
 ### Pre-Deployment Checklist
-1. **Base Instantiation:** Create your base within [Airtable](https://www.airtable.com). Ensure column API identifiers mirror the schema table from Section 2.
+1. **Base Instantiation:** Create your base within [Airtable](${affiliateAirtable}). Ensure column API identifiers mirror the schema table from Section 2.
 2. **Environment Authorization:** Set up your webhook connections using [Make](https://www.make.com/en/register?pc=b2bworkflow). Authenticate your production Stripe instance with restricted read/write permissions scoped to Invoices, Charges, and Customers.
 3. **Error Directives:** Implement a Make `Commit` and `Break` directive on the primary Webhook module. Set it to store failed executions for 30 days to protect against webhook drops during downstream API maintenance.
 4. **End-to-End Test Execution:** Trigger a synthetic `invoice.payment_failed` event using Stripe CLI:
@@ -231,6 +231,6 @@ To launch this architecture with minimal configuration overhead, use the turnkey
 ### Deployment Resources
 * Accelerate deployment by using pre-configured blueprints: [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html).
 * Need execution capacity for this pipeline? [Claim 1 Month of Make.com Core Free (10,000 Operations Included)](https://www.make.com/en/register?pc=b2bworkflow).
-* Sign up for [Make](https://www.make.com/en/register?pc=b2bworkflow) and configure your database on [Airtable](https://www.airtable.com) to deploy your automated recovery engine today.
+* Sign up for [Make](https://www.make.com/en/register?pc=b2bworkflow) and configure your database on [Airtable](${affiliateAirtable}) to deploy your automated recovery engine today.
 
-<!-- table-safe-v6 -->
+<!-- table-safe-v7 -->
