@@ -1,10 +1,10 @@
-# B2B Workflow Automation & RevOps Implementation Guides
+# Arkgon Systems — B2B Workflow Automation & RevOps Implementation Directory
 
-> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+> **FTC Affiliate Disclosure:** Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
 Production-grade architectural blueprints for FinOps, RevOps, Agency Operations, and Supply Chain engineering teams building on [**Make (1 Month Free Core Plan / 10,000 Operations)**](https://www.make.com/en/register?pc=b2bworkflow), [**Airtable**](https://airtable.com/invite/r/85BpxD3P), **HubSpot**, and **Notion**.
 
-### [Download the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | [Browse the Blueprint Directory](./blueprints.html)
+### [Open Live Directory](https://arkgonsystems.github.io/b2b-workflow-guides/) | [Download the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | [Blueprint Catalog](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html)
 
 ## Published Implementation Architectures
 
