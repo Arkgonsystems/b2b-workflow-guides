@@ -192,4 +192,4 @@ Add an additional Router after the upsert operation to split traffic by account 
 #### Route A: High-Value Enterprise Accounts (`ARR Value` >= $10,000 OR `Decline Category` = "Hard Decline")
 *   **Filter:** `Accounts: ARR Value`
 
-<!-- table-safe-v3 -->
+<!-- table-safe-v4 -->
