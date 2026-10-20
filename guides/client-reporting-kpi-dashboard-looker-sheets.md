@@ -6,6 +6,10 @@ title: "Automated Weekly Client KPI Executive Rollup — Arkgon Systems"
 
 > **Implementation Stack:** Deploy this architecture using [**Make** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) and [**Notion**](https://www.notion.com/), or download the ready-to-import [**Arkgon Make + Notion JSON Blueprint & Schema Pack ($19)**](https://platypusprime.gumroad.com/l/dncmng).
 
+> **FTC Affiliate Disclosure:** Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+19)**](https://platypusprime.gumroad.com/l/dncmng).
+
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
 19)**](https://platypusprime.gumroad.com/l/dncmng).
@@ -279,6 +283,7 @@ To deploy this architecture without manual module-by-module configuration, use t
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19 on Gumroad)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Blueprint Directory](../blueprints.html).
+19)](https://platypusprime.gumroad.com/l/dncmng) or view all systems in the [Arkgon Blueprint Directory](../blueprints.html).
 
 ---
 
