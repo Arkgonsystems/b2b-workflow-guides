@@ -1,3 +1,9 @@
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**HubSpot** (1 Month Free Core Plan / 10,000 Operations)](https://www.hubspot.com/products/crm) + [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download our [**Turnkey HubSpot + Make JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 ---
 layout: default
 title: "Real-Time B2B Inbound Lead Routing & Scoring"
@@ -126,9 +132,9 @@ Follow this sequential configuration to implement the pipeline using [HubSpot](h
      * 50 - 249 employees = +15 points
      * < 50 employees = +5 points
    * **Revenue Scoring:**
-     * > $50M = +30 points
-     * $10M - $50M = +20 points
-     * < $10M = +5 points
+50M = +30 points
+50M = +20 points
+10M = +5 points
    * **Business Email Verification:**
      * Corporate domain detected = +30 points
      * Freemail domain detected = 0 points
@@ -165,7 +171,7 @@ IF(
   REGEXMATCH(LOWER(TRIM(email)), "@(gmail|yahoo|hotmail|outlook|icloud|aol|protonmail|zoho|mail)\.[a-z]{2,}"),
   "FREEMAIL_DISQUALIFIED",
   IF(
-    NOT(REGEXMATCH(LOWER(TRIM(email)), "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")),
+")),
     "INVALID_SYNTAX",
     REGEXEXTRACT(LOWER(TRIM(email)), "@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})")
   )
@@ -207,7 +213,13 @@ Deploying this architecture from scratch requires careful field mapping and robu
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 * **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
 
-
 <!-- table-safe-v8 -->
 
 <!-- table-safe-v6 -->
+
+---
+
+## Deploy This Workflow in 60 Seconds
+
+* **Start Building Free:** [Launch HubSpot (10,000 Free Operations)](https://www.hubspot.com/products/crm) and connect your [Make workspace](https://www.make.com/en/register?pc=b2bworkflow).
+* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
