@@ -1,3 +1,9 @@
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
+> **Quick-Start Stack:** Deploy this workflow with [**Airtable** (1 Month Free Core Plan / 10,000 Operations)](https://airtable.com/invite/r/85BpxD3P) + [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download our [**Turnkey Airtable + Make JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
 ---
 layout: default
 title: "Multi-SKU Low Inventory Reorder Forecasting System"
@@ -19,7 +25,7 @@ Consider the arithmetic of manual stock audits:
 * **Weekly Labor Loss:** 1,000 SKUs $\times$ 1.5 minutes = 1,500 minutes per audit pass. Across 3 weekly passes, operators spend **75 hours per week** (nearly two full-time headcount equivalents) executing mechanical spreadsheet lookups.
 * **Financial Impact:** Beyond labor waste, manual lag guarantees stockouts on high-velocity items and capital lockup in dead inventory. Stockouts result in lost B2B contract revenue, while over-ordering strains working capital lines of credit.
 
-By architecting an automated forecasting loop using [Airtable](${affiliateAirtable}) as the relational database and [Make](https://www.make.com/en/register?pc=b2bworkflow) as the orchestration engine, we eliminate 98% of this manual overhead. The system calculates dynamic reorder triggers based on real-time inventory adjustments and flags critical deficits instantly, reducing audit labor from 75 hours weekly to zero.
+{affiliateAirtable}) as the relational database and [Make](https://www.make.com/en/register?pc=b2bworkflow) as the orchestration engine, we eliminate 98% of this manual overhead. The system calculates dynamic reorder triggers based on real-time inventory adjustments and flags critical deficits instantly, reducing audit labor from 75 hours weekly to zero.
 
 ## 2. Architecture Blueprint
 
@@ -144,7 +150,13 @@ Deploying this system eliminates manual tracking, protects against catastrophic 
 * **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
 * **Free Relational Database Workspace:** [Launch Airtable Free](https://airtable.com/invite/r/85BpxD3P)
 
-
 <!-- table-safe-v8 -->
 
 <!-- table-safe-v6 -->
+
+---
+
+## Deploy This Workflow in 60 Seconds
+
+* **Start Building Free:** [Launch Airtable (10,000 Free Operations)](https://airtable.com/invite/r/85BpxD3P) and connect your [Make workspace](https://www.make.com/en/register?pc=b2bworkflow).
+* **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
