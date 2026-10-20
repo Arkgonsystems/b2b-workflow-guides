@@ -2,6 +2,12 @@
 
 > **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
 
+> **Quick-Start Stack:** Deploy this workflow with [**Automated SaaS Failed Payment & Churn Recovery Pipeline** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download our [**Turnkey Automated SaaS Failed Payment & Churn Recovery Pipeline + Make JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
+
+[← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
+
+> **FTC Affiliate Disclosure:** We are an independent B2B technical publication and affiliate marketer (not an official vendor partner). This guide contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.
+
 > **Quick-Start Stack:** Deploy this workflow with [**Automated Invoice Reconciliation for Small Agencies** (1 Month Free Core Plan / 10,000 Operations)](https://www.make.com/en/register?pc=b2bworkflow) + [**Make**](https://www.make.com/en/register?pc=b2bworkflow), or download our [**Turnkey Automated Invoice Reconciliation for Small Agencies + Make JSON Blueprint & Schema Pack**](https://platypusprime.gumroad.com/l/dncmng) to import the complete scenario in 60 seconds.
 
 [← Back to All B2B Workflow Guides](../index.html) | [⚡ Get the Turnkey JSON Blueprint Pack ($19)](https://platypusprime.gumroad.com/l/dncmng)
@@ -356,10 +362,11 @@ To accelerate your implementation:
 * Review our standard configurations for [Automated Invoice Reconciliation for Small Agencies](https://www.make.com/en/register?pc=b2bworkflow) (Affiliate Link).
 * Skip manual scenario design and import pre-mapped routers, schemas, and formulas directly with the **[Turnkey JSON Blueprint Pack](https://platypusprime.gumroad.com/l/dncmng)**. This package includes verified Make scenario templates, copy-paste Airtable base snapshots, and production JSON routers designed for fast deployment.
 19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
+19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
 
 ---
 
 ## Deploy This Workflow in 60 Seconds
 
-* **Start Building Free:** [Launch Automated Invoice Reconciliation for Small Agencies (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Make workspace](https://www.make.com/en/register?pc=b2bworkflow).
+* **Start Building Free:** [Launch Automated SaaS Failed Payment & Churn Recovery Pipeline (10,000 Free Operations)](https://www.make.com/en/register?pc=b2bworkflow) and connect your [Make workspace](https://www.make.com/en/register?pc=b2bworkflow).
 * **Skip the Manual Setup:** [Download the Turnkey JSON Blueprint & Schema Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) or browse all bundles on the [Blueprint Hub](../blueprints.html).
