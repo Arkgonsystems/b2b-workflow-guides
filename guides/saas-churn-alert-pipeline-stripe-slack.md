@@ -244,3 +244,5 @@ To launch this architecture with minimal configuration overhead, use the turnkey
 
 
 <!-- table-safe-v8 -->
+
+<!-- table-safe-v6 -->
