@@ -199,4 +199,12 @@ Skip manual schema construction and JSON node mapping. Deploy our battle-tested 
 <h3 style="margin-top: 0; color: #1e3a8a;">Ready to Deploy the Reconciliation Stack?</h3>
 <p style="font-size: 15px; line-height
 
-<!-- table-safe-v4 -->
+---
+
+## Turnkey Implementation Blueprint & Partner Promo
+
+* **Download the JSON Scenario & Schema Pack:** [Download the Complete Turnkey Blueprint](https://loudplatypus6-blip.github.io/b2b-workflow-guides/blueprints.html)
+* **Activate 10,000 Free Make.com Operations:** [Claim 1 Month of Make.com Core Free](https://www.make.com/en/register?pc=b2bworkflow)
+
+
+<!-- table-safe-v5 -->
