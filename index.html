@@ -137,7 +137,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   </section>
   <div class="controls-bar">
     <div class="filter-group">
-      <button class="filter-pill active" onclick="filterGuides('all', this)">All Architectures (7)</button>
+      <button class="filter-pill active" onclick="filterGuides('all', this)">All Architectures (8)</button>
       <button class="filter-pill" onclick="filterGuides('hubspot', this)">HubSpot CRM</button>
       <button class="filter-pill" onclick="filterGuides('airtable', this)">Airtable</button>
       <button class="filter-pill" onclick="filterGuides('notion', this)">Notion</button>
@@ -145,7 +145,38 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
     <input type="text" id="searchInput" class="search-box" placeholder="Filter by workflow, stack, or use case..." oninput="searchGuides()">
   </div>
   <section class="cards-grid" id="guideGrid">
-<div class="tpl-card" data-stack="notion airtable" data-title="b2b rfp &amp; security questionnaire response tracker">
+<div class="tpl-card" data-stack="make hubspot" data-title="zero-touch b2b accounts receivable follow-up engine">
+  <div class="tpl-canvas">
+    <div class="canvas-top">
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-08</span>
+    </div>
+    <div class="node-pipeline">
+      <div class="node-pill" style="border-color:#6d00cc;"><span class="dot" style="background:#6d00cc;"></span>Make</div>
+      <div class="connector"></div>
+      <div class="node-pill" style="border-color:#ff7a59;"><span class="dot" style="background:#ff7a59;"></span>HubSpot</div>
+      <div class="connector"></div>
+      <div class="node-pill dlq"><span class="dot" style="background:#10b981;"></span>DLQ Guard</div>
+    </div>
+  </div>
+  <div class="tpl-body">
+    <h3><a href="./guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3>
+    <p class="tpl-desc">End-to-end production specification with webhook signature validation, idempotent deduplication, HTTP 429 backoff, and relational schema mapping.</p>
+    <div class="metrics-bar">
+      <div class="metric"><span class="m-label">TIME SAVED</span><span class="m-val">20 hrs/wk</span></div>
+      <div class="metric"><span class="m-label">EST. ANNUAL ROI</span><span class="m-val" style="color:#059669;">$26,400/yr</span></div>
+      <div class="metric"><span class="m-label">BLUEPRINT</span><span class="m-val">.JSON + Schema</span></div>
+    </div>
+    <div class="tpl-actions">
+      <a class="btn-spec" href="./guides/accounts-receivable-dunning-automation.html">View Architecture &rarr;</a>
+      <a class="btn-json" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Get JSON ($19)</a>
+    </div>
+    <div class="tpl-footer">
+      <span>Published 2026-10-21</span>
+      <span><a href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Make Trial</a> &middot; <a href="https://www.hubspot.com/products/crm" target="_blank" rel="noopener">HubSpot</a></span>
+    </div>
+  </div>
+</div><div class="tpl-card" data-stack="notion airtable" data-title="b2b rfp &amp; security questionnaire response tracker">
   <div class="tpl-canvas">
     <div class="canvas-top">
       <span class="verified-tag">ARKGON VERIFIED</span>
@@ -374,6 +405,14 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
         <thead><tr><th>ID</th><th>System Architecture</th><th>Integration Stack</th><th>Est. Annual ROI</th><th>Ops Saved</th><th>Specification</th><th>Turnkey Asset</th></tr></thead>
         <tbody>
 <tr>
+  <td class="mono" style="color:#64748b;">#08</td>
+  <td><a href="./guides/accounts-receivable-dunning-automation.html" style="color:#0f172a;font-weight:700;text-decoration:none;">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></td>
+  <td><span class="table-stack">Make + HubSpot</span></td>
+  <td class="mono" style="color:#059669;font-weight:600;">$26,400/yr</td>
+  <td class="mono">20 hrs/wk</td>
+  <td><a href="./guides/accounts-receivable-dunning-automation.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
+  <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
+</tr><tr>
   <td class="mono" style="color:#64748b;">#07</td>
   <td><a href="./guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#0f172a;font-weight:700;text-decoration:none;">B2B RFP &amp; Security Questionnaire Response Tracker</a></td>
   <td><span class="table-stack">Notion + Airtable</span></td>
