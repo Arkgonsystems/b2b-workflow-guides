@@ -137,7 +137,7 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
   </section>
   <div class="controls-bar">
     <div class="filter-group">
-      <button class="filter-pill active" onclick="filterGuides('all', this)">All Architectures (9)</button>
+      <button class="filter-pill active" onclick="filterGuides('all', this)">All Architectures (10)</button>
       <button class="filter-pill" onclick="filterGuides('hubspot', this)">HubSpot CRM</button>
       <button class="filter-pill" onclick="filterGuides('airtable', this)">Airtable</button>
       <button class="filter-pill" onclick="filterGuides('notion', this)">Notion</button>
@@ -145,7 +145,38 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
     <input type="text" id="searchInput" class="search-box" placeholder="Filter by workflow, stack, or use case..." oninput="searchGuides()">
   </div>
   <section class="cards-grid" id="guideGrid">
-<div class="tpl-card" data-stack="airtable make" data-title="saas spend &amp; vendor contract renewal alert tracker">
+<div class="tpl-card" data-stack="notion hubspot" data-title="high-ticket b2b client onboarding milestone tracker">
+  <div class="tpl-canvas">
+    <div class="canvas-top">
+      <span class="verified-tag">ARKGON VERIFIED</span>
+      <span class="id-tag">SYS-010</span>
+    </div>
+    <div class="node-pipeline">
+      <div class="node-pill" style="border-color:#0f172a;"><span class="dot" style="background:#0f172a;"></span>Notion</div>
+      <div class="connector"></div>
+      <div class="node-pill" style="border-color:#ff7a59;"><span class="dot" style="background:#ff7a59;"></span>HubSpot</div>
+      <div class="connector"></div>
+      <div class="node-pill dlq"><span class="dot" style="background:#10b981;"></span>DLQ Guard</div>
+    </div>
+  </div>
+  <div class="tpl-body">
+    <h3><a href="./guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3>
+    <p class="tpl-desc">End-to-end production specification with webhook signature validation, idempotent deduplication, HTTP 429 backoff, and relational schema mapping.</p>
+    <div class="metrics-bar">
+      <div class="metric"><span class="m-label">TIME SAVED</span><span class="m-val">12 hrs/wk</span></div>
+      <div class="metric"><span class="m-label">EST. ANNUAL ROI</span><span class="m-val" style="color:#059669;">$16,400/yr</span></div>
+      <div class="metric"><span class="m-label">BLUEPRINT</span><span class="m-val">.JSON + Schema</span></div>
+    </div>
+    <div class="tpl-actions">
+      <a class="btn-spec" href="./guides/customer-onboarding-milestone-tracker.html">View Architecture &rarr;</a>
+      <a class="btn-json" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Get JSON ($19)</a>
+    </div>
+    <div class="tpl-footer">
+      <span>Published 2026-10-22</span>
+      <span><a href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Make Trial</a> &middot; <a href="https://www.hubspot.com/products/crm" target="_blank" rel="noopener">HubSpot</a></span>
+    </div>
+  </div>
+</div><div class="tpl-card" data-stack="airtable make" data-title="saas spend &amp; vendor contract renewal alert tracker">
   <div class="tpl-canvas">
     <div class="canvas-top">
       <span class="verified-tag">ARKGON VERIFIED</span>
@@ -436,6 +467,14 @@ footer{max-width:1220px;margin:0 auto;padding:32px 24px;border-top:1px solid #e2
         <thead><tr><th>ID</th><th>System Architecture</th><th>Integration Stack</th><th>Est. Annual ROI</th><th>Ops Saved</th><th>Specification</th><th>Turnkey Asset</th></tr></thead>
         <tbody>
 <tr>
+  <td class="mono" style="color:#64748b;">#010</td>
+  <td><a href="./guides/customer-onboarding-milestone-tracker.html" style="color:#0f172a;font-weight:700;text-decoration:none;">High-Ticket B2B Client Onboarding Milestone Tracker</a></td>
+  <td><span class="table-stack">Notion + HubSpot</span></td>
+  <td class="mono" style="color:#059669;font-weight:600;">$16,400/yr</td>
+  <td class="mono">12 hrs/wk</td>
+  <td><a href="./guides/customer-onboarding-milestone-tracker.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Read Spec &rarr;</a></td>
+  <td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="table-buy">JSON Pack ($19)</a></td>
+</tr><tr>
   <td class="mono" style="color:#64748b;">#09</td>
   <td><a href="./guides/vendor-contract-renewal-alert-system.html" style="color:#0f172a;font-weight:700;text-decoration:none;">SaaS Spend &amp; Vendor Contract Renewal Alert Tracker</a></td>
   <td><span class="table-stack">Airtable + Make</span></td>
