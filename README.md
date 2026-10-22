@@ -10,6 +10,7 @@ Production-grade architectural blueprints for FinOps, RevOps, Agency Operations,
 
 | System Architecture | Integration Stack | Turnkey Blueprint | Published |
 | :--- | :--- | :--- | :--- |
+| [**SaaS Spend & Vendor Contract Renewal Alert Tracker**](./guides/vendor-contract-renewal-alert-system.html) | `Airtable` + `Make` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-22 |
 | [**Zero-Touch B2B Accounts Receivable Follow-Up Engine**](./guides/accounts-receivable-dunning-automation.html) | `Make` + `HubSpot` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-21 |
 | [**B2B RFP & Security Questionnaire Response Tracker**](./guides/rfp-proposal-response-matrix-notion-ai.html) | `Notion` + `Airtable` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-21 |
 | [**Automated Weekly Client KPI Executive Rollup**](./guides/client-reporting-kpi-dashboard-looker-sheets.html) | `Make` + `Notion` | [Download JSON Pack ($19)](https://platypusprime.gumroad.com/l/dncmng) | 2026-10-20 |
