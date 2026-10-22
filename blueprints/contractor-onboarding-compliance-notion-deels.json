@@ -1,12 +1,12 @@
 {
-  "name": "Arkgon Systems — Automated Contractor Onboarding & Document Collection (Notion + Make)",
+  "name": "Arkgon Systems // Automated Contractor Onboarding & Document Collection",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
       "version": 1,
       "parameters": {
-        "hook": null,
+        "hookLabel": "contractor-onboarding-compliance-notion-deels-ingest",
         "maxResults": 1
       },
       "mapper": {},
@@ -15,99 +15,61 @@
           "x": 0,
           "y": 0
         },
-        "notes": "Step 1: Ingress Webhook Trigger with SHA-256 HMAC & Idempotency Key extraction for Automated Contractor Onboarding & Document Collection"
+        "notes": "Ingests real-time event from Notion"
       }
     },
     {
       "id": 2,
-      "module": "util:FunctionSleep",
+      "module": "util:SetVariable2",
       "version": 1,
       "parameters": {},
       "mapper": {
-        "delay": "1"
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "normalized_status",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
       },
       "metadata": {
         "designer": {
           "x": 300,
           "y": 0
         },
-        "notes": "Step 2: Rate-Limit Guard & Payload Normalization (Notion -> Make)"
+        "notes": "Deterministic SHA-256 deduplication key"
       }
     },
     {
       "id": 3,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "mapper": null,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.make.com/v1/records/upsert",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"external_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"status\":\"{{2.normalized_status}}\",\"synced_by\":\"Arkgon Systems v15.1\"}"
+      },
       "metadata": {
         "designer": {
           "x": 600,
           "y": 0
         },
-        "notes": "Step 3: Primary Upsert Route vs Dead-Letter Error Handler Route"
-      },
-      "routes": [
-        {
-          "flow": [
-            {
-              "id": 4,
-              "module": "http:ActionSendData",
-              "version": 3,
-              "parameters": {
-                "handleErrors": true,
-                "useNewZLibDeCompress": true
-              },
-              "mapper": {
-                "url": "https://api.example.com/v1/contractor-onboarding-compliance-notion-deels",
-                "method": "post",
-                "headers": [
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "name": "Idempotency-Key",
-                    "value": "{{1.event_id}}"
-                  }
-                ],
-                "qs": [],
-                "bodyType": "raw",
-                "contentType": "application/json",
-                "data": "{\"workflow\":\"contractor-onboarding-compliance-notion-deels\",\"source\":\"Notion\",\"target\":\"Make\",\"timestamp\":\"{{now}}\"}"
-              },
-              "metadata": {
-                "designer": {
-                  "x": 900,
-                  "y": -120
-                },
-                "notes": "Step 4A: Primary Make API Upsert Module with HTTP 429 Exponential Backoff"
-              }
-            }
-          ]
-        },
-        {
-          "flow": [
-            {
-              "id": 5,
-              "module": "json:CreateJSON",
-              "version": 1,
-              "parameters": {},
-              "mapper": {
-                "workflow_slug": "contractor-onboarding-compliance-notion-deels",
-                "error_status": "DLQ_CAPTURED",
-                "retry_count": 3
-              },
-              "metadata": {
-                "designer": {
-                  "x": 900,
-                  "y": 120
-                },
-                "notes": "Step 4B: Dead-Letter Queue (DLQ) Fallback & Alert Logger"
-              }
-            }
-          ]
-        }
-      ]
+        "notes": "Atomic upsert into Make with retry guard"
+      }
     }
   ],
   "metadata": {
@@ -117,17 +79,12 @@
       "roundtrips": 1,
       "maxErrors": 3,
       "autoCommit": true,
-      "autoCommitTriggerLast": true,
-      "sequential": false,
-      "confidential": false,
-      "dataloss": false,
-      "dlq": true
+      "sequential": false
     },
     "designer": {
       "orphans": []
     },
-    "zone": "eu2.make.com",
-    "publisher": "Arkgon Systems",
-    "documentation_url": "https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html"
+    "arkgon_release": "v15.1",
+    "slug": "contractor-onboarding-compliance-notion-deels"
   }
 }

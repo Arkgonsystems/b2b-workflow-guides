@@ -1,44 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arkgon Systems — Turnkey B2B Make.com JSON Blueprint Directory</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-body{font-family:"Inter",-apple-system,sans-serif;max-width:1100px;margin:0 auto;padding:32px 20px;color:#0f172a;line-height:1.6;background:#f8fafc;}
-.disclosure{background:#f1f5f9;border:1px solid #e2e8f0;padding:10px 16px;border-radius:8px;font-size:0.8rem;margin-bottom:24px;color:#475569;}
-.hero{background:#ffffff;border:1px solid #e2e8f0;color:#0f172a;padding:32px;border-radius:12px;margin-bottom:28px;box-shadow:0 2px 8px rgba(15,23,42,0.04);}
-.btn{display:inline-block;background:#0f172a;color:#ffffff;padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.88rem;margin-right:10px;margin-top:10px;}
-.btn-sec{display:inline-block;background:#6d00cc;color:#ffffff;padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.88rem;margin-top:10px;}
-.badge{background:#f1f5f9;border:1px solid #e2e8f0;padding:3px 9px;border-radius:5px;font-size:0.75rem;color:#334155;font-family:"JetBrains Mono",monospace;font-weight:600;}
-.buy-link{background:#0f172a;color:#ffffff;padding:6px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;text-decoration:none;}
-table{width:100%;border-collapse:collapse;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e2e8f0;}
-th,td{padding:13px 16px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:0.86rem;}
-th{background:#f8fafc;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;font-family:"JetBrains Mono",monospace;}
-a{color:#4f46e5;text-decoration:none;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make.com JSON Blueprint Catalog | Arkgon Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fafafa; color: #0f172a; font-family: "Inter", sans-serif; }
+    .topbar { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 14px 24px; }
+    .topbar-inner { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #0f172a; text-decoration: none; }
+    .wrap { max-width: 1040px; margin: 44px auto 80px; padding: 0 24px; }
+    h1 { font-size: 28px; margin: 0 0 10px; letter-spacing: -0.02em; }
+    .sub { font-size: 14.5px; color: #475569; margin: 0 0 32px; max-width: 660px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px; }
+    .meta { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #64748b; margin-bottom: 8px; }
+    .card h2 { font-size: 16px; margin: 0 0 8px; }
+    .card p { font-size: 13px; color: #475569; line-height: 1.5; margin: 0 0 16px; }
+    .actions { display: flex; justify-content: space-between; align-items: center; }
+    .btn-buy { background: #0f172a; color: #ffffff; text-decoration: none; padding: 7px 13px; border-radius: 5px; font-size: 12px; font-weight: 500; }
+    .btn-spec { font-size: 12.5px; color: #0f172a; text-decoration: none; font-weight: 500; }
+  </style>
 </head>
 <body>
-<p style="margin-bottom:14px;font-size:0.86rem;font-weight:600;"><a href="./index.html">&larr; Back to Arkgon Systems Directory</a></p>
-<div class="disclosure"><strong>FTC Affiliate Disclosure:</strong> Arkgon Systems is an independent B2B technical publication and affiliate marketer (not an official vendor partner). This page contains affiliate links—if you click through and purchase or subscribe, we may earn a commission at no additional cost to you.</div>
-<div class="hero">
-<h1 style="margin-top:0;font-size:1.75rem;letter-spacing:-0.02em;">Arkgon — Turnkey B2B Make.com JSON Blueprint &amp; Schema Catalog</h1>
-<p style="color:#475569;font-size:0.95rem;">Import production-tested Make.com scenarios, webhook routers, dead-letter error handlers, and Airtable/Notion/HubSpot schemas in 60 seconds.</p>
-<a class="btn" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download All JSON Blueprints ($19) &rarr;</a>
-<a class="btn-sec" href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Claim 1 Month Free Make Core Plan (10,000 Ops) &rarr;</a>
-</div>
-<table><thead><tr><th>ID</th><th>System Architecture</th><th>Integration Stack</th><th>Specification</th><th>Turnkey Asset</th></tr></thead><tbody>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#010</td><td><strong>High-Ticket B2B Client Onboarding Milestone Tracker</strong></td><td><span class="badge">Notion + HubSpot</span></td><td><a href="./guides/customer-onboarding-milestone-tracker.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#09</td><td><strong>SaaS Spend &amp; Vendor Contract Renewal Alert Tracker</strong></td><td><span class="badge">Airtable + Make</span></td><td><a href="./guides/vendor-contract-renewal-alert-system.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#08</td><td><strong>Zero-Touch B2B Accounts Receivable Follow-Up Engine</strong></td><td><span class="badge">Make + HubSpot</span></td><td><a href="./guides/accounts-receivable-dunning-automation.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#07</td><td><strong>B2B RFP &amp; Security Questionnaire Response Tracker</strong></td><td><span class="badge">Notion + Airtable</span></td><td><a href="./guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#06</td><td><strong>Automated Weekly Client KPI Executive Rollup</strong></td><td><span class="badge">Make + Notion</span></td><td><a href="./guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#05</td><td><strong>Multi-SKU Low Inventory Reorder Forecasting System</strong></td><td><span class="badge">Airtable + Make</span></td><td><a href="./guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#04</td><td><strong>Automated SaaS Failed Payment &amp; Churn Recovery Pipeline</strong></td><td><span class="badge">Make + Airtable</span></td><td><a href="./guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#03</td><td><strong>Automated Contractor Onboarding &amp; Document Collection</strong></td><td><span class="badge">Notion + Make</span></td><td><a href="./guides/contractor-onboarding-compliance-notion-deels.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#02</td><td><strong>Real-Time B2B Inbound Lead Routing &amp; Scoring</strong></td><td><span class="badge">HubSpot + Make</span></td><td><a href="./guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;">#01</td><td><strong>Automated Invoice Reconciliation for Small Agencies</strong></td><td><span class="badge">Make + Airtable</span></td><td><a href="./guides/automated-invoice-reconciliation-make-airtable.html" style="color:#4f46e5;font-weight:600;">Read Spec &rarr;</a></td><td><a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener" class="buy-link">Download JSON Pack ($19) &rarr;</a></td></tr>
-
-</tbody></table>
-</body></html>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/">ARKGON SYSTEMS</a>
+      <a href="https://arkgonsystems.github.io/b2b-workflow-guides/" style="font-size:13px;color:#475569;text-decoration:none;">&larr; Back to Directory</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <h1>Turnkey Make.com .JSON Blueprint Catalog (10 Scenarios)</h1>
+    <p class="sub">Import production-ready Make.com workflow scenarios with pre-configured webhook triggers, SHA-256 deduplication, and dead-letter error handling.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="meta">BLUEPRINT #01 &middot; MAKE + AIRTABLE</div>
+        <h2>Automated Invoice Reconciliation for Small Agencies</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #02 &middot; HUBSPOT + MAKE</div>
+        <h2>Real-Time B2B Inbound Lead Routing & Scoring</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #03 &middot; NOTION + MAKE</div>
+        <h2>Automated Contractor Onboarding & Document Collection</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #04 &middot; MAKE + AIRTABLE</div>
+        <h2>Automated SaaS Failed Payment & Churn Recovery Pipeline</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #05 &middot; AIRTABLE + MAKE</div>
+        <h2>Multi-SKU Low Inventory Reorder Forecasting System</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #06 &middot; MAKE + NOTION</div>
+        <h2>Automated Weekly Client KPI Executive Rollup</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Notion upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #07 &middot; NOTION + AIRTABLE</div>
+        <h2>B2B RFP & Security Questionnaire Response Tracker</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #08 &middot; MAKE + HUBSPOT</div>
+        <h2>Zero-Touch B2B Accounts Receivable Follow-Up Engine</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic HubSpot upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #09 &middot; AIRTABLE + MAKE</div>
+        <h2>SaaS Spend & Vendor Contract Renewal Alert Tracker</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #10 &middot; NOTION + HUBSPOT</div>
+        <h2>High-Ticket B2B Client Onboarding Milestone Tracker</h2>
+        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic HubSpot upsert module.</p>
+        <div class="actions">
+          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Read Spec &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

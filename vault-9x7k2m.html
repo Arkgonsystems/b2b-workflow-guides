@@ -1,57 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Arkgon Systems // Buyer Vault — Turnkey Make.com JSON Blueprints</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"Inter",-apple-system,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6;}
-.topbar{background:#ffffff;border-bottom:1px solid #e2e8f0;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;}
-.brand{font-weight:800;font-size:0.95rem;color:#0f172a;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:0.04em;}
-.brand-mark{width:26px;height:26px;border-radius:50%;background:#0f172a;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-size:0.75rem;font-weight:700;}
-.status-pill{background:#dcfce7;color:#166534;border:1px solid #86efac;font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:99px;font-family:"JetBrains Mono",monospace;}
-.container{max-width:1120px;margin:0 auto;padding:36px 24px 80px;}
-.vault-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;padding:32px;margin-bottom:28px;box-shadow:0 1px 3px rgba(15,23,42,0.04);}
-.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
-.btn-primary{background:#0f172a;color:#ffffff;padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.88rem;}
-.btn-secondary{background:#ffffff;color:#0f172a;border:1px solid #cbd5e1;padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.88rem;}
-.stack-tag{background:#f1f5f9;border:1px solid #e2e8f0;padding:4px 10px;border-radius:6px;font-size:0.76rem;font-family:"JetBrains Mono",monospace;color:#334155;font-weight:600;}
-.dl-btn{display:inline-block;background:#0f172a;color:#ffffff;font-weight:600;font-size:0.8rem;padding:7px 14px;border-radius:6px;text-decoration:none;font-family:"JetBrains Mono",monospace;}
-.dl-btn:hover{background:#334155;}
-table{width:100%;border-collapse:collapse;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,0.03);}
-th,td{padding:14px 18px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:0.88rem;}
-th{background:#f8fafc;font-size:0.74rem;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;font-weight:700;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Arkgon Buyer Vault — Direct .JSON Blueprint Downloads</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fafafa; color: #0f172a; font-family: "Inter", sans-serif; }
+    .wrap { max-width: 1040px; margin: 44px auto 80px; padding: 0 24px; }
+    .badge { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #0f172a; background: #e2e8f0; display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+    h1 { font-size: 26px; margin: 0 0 8px; }
+    .sub { font-size: 14px; color: #475569; margin: 0 0 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; }
+    .meta { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #64748b; margin-bottom: 6px; }
+    .card h2 { font-size: 15.5px; margin: 0 0 14px; }
+    .actions { display: flex; justify-content: space-between; align-items: center; }
+    .btn-dl { background: #0f172a; color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 5px; font-size: 12px; font-weight: 500; }
+    .btn-spec { font-size: 12px; color: #475569; text-decoration: none; }
+  </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="./index.html"><span class="brand-mark">A</span> ARKGON SYSTEMS // BUYER VAULT</a>
-  <span class="status-pill">LICENSE VERIFIED &middot; LIFETIME ACCESS</span>
-</header>
-<main class="container">
-  <section class="vault-card">
-    <h1 style="font-size:1.65rem;margin-bottom:8px;">Arkgon — Turnkey Make.com JSON Blueprint &amp; Schema Repository</h1>
-    <p style="color:#475569;font-size:0.95rem;">Download any production <code>.json</code> scenario file below. To import into Make.com: open the Scenario Editor, click the <strong>More (...)</strong> menu in the bottom toolbar, select <strong>Import Blueprint</strong>, and upload the downloaded <code>.json</code> file.</p>
-    <div class="btn-row">
-      <a class="btn-primary" href="https://www.make.com/en/register?pc=b2bworkflow" target="_blank" rel="noopener">Activate 1 Month Free Make Core Plan (10,000 Ops) &rarr;</a>
-      <a class="btn-secondary" href="https://airtable.com/invite/r/85BpxD3P" target="_blank" rel="noopener">Launch Airtable Database Workspace &rarr;</a>
+  <main class="wrap">
+    <div class="badge">ARKGON SYSTEMS // LICENSED BUYER VAULT</div>
+    <h1>Turnkey Make.com .JSON Scenario Downloads (10 Blueprints)</h1>
+    <p class="sub">Click any button below to save the `.json` file, then in Make.com open a new scenario &rarr; click the bottom `...` menu &rarr; select <strong>Import Blueprint</strong>.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="meta">BLUEPRINT #01 &middot; MAKE + AIRTABLE</div>
+        <h2>Automated Invoice Reconciliation for Small Agencies</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #02 &middot; HUBSPOT + MAKE</div>
+        <h2>Real-Time B2B Inbound Lead Routing & Scoring</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #03 &middot; NOTION + MAKE</div>
+        <h2>Automated Contractor Onboarding & Document Collection</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #04 &middot; MAKE + AIRTABLE</div>
+        <h2>Automated SaaS Failed Payment & Churn Recovery Pipeline</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #05 &middot; AIRTABLE + MAKE</div>
+        <h2>Multi-SKU Low Inventory Reorder Forecasting System</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #06 &middot; MAKE + NOTION</div>
+        <h2>Automated Weekly Client KPI Executive Rollup</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #07 &middot; NOTION + AIRTABLE</div>
+        <h2>B2B RFP & Security Questionnaire Response Tracker</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #08 &middot; MAKE + HUBSPOT</div>
+        <h2>Zero-Touch B2B Accounts Receivable Follow-Up Engine</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #09 &middot; AIRTABLE + MAKE</div>
+        <h2>SaaS Spend & Vendor Contract Renewal Alert Tracker</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="meta">BLUEPRINT #10 &middot; NOTION + HUBSPOT</div>
+        <h2>High-Ticket B2B Client Onboarding Milestone Tracker</h2>
+        <div class="actions">
+          <a class="btn-dl" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json">Download .JSON Blueprint</a>
+          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Setup Guide &rarr;</a>
+        </div>
+      </div>
     </div>
-  </section>
-  <table><thead><tr><th>ID</th><th>Workflow Architecture</th><th>Integration Stack</th><th>Documentation</th><th>Blueprint File</th></tr></thead><tbody>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#10</td><td><strong style="color:#0f172a;">High-Ticket B2B Client Onboarding Milestone Tracker</strong></td><td><span class="stack-tag">Notion + HubSpot</span></td><td><a href="./guides/customer-onboarding-milestone-tracker.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#9</td><td><strong style="color:#0f172a;">SaaS Spend &amp; Vendor Contract Renewal Alert Tracker</strong></td><td><span class="stack-tag">Airtable + Make</span></td><td><a href="./guides/vendor-contract-renewal-alert-system.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#8</td><td><strong style="color:#0f172a;">Zero-Touch B2B Accounts Receivable Follow-Up Engine</strong></td><td><span class="stack-tag">Make + HubSpot</span></td><td><a href="./guides/accounts-receivable-dunning-automation.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#7</td><td><strong style="color:#0f172a;">B2B RFP &amp; Security Questionnaire Response Tracker</strong></td><td><span class="stack-tag">Notion + Airtable</span></td><td><a href="./guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#6</td><td><strong style="color:#0f172a;">Automated Weekly Client KPI Executive Rollup</strong></td><td><span class="stack-tag">Make + Notion</span></td><td><a href="./guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#5</td><td><strong style="color:#0f172a;">Multi-SKU Low Inventory Reorder Forecasting System</strong></td><td><span class="stack-tag">Airtable + Make</span></td><td><a href="./guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#4</td><td><strong style="color:#0f172a;">Automated SaaS Failed Payment &amp; Churn Recovery Pipeline</strong></td><td><span class="stack-tag">Make + Airtable</span></td><td><a href="./guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#3</td><td><strong style="color:#0f172a;">Automated Contractor Onboarding &amp; Document Collection</strong></td><td><span class="stack-tag">Notion + Make</span></td><td><a href="./guides/contractor-onboarding-compliance-notion-deels.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#2</td><td><strong style="color:#0f172a;">Real-Time B2B Inbound Lead Routing &amp; Scoring</strong></td><td><span class="stack-tag">HubSpot + Make</span></td><td><a href="./guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make-make-blueprint.json">Download .JSON</a></td></tr>
-<tr><td style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.8rem;">#1</td><td><strong style="color:#0f172a;">Automated Invoice Reconciliation for Small Agencies</strong></td><td><span class="stack-tag">Make + Airtable</span></td><td><a href="./guides/automated-invoice-reconciliation-make-airtable.html" style="color:#4f46e5;font-weight:600;text-decoration:none;">Architecture Spec &rarr;</a></td><td><a class="dl-btn" href="./blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable-make-blueprint.json">Download .JSON</a></td></tr>
-
-  </tbody></table>
-</main>
-</body></html>
+  </main>
+</body>
+</html>
