@@ -12,138 +12,129 @@
     .topbar-inner { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .brand { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #0f172a; text-decoration: none; }
     .wrap { max-width: 1040px; margin: 44px auto 80px; padding: 0 24px; }
-    h1 { font-size: 28px; margin: 0 0 10px; letter-spacing: -0.02em; }
-    .sub { font-size: 14.5px; color: #475569; margin: 0 0 32px; max-width: 660px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
     .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px; }
     .meta { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #64748b; margin-bottom: 8px; }
     .card h2 { font-size: 16px; margin: 0 0 8px; }
-    .card p { font-size: 13px; color: #475569; line-height: 1.5; margin: 0 0 16px; }
+    .card p { font-size: 13px; color: #475569; margin: 0 0 16px; }
     .actions { display: flex; justify-content: space-between; align-items: center; }
     .btn-buy { background: #0f172a; color: #ffffff; text-decoration: none; padding: 7px 13px; border-radius: 5px; font-size: 12px; font-weight: 500; }
-    .btn-spec { font-size: 12.5px; color: #0f172a; text-decoration: none; font-weight: 500; }
+    .btn-spec { font-size: 12.5px; color: #0f172a; text-decoration: none; font-weight: 600; }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/">ARKGON SYSTEMS</a>
-      <a href="https://arkgonsystems.github.io/b2b-workflow-guides/" style="font-size:13px;color:#475569;text-decoration:none;">&larr; Back to Directory</a>
-    </div>
-  </header>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/">ARKGON SYSTEMS</a><a href="https://platypusprime.gumroad.com/l/dncmng" style="font-size:12.5px;background:#0f172a;color:#fff;padding:7px 12px;border-radius:5px;text-decoration:none;">Unlock Full 70-Pack Vault ($19)</a></div></header>
   <main class="wrap">
-    <h1>Turnkey Make.com .JSON Blueprint Catalog (12 Scenarios)</h1>
-    <p class="sub">Import production-ready Make.com workflow scenarios with pre-configured webhook triggers, SHA-256 deduplication, and dead-letter error handling.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="meta">BLUEPRINT #01 &middot; MAKE + AIRTABLE</div>
-        <h2>Automated Invoice Reconciliation for Small Agencies</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+    <h1>Make.com .JSON Blueprint Catalog (12 Live)</h1>
+    <p style="font-size:14.5px;color:#475569;margin-bottom:28px;">Download individual starter <code>.json</code> scenarios below and import them into <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" style="color:#0f172a;font-weight:600;">Make.com</a>, or grab the <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" style="color:#0f172a;font-weight:600;">Complete 70-Blueprint Agency Vault ($19)</a>.</p>
+    <div class="grid">      <div class="card">
+        <div class="meta">BLUEPRINT #01 &middot; MAKE &rarr; AIRTABLE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html" style="color:#0f172a;text-decoration:none;">Automated Invoice Reconciliation for Small Agencies</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code> (15.1 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #02 &middot; HUBSPOT + MAKE</div>
-        <h2>Real-Time B2B Inbound Lead Routing & Scoring</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="meta">BLUEPRINT #02 &middot; HUBSPOT &rarr; MAKE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#0f172a;text-decoration:none;">Real-Time B2B Inbound Lead Routing & Scoring</a></h2>
+        <p>Modules: <code>hubspotcrm:WatchTriggerEvents</code> &rarr; <code>util:SetVariable2</code> (18.1 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #03 &middot; NOTION + MAKE</div>
-        <h2>Automated Contractor Onboarding & Document Collection</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="meta">BLUEPRINT #03 &middot; NOTION &rarr; MAKE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html" style="color:#0f172a;text-decoration:none;">Automated Contractor Onboarding & Document Collection</a></h2>
+        <p>Modules: <code>notion:WatchDatabaseItems</code> &rarr; <code>util:SetVariable2</code> (26.2 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #04 &middot; MAKE + AIRTABLE</div>
-        <h2>Automated SaaS Failed Payment & Churn Recovery Pipeline</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="meta">BLUEPRINT #04 &middot; MAKE &rarr; AIRTABLE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#0f172a;text-decoration:none;">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code> (16.7 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #05 &middot; AIRTABLE + MAKE</div>
-        <h2>Multi-SKU Low Inventory Reorder Forecasting System</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="meta">BLUEPRINT #05 &middot; AIRTABLE &rarr; MAKE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#0f172a;text-decoration:none;">Multi-SKU Low Inventory Reorder Forecasting System</a></h2>
+        <p>Modules: <code>airtable:WatchRecords</code> &rarr; <code>util:SetVariable2</code> (15.5 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #06 &middot; MAKE + NOTION</div>
-        <h2>Automated Weekly Client KPI Executive Rollup</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Notion upsert module.</p>
+        <div class="meta">BLUEPRINT #06 &middot; MAKE &rarr; NOTION</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#0f172a;text-decoration:none;">Automated Weekly Client KPI Executive Rollup</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>notion:ActionCreateDatabaseItem</code> (22.5 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #07 &middot; NOTION + AIRTABLE</div>
-        <h2>B2B RFP & Security Questionnaire Response Tracker</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="meta">BLUEPRINT #07 &middot; NOTION &rarr; AIRTABLE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#0f172a;text-decoration:none;">B2B RFP & Security Questionnaire Response Tracker</a></h2>
+        <p>Modules: <code>notion:WatchDatabaseItems</code> &rarr; <code>airtable:ActionUpsertRecord</code> (14.3 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #08 &middot; MAKE + HUBSPOT</div>
-        <h2>Zero-Touch B2B Accounts Receivable Follow-Up Engine</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic HubSpot upsert module.</p>
+        <div class="meta">BLUEPRINT #08 &middot; MAKE &rarr; HUBSPOT</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html" style="color:#0f172a;text-decoration:none;">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code> (17.0 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #09 &middot; AIRTABLE + MAKE</div>
-        <h2>SaaS Spend & Vendor Contract Renewal Alert Tracker</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Make upsert module.</p>
+        <div class="meta">BLUEPRINT #09 &middot; AIRTABLE &rarr; MAKE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html" style="color:#0f172a;text-decoration:none;">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h2>
+        <p>Modules: <code>airtable:WatchRecords</code> &rarr; <code>util:SetVariable2</code> (33.0 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #10 &middot; NOTION + HUBSPOT</div>
-        <h2>High-Ticket B2B Client Onboarding Milestone Tracker</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic HubSpot upsert module.</p>
+        <div class="meta">BLUEPRINT #10 &middot; NOTION &rarr; HUBSPOT</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html" style="color:#0f172a;text-decoration:none;">High-Ticket B2B Client Onboarding Milestone Tracker</a></h2>
+        <p>Modules: <code>notion:WatchDatabaseItems</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code> (30.9 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #11 &middot; MAKE + AIRTABLE</div>
-        <h2>Automated Stripe Chargeback & Dispute Evidence Assembly</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic Airtable upsert module.</p>
+        <div class="meta">BLUEPRINT #11 &middot; MAKE &rarr; AIRTABLE</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html" style="color:#0f172a;text-decoration:none;">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code> (23.9 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json" download="stripe-dispute-chargeback-evidence-automation.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
       </div>
       <div class="card">
-        <div class="meta">BLUEPRINT #12 &middot; MAKE + HUBSPOT</div>
-        <h2>Automated B2B Deal Desk Discount Approval Pipeline</h2>
-        <p>Includes pre-mapped Make.com Custom Webhook trigger, SHA-256 idempotency filter, and atomic HubSpot upsert module.</p>
+        <div class="meta">BLUEPRINT #12 &middot; MAKE &rarr; HUBSPOT</div>
+        <h2><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html" style="color:#0f172a;text-decoration:none;">Automated B2B Deal Desk Discount Approval Pipeline</a></h2>
+        <p>Modules: <code>gateway:CustomWebHook</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code> (31.9 hrs/mo saved).</p>
         <div class="actions">
-          <a class="btn-buy" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock .JSON Pack ($19)</a>
-          <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Read Spec &rarr;</a>
+          <a class="btn-buy" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json" download="hubspot-deal-stage-slack-approval-workflow.json">Starter .JSON (Free)</a>
+          <a class="btn-spec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make.com &nearr;</a>
         </div>
-      </div>
-    </div>
+      </div></div>
   </main>
 </body>
 </html>

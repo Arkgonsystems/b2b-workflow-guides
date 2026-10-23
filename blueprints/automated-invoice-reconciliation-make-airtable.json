@@ -1,12 +1,12 @@
 {
-  "name": "Arkgon Systems // Automated Invoice Reconciliation for Small Agencies",
+  "name": "Arkgon Systems // Automated Invoice Reconciliation for Small Agencies (automated-invoice-reconciliation-make-airtable)",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
       "version": 1,
       "parameters": {
-        "hookLabel": "automated-invoice-reconciliation-make-airtable-ingest",
+        "hookLabel": "automated-invoice-reconciliation-make-airtable-webhook",
         "maxResults": 1
       },
       "mapper": {},
@@ -15,7 +15,7 @@
           "x": 0,
           "y": 0
         },
-        "notes": "Ingests real-time event from Make"
+        "notes": "Real-time event trigger from Make"
       }
     },
     {
@@ -30,7 +30,7 @@
             "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
           },
           {
-            "name": "normalized_status",
+            "name": "pipeline_state",
             "value": "{{lower(1.status)}}"
           }
         ]
@@ -40,18 +40,18 @@
           "x": 300,
           "y": 0
         },
-        "notes": "Deterministic SHA-256 deduplication key"
+        "notes": "SHA-256 idempotency guard for invoice_reconciliation"
       }
     },
     {
       "id": 3,
-      "module": "http:ActionSendData",
+      "module": "airtable:ActionUpsertRecord",
       "version": 3,
       "parameters": {
         "handleErrors": true
       },
       "mapper": {
-        "url": "https://api.airtable.com/v1/records/upsert",
+        "url": "https://api.airtable.com/v0/appB2B/tblLedger",
         "method": "post",
         "headers": [
           {
@@ -61,14 +61,14 @@
         ],
         "bodyType": "raw",
         "contentType": "application/json",
-        "data": "{\"external_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"status\":\"{{2.normalized_status}}\",\"synced_by\":\"Arkgon Systems v15.1\"}"
+        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.pipeline_state}}\",\"pipeline\":\"automated-invoice-reconciliation-make-airtable\"}"
       },
       "metadata": {
         "designer": {
           "x": 600,
           "y": 0
         },
-        "notes": "Atomic upsert into Airtable with retry guard"
+        "notes": "Upsert into Airtable (https://api.airtable.com/v0/appB2B/tblLedger)"
       }
     }
   ],
@@ -81,10 +81,7 @@
       "autoCommit": true,
       "sequential": false
     },
-    "designer": {
-      "orphans": []
-    },
-    "arkgon_release": "v15.1",
+    "arkgon_spec_id": 1,
     "slug": "automated-invoice-reconciliation-make-airtable"
   }
 }

@@ -1,18 +1,24 @@
-# Arkgon Systems — B2B Workflow Architecture Directory
+# Awesome Make.com B2B Workflow Blueprints (`.JSON`) — Arkgon Systems
 
-Live Portal: [https://arkgonsystems.github.io/b2b-workflow-guides/](https://arkgonsystems.github.io/b2b-workflow-guides/)
+Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook idempotency guards, and B2B integration schemas across **HubSpot**, **Airtable**, **Stripe**, and **Notion**.
 
-## Published Architecture Specifications (12)
+- **Live Architecture Directory & Free `.JSON` Downloads:** [https://arkgonsystems.github.io/b2b-workflow-guides/](https://arkgonsystems.github.io/b2b-workflow-guides/)
+- **Provision Make.com (Required to Import `.JSON` Files):** [Open Make.com Free Workspace](https://www.make.com/en/register?pc=loudplatypus6)
+- **All-in-One 70-Blueprint Agency Vault ($19):** [Download Complete Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
 
-- **#1 [Automated Invoice Reconciliation for Small Agencies](https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html)** (`Make` + `Airtable`)
-- **#2 [Real-Time B2B Inbound Lead Routing & Scoring](https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html)** (`HubSpot` + `Make`)
-- **#3 [Automated Contractor Onboarding & Document Collection](https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html)** (`Notion` + `Make`)
-- **#4 [Automated SaaS Failed Payment & Churn Recovery Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html)** (`Make` + `Airtable`)
-- **#5 [Multi-SKU Low Inventory Reorder Forecasting System](https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html)** (`Airtable` + `Make`)
-- **#6 [Automated Weekly Client KPI Executive Rollup](https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html)** (`Make` + `Notion`)
-- **#7 [B2B RFP & Security Questionnaire Response Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html)** (`Notion` + `Airtable`)
-- **#8 [Zero-Touch B2B Accounts Receivable Follow-Up Engine](https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html)** (`Make` + `HubSpot`)
-- **#9 [SaaS Spend & Vendor Contract Renewal Alert Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html)** (`Airtable` + `Make`)
-- **#10 [High-Ticket B2B Client Onboarding Milestone Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html)** (`Notion` + `HubSpot`)
-- **#11 [Automated Stripe Chargeback & Dispute Evidence Assembly](https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html)** (`Make` + `Airtable`)
-- **#12 [Automated B2B Deal Desk Discount Approval Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html)** (`Make` + `HubSpot`)
+## Published Make.com Architecture Specifications (12)
+
+| ID | B2B Workflow Architecture | Stack | Monthly ROI | Direct `.JSON` |
+| :--- | :--- | :--- | :--- | :--- |
+| **#1** | [Automated Invoice Reconciliation for Small Agencies](https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html) | `Make` + `Airtable` | 15.1 hrs ($1,284/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json) |
+| **#2** | [Real-Time B2B Inbound Lead Routing & Scoring](https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html) | `HubSpot` + `Make` | 18.1 hrs ($1,539/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json) |
+| **#3** | [Automated Contractor Onboarding & Document Collection](https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html) | `Notion` + `Make` | 26.2 hrs ($2,227/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json) |
+| **#4** | [Automated SaaS Failed Payment & Churn Recovery Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html) | `Make` + `Airtable` | 16.7 hrs ($1,420/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json) |
+| **#5** | [Multi-SKU Low Inventory Reorder Forecasting System](https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html) | `Airtable` + `Make` | 15.5 hrs ($1,318/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json) |
+| **#6** | [Automated Weekly Client KPI Executive Rollup](https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html) | `Make` + `Notion` | 22.5 hrs ($1,913/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json) |
+| **#7** | [B2B RFP & Security Questionnaire Response Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html) | `Notion` + `Airtable` | 14.3 hrs ($1,216/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json) |
+| **#8** | [Zero-Touch B2B Accounts Receivable Follow-Up Engine](https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html) | `Make` + `HubSpot` | 17.0 hrs ($1,445/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json) |
+| **#9** | [SaaS Spend & Vendor Contract Renewal Alert Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html) | `Airtable` + `Make` | 33.0 hrs ($2,805/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json) |
+| **#10** | [High-Ticket B2B Client Onboarding Milestone Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html) | `Notion` + `HubSpot` | 30.9 hrs ($2,627/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json) |
+| **#11** | [Automated Stripe Chargeback & Dispute Evidence Assembly](https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html) | `Make` + `Airtable` | 23.9 hrs ($2,031/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json) |
+| **#12** | [Automated B2B Deal Desk Discount Approval Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html) | `Make` + `HubSpot` | 31.9 hrs ($2,712/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json) |

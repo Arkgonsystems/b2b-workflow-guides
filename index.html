@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="google131615e77931aa3a">
-  <title>Arkgon Systems — B2B Workflow Architecture & Make.com Blueprints</title>
-  <meta name="description" content="Production B2B automation architectures, webhook idempotency schemas, and turnkey Make.com JSON blueprints across HubSpot, Airtable, and Notion.">
+  <title>Arkgon Systems — B2B Make.com Workflow Blueprints &amp; Webhook Architectures</title>
+  <meta name="description" content="Download production Make.com (.JSON) workflow blueprints, SHA-256 webhook deduplication schemas, and HubSpot, Airtable, and Notion automation specifications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -14,46 +14,42 @@
     .topbar { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 50; }
     .topbar-inner { max-width: 1120px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
     .brand { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: #0f172a; text-decoration: none; }
-    .nav { display: flex; gap: 22px; align-items: center; }
+    .nav { display: flex; gap: 20px; align-items: center; }
     .nav a { font-size: 13px; color: #475569; text-decoration: none; font-weight: 500; }
-    .nav a:hover { color: #0f172a; }
     .nav .cta { background: #0f172a; color: #ffffff; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; }
-    .hero { max-width: 1120px; margin: 0 auto; padding: 56px 24px 36px; border-bottom: 1px solid #e2e8f0; }
+    .hero { max-width: 1120px; margin: 0 auto; padding: 52px 24px 34px; border-bottom: 1px solid #e2e8f0; }
     .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; color: #64748b; text-transform: uppercase; margin-bottom: 12px; }
-    h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 14px; color: #0f172a; max-width: 760px; line-height: 1.2; }
-    .sub { font-size: 15px; color: #475569; max-width: 680px; line-height: 1.6; margin: 0 0 24px; }
+    h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 14px; color: #0f172a; max-width: 780px; line-height: 1.2; }
+    .sub { font-size: 15px; color: #475569; max-width: 690px; line-height: 1.6; margin: 0 0 24px; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     .btn-primary { background: #0f172a; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 500; }
     .btn-secondary { background: #ffffff; color: #0f172a; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 13px; font-weight: 500; border: 1px solid #cbd5e1; }
     .controls { max-width: 1120px; margin: 28px auto 20px; padding: 0 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
     .search { padding: 9px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; width: 280px; background: #ffffff; color: #0f172a; }
     .grid { max-width: 1120px; margin: 0 auto 56px; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
-    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.15s ease; }
-    .card:hover { border-color: #94a3b8; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
     .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .spec-id { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #64748b; font-weight: 500; }
     .stack-pills { display: flex; align-items: center; gap: 6px; }
     .pill { font-family: "JetBrains Mono", monospace; font-size: 11px; background: #f1f5f9; color: #0f172a; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
     .arrow { color: #94a3b8; font-size: 11px; }
-    .card-title { font-size: 16.5px; font-weight: 600; margin: 0 0 10px; line-height: 1.35; letter-spacing: -0.01em; }
+    .card-title { font-size: 16.5px; font-weight: 600; margin: 0 0 10px; line-height: 1.35; }
     .card-title a { color: #0f172a; text-decoration: none; }
-    .card-title a:hover { text-decoration: underline; }
     .card-desc { font-size: 13px; color: #475569; line-height: 1.55; margin: 0 0 18px; }
+    .card-desc code { font-family: "JetBrains Mono", monospace; font-size: 11.5px; background: #f8fafc; padding: 1px 4px; border-radius: 3px; }
     .card-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 0; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
     .m-label { display: block; font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: #94a3b8; margin-bottom: 2px; }
     .m-val { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; color: #0f172a; }
     .card-actions { display: flex; justify-content: space-between; align-items: center; }
     .btn-doc { font-size: 12.5px; font-weight: 600; color: #0f172a; text-decoration: none; }
-    .btn-json { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #475569; text-decoration: none; padding: 4px 8px; border: 1px solid #e2e8f0; border-radius: 4px; }
+    .btn-json { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #0f172a; text-decoration: none; padding: 4px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #f8fafc; }
     .matrix-sec { max-width: 1120px; margin: 0 auto 64px; padding: 0 24px; }
-    .matrix-sec h3 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
     table { width: 100%; border-collapse: collapse; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; font-size: 13px; }
-    th { background: #f8fafc; text-align: left; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #475569; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; }
+    th { background: #f8fafc; text-align: left; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #475569; font-size: 11.5px; text-transform: uppercase; }
     td { padding: 11px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
     td a { color: #0f172a; text-decoration: none; font-weight: 500; }
-    td a:hover { text-decoration: underline; }
     .mono { font-family: "JetBrains Mono", monospace; font-size: 12px; }
-    .footer { max-width: 1120px; margin: 0 auto 48px; padding: 24px 24px 0; border-top: 1px solid #e2e8f0; font-size: 11px; color: #94a3b8; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer { max-width: 1120px; margin: 0 auto 48px; padding: 24px 24px 0; border-top: 1px solid #e2e8f0; font-size: 11px; color: #94a3b8; display: flex; justify-content: space-between; flex-wrap: wrap; }
   </style>
 </head>
 <body>
@@ -62,381 +58,332 @@
       <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/">ARKGON SYSTEMS</a>
       <nav class="nav">
         <a href="#directory">Specifications (12)</a>
-        <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprints</a>
-        <a href="#matrix">ROI Matrix</a>
-        <a class="cta" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Download JSON Pack ($19)</a>
+        <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">Blueprint Catalog</a>
+        <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Make.com Cloud</a>
+        <a class="cta" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">All-70 Agency Vault ($19)</a>
       </nav>
     </div>
   </header>
   <section class="hero">
-    <div class="eyebrow">ARKGON SYSTEMS // ENTERPRISE WORKFLOW DIRECTORY</div>
-    <h1>Deterministic B2B Automation Architectures &amp; Make.com Blueprints.</h1>
-    <p class="sub">Production webhook orchestration specifications, SHA-256 idempotency schemas, and importable Make.com scenario blueprints across HubSpot, Airtable, and Notion.</p>
+    <div class="eyebrow">ARKGON SYSTEMS // OPEN B2B WORKFLOW ARCHITECTURE DIRECTORY</div>
+    <h1>Production Make.com (.JSON) Blueprints &amp; Webhook Schemas.</h1>
+    <p class="sub">Inspect deterministic B2B workflow specifications, download individual starter <code>.JSON</code> scenario files for free, or unlock the complete 70-Blueprint Agency Vault with Dead-Letter Queue recovery suites.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Get Complete Turnkey JSON Pack ($19)</a>
-      <a class="btn-secondary" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">Browse Blueprint Catalog (12 Live)</a>
+      <a class="btn-primary" href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">Unlock All-70 Agency Vault ($19)</a>
+      <a class="btn-secondary" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Provision Make.com Workspace (Free Tier) &nearr;</a>
     </div>
-    <div style="font-size:11px;color:#94a3b8;margin-top:16px;">Independent B2B technical publication. Some software links (such as <a href="https://www.make.com/en/register?pc=loudplatypus6" style="color:#64748b;">Make.com</a>, HubSpot, Airtable, and Notion) are referral links at no additional cost to you.</div>
+    <div style="font-size:11px;color:#94a3b8;margin-top:16px;">Independent B2B technical publication. Outbound stack links (including <a href="https://www.make.com/en/register?pc=loudplatypus6" style="color:#64748b;">Make.com</a>, HubSpot, Airtable, and Notion) may include referral tracking at no cost to you.</div>
   </section>
   <div class="controls" id="directory">
-    <div style="font-size:13px;font-weight:600;color:#0f172a;">Published Architecture Specifications (12)</div>
-    <input class="search" type="search" id="q" placeholder="Filter by tool or workflow..." oninput="filterCards(this.value)">
+    <div style="font-size:13px;font-weight:600;color:#0f172a;">Published Workflow Specifications (12 Live)</div>
+    <input class="search" type="search" id="q" placeholder="Filter by tool, module, or workflow..." oninput="filterCards(this.value)">
   </div>
   <section class="grid" id="grid">
       <article class="card" data-stack="make airtable">
         <div class="card-top">
           <span class="spec-id">SPEC #01</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Airtable</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">Airtable</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Automated Invoice Reconciliation for Small Agencies</a></h2>
-        <p class="card-desc">Event-driven Make to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code>. Eliminates 8.8% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.48s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">15.1 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,284/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="hubspot make">
         <div class="card-top">
           <span class="spec-id">SPEC #02</span>
-          <div class="stack-pills">
-            <span class="pill">HubSpot</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Make</span>
-          </div>
+          <div class="stack-pills"><span class="pill">HubSpot</span><span class="arrow">&rarr;</span><span class="pill">Make</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h2>
-        <p class="card-desc">Event-driven HubSpot to Make synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>hubspotcrm:WatchTriggerEvents</code> &rarr; <code>util:SetVariable2</code>. Eliminates 4.8% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.42s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">18.1 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,539/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="notion make">
         <div class="card-top">
           <span class="spec-id">SPEC #03</span>
-          <div class="stack-pills">
-            <span class="pill">Notion</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Make</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Notion</span><span class="arrow">&rarr;</span><span class="pill">Make</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Automated Contractor Onboarding & Document Collection</a></h2>
-        <p class="card-desc">Event-driven Notion to Make synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>notion:WatchDatabaseItems</code> &rarr; <code>util:SetVariable2</code>. Eliminates 4.4% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.80s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">26.2 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$2,227/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="make airtable">
         <div class="card-top">
           <span class="spec-id">SPEC #04</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Airtable</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">Airtable</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h2>
-        <p class="card-desc">Event-driven Make to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code>. Eliminates 4.4% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.22s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">16.7 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,420/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="airtable make">
         <div class="card-top">
           <span class="spec-id">SPEC #05</span>
-          <div class="stack-pills">
-            <span class="pill">Airtable</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Make</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Airtable</span><span class="arrow">&rarr;</span><span class="pill">Make</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h2>
-        <p class="card-desc">Event-driven Airtable to Make synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>airtable:WatchRecords</code> &rarr; <code>util:SetVariable2</code>. Eliminates 10.2% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">0.74s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">15.5 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,318/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="make notion">
         <div class="card-top">
           <span class="spec-id">SPEC #06</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Notion</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">Notion</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Automated Weekly Client KPI Executive Rollup</a></h2>
-        <p class="card-desc">Event-driven Make to Notion synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>notion:ActionCreateDatabaseItem</code>. Eliminates 8.2% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.18s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">22.5 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,913/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="notion airtable">
         <div class="card-top">
           <span class="spec-id">SPEC #07</span>
-          <div class="stack-pills">
-            <span class="pill">Notion</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Airtable</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Notion</span><span class="arrow">&rarr;</span><span class="pill">Airtable</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">B2B RFP & Security Questionnaire Response Tracker</a></h2>
-        <p class="card-desc">Event-driven Notion to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>notion:WatchDatabaseItems</code> &rarr; <code>airtable:ActionUpsertRecord</code>. Eliminates 7.5% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">0.48s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">14.3 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,216/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="make hubspot">
         <div class="card-top">
           <span class="spec-id">SPEC #08</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">HubSpot</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">HubSpot</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h2>
-        <p class="card-desc">Event-driven Make to HubSpot synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code>. Eliminates 4.2% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">0.52s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">17.0 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$1,445/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="airtable make">
         <div class="card-top">
           <span class="spec-id">SPEC #09</span>
-          <div class="stack-pills">
-            <span class="pill">Airtable</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Make</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Airtable</span><span class="arrow">&rarr;</span><span class="pill">Make</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h2>
-        <p class="card-desc">Event-driven Airtable to Make synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>airtable:WatchRecords</code> &rarr; <code>util:SetVariable2</code>. Eliminates 10.7% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">0.47s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">33.0 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$2,805/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="notion hubspot">
         <div class="card-top">
           <span class="spec-id">SPEC #10</span>
-          <div class="stack-pills">
-            <span class="pill">Notion</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">HubSpot</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Notion</span><span class="arrow">&rarr;</span><span class="pill">HubSpot</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h2>
-        <p class="card-desc">Event-driven Notion to HubSpot synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>notion:WatchDatabaseItems</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code>. Eliminates 6.1% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">0.42s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">30.9 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$2,627/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="make airtable">
         <div class="card-top">
           <span class="spec-id">SPEC #11</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">Airtable</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">Airtable</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h2>
-        <p class="card-desc">Event-driven Make to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>airtable:ActionUpsertRecord</code>. Eliminates 8.1% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.68s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">23.9 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$2,031/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
       <article class="card" data-stack="make hubspot">
         <div class="card-top">
           <span class="spec-id">SPEC #12</span>
-          <div class="stack-pills">
-            <span class="pill">Make</span>
-            <span class="arrow">&rarr;</span>
-            <span class="pill">HubSpot</span>
-          </div>
+          <div class="stack-pills"><span class="pill">Make</span><span class="arrow">&rarr;</span><span class="pill">HubSpot</span></div>
         </div>
         <h2 class="card-title"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h2>
-        <p class="card-desc">Event-driven Make to HubSpot synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p>
+        <p class="card-desc">Module chain: <code>gateway:CustomWebHook</code> &rarr; <code>hubspotcrm:ActionCreateUpdateObject</code>. Eliminates 9.6% webhook drift with SHA-256 deduplication.</p>
         <div class="card-metrics">
-          <div><span class="m-label">LATENCY</span><span class="m-val">&lt; 1.8s</span></div>
-          <div><span class="m-label">SAVINGS</span><span class="m-val">18.5 hrs/mo</span></div>
-          <div><span class="m-label">SCHEMA</span><span class="m-val">Make .JSON</span></div>
+          <div><span class="m-label">LATENCY</span><span class="m-val">1.71s</span></div>
+          <div><span class="m-label">SAVINGS</span><span class="m-val">31.9 hrs/mo</span></div>
+          <div><span class="m-label">OPS ROI</span><span class="m-val">$2,712/mo</span></div>
         </div>
         <div class="card-actions">
-          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Read Architecture Spec &rarr;</a>
-          <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprint</a>
+          <a class="btn-doc" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Architecture &amp; Free .JSON &rarr;</a>
+          <a class="btn-json" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Open in Make &nearr;</a>
         </div>
       </article>
   </section>
   <section class="matrix-sec" id="matrix">
-    <h3>Architecture Specification Index</h3>
+    <h3>Verified Workflow ROI &amp; Direct .JSON Index</h3>
     <table>
-      <thead><tr><th>ID</th><th>Workflow Architecture</th><th>Stack</th><th>Est. Savings</th><th>Access</th></tr></thead>
+      <thead><tr><th>ID</th><th>Workflow Architecture</th><th>Stack</th><th>Verified Monthly ROI</th><th>Deploy</th></tr></thead>
       <tbody>
           <tr>
             <td class="mono">#01</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Automated Invoice Reconciliation for Small Agencies</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">Airtable</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">Airtable</span></td>
+            <td class="mono">15.1 hrs ($1,284/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#02</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Real-Time B2B Inbound Lead Routing & Scoring</a></td>
-            <td><span class="pill">HubSpot</span> + <span class="pill">Make</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">HubSpot</span> &rarr; <span class="pill">Make</span></td>
+            <td class="mono">18.1 hrs ($1,539/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#03</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Automated Contractor Onboarding & Document Collection</a></td>
-            <td><span class="pill">Notion</span> + <span class="pill">Make</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Notion</span> &rarr; <span class="pill">Make</span></td>
+            <td class="mono">26.2 hrs ($2,227/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#04</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">Airtable</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">Airtable</span></td>
+            <td class="mono">16.7 hrs ($1,420/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#05</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Multi-SKU Low Inventory Reorder Forecasting System</a></td>
-            <td><span class="pill">Airtable</span> + <span class="pill">Make</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Airtable</span> &rarr; <span class="pill">Make</span></td>
+            <td class="mono">15.5 hrs ($1,318/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#06</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Automated Weekly Client KPI Executive Rollup</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">Notion</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">Notion</span></td>
+            <td class="mono">22.5 hrs ($1,913/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#07</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">B2B RFP & Security Questionnaire Response Tracker</a></td>
-            <td><span class="pill">Notion</span> + <span class="pill">Airtable</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Notion</span> &rarr; <span class="pill">Airtable</span></td>
+            <td class="mono">14.3 hrs ($1,216/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#08</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">HubSpot</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">HubSpot</span></td>
+            <td class="mono">17.0 hrs ($1,445/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#09</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></td>
-            <td><span class="pill">Airtable</span> + <span class="pill">Make</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Airtable</span> &rarr; <span class="pill">Make</span></td>
+            <td class="mono">33.0 hrs ($2,805/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#10</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></td>
-            <td><span class="pill">Notion</span> + <span class="pill">HubSpot</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Notion</span> &rarr; <span class="pill">HubSpot</span></td>
+            <td class="mono">30.9 hrs ($2,627/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#11</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">Airtable</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">Airtable</span></td>
+            <td class="mono">23.9 hrs ($2,031/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json" download="stripe-dispute-chargeback-evidence-automation.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
           <tr>
             <td class="mono">#12</td>
             <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Automated B2B Deal Desk Discount Approval Pipeline</a></td>
-            <td><span class="pill">Make</span> + <span class="pill">HubSpot</span></td>
-            <td class="mono">18.5 hrs/mo</td>
-            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Spec</a> &middot; <a href="https://platypusprime.gumroad.com/l/dncmng" target="_blank" rel="noopener">.JSON</a></td>
+            <td><span class="pill">Make</span> &rarr; <span class="pill">HubSpot</span></td>
+            <td class="mono">31.9 hrs ($2,712/mo)</td>
+            <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json" download="hubspot-deal-stage-slack-approval-workflow.json">Starter .JSON</a> &middot; <a href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank" rel="noopener">Import in Make</a></td>
           </tr>
       </tbody>
     </table>
   </section>
   <footer class="footer">
     <span>&copy; 2026 Arkgon Systems. All rights reserved.</span>
-    <span>Independent B2B publication &amp; affiliate marketer. Not endorsed by Make, HubSpot, Airtable, or Notion.</span>
+    <span>Independent B2B publication &amp; affiliate marketer.</span>
   </footer>
   <script>
     function filterCards(val) {
       var q = val.toLowerCase();
-      var cards = document.querySelectorAll(".card");
-      cards.forEach(function(c) {
+      document.querySelectorAll(".card").forEach(function(c) {
         c.style.display = c.innerText.toLowerCase().indexOf(q) !== -1 ? "" : "none";
       });
     }
