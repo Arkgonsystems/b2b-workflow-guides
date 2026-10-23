@@ -1,0 +1,90 @@
+{
+  "name": "Arkgon Systems // Automated Stripe Chargeback & Dispute Evidence Assembly",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hookLabel": "stripe-dispute-chargeback-evidence-automation-ingest",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Ingests real-time event from Make"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "normalized_status",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "Deterministic SHA-256 deduplication key"
+      }
+    },
+    {
+      "id": 3,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.airtable.com/v1/records/upsert",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"external_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"status\":\"{{2.normalized_status}}\",\"synced_by\":\"Arkgon Systems v15.1\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Atomic upsert into Airtable with retry guard"
+      }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "arkgon_release": "v15.1",
+    "slug": "stripe-dispute-chargeback-evidence-automation"
+  }
+}
