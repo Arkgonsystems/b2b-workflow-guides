@@ -1,0 +1,87 @@
+{
+  "name": "Arkgon Systems // Automated Multi-Currency Employee Expense Triage (multi-currency-expense-reimbursement-ledger)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hookLabel": "multi-currency-expense-reimbursement-ledger-webhook",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Real-time event trigger from Make"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "expense_state",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "SHA-256 idempotency guard for multi_currency"
+      }
+    },
+    {
+      "id": 3,
+      "module": "airtable:ActionUpsertRecord",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.airtable.com/v0/appB2B/tblLedger",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.expense_state}}\",\"pipeline\":\"multi-currency-expense-reimbursement-ledger\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Upsert into Airtable (https://api.airtable.com/v0/appB2B/tblLedger)"
+      }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    },
+    "arkgon_spec_id": 14,
+    "slug": "multi-currency-expense-reimbursement-ledger"
+  }
+}
