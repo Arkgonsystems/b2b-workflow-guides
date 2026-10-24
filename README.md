@@ -6,7 +6,7 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 - **Provision Make.com (Required to Import `.JSON` Files):** [Open Make.com Free Workspace](https://www.make.com/en/register?pc=loudplatypus6)
 - **All-in-One 70-Blueprint Agency Vault ($19):** [Download Complete Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
 
-## Published Make.com Architecture Specifications (12)
+## Published Make.com Architecture Specifications (13)
 
 | ID | B2B Workflow Architecture | Stack | Monthly ROI | Direct `.JSON` |
 | :--- | :--- | :--- | :--- | :--- |
@@ -22,3 +22,4 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 | **#10** | [High-Ticket B2B Client Onboarding Milestone Tracker](https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html) | `Notion` + `HubSpot` | 30.9 hrs ($2,627/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json) |
 | **#11** | [Automated Stripe Chargeback & Dispute Evidence Assembly](https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html) | `Make` + `Airtable` | 23.9 hrs ($2,031/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json) |
 | **#12** | [Automated B2B Deal Desk Discount Approval Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html) | `Make` + `HubSpot` | 31.9 hrs ($2,712/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json) |
+| **#13** | [Automated B2B Podcast & Webinar Guest Intake Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html) | `Make` + `Notion` | 12.0 hrs ($1,020/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-podcast-guest-intake-crm-pipeline.json) |

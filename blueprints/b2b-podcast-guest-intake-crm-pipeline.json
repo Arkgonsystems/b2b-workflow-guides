@@ -1,0 +1,87 @@
+{
+  "name": "Arkgon Systems // Automated B2B Podcast & Webinar Guest Intake Pipeline (b2b-podcast-guest-intake-crm-pipeline)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hookLabel": "b2b-podcast-guest-intake-crm-pipeline-webhook",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Real-time event trigger from Make"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "intake_state",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "SHA-256 idempotency guard for podcast_guest"
+      }
+    },
+    {
+      "id": 3,
+      "module": "notion:ActionCreateDatabaseItem",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.notion.com/v1/pages",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.intake_state}}\",\"pipeline\":\"b2b-podcast-guest-intake-crm-pipeline\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Upsert into Notion (https://api.notion.com/v1/pages)"
+      }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    },
+    "arkgon_spec_id": 13,
+    "slug": "b2b-podcast-guest-intake-crm-pipeline"
+  }
+}
