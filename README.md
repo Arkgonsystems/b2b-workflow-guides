@@ -6,7 +6,7 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 - **Provision Make.com (Required to Import `.JSON` Files):** [Open Make.com Free Workspace](https://www.make.com/en/register?pc=loudplatypus6)
 - **All-in-One 70-Blueprint Agency Vault ($19):** [Download Complete Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
 
-## Published Make.com Architecture Specifications (15)
+## Published Make.com Architecture Specifications (16)
 
 | ID | B2B Workflow Architecture | Stack | Monthly ROI | Direct `.JSON` |
 | :--- | :--- | :--- | :--- | :--- |
@@ -25,3 +25,4 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 | **#13** | [Automated B2B Podcast & Webinar Guest Intake Pipeline](https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html) | `Make` + `Notion` | 12.0 hrs ($1,020/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-podcast-guest-intake-crm-pipeline.json) |
 | **#14** | [Automated Multi-Currency Employee Expense Triage](https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html) | `Make` + `Airtable` | 16.6 hrs ($1,411/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/multi-currency-expense-reimbursement-ledger.json) |
 | **#15** | [Product-Qualified Lead (PQL) Trial Usage Alert Engine](https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html) | `Make` + `HubSpot` | 11.8 hrs ($1,003/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-trial-usage-scoring-hubspot-alerts.json) |
+| **#16** | [Real-Time Agency Retainer Burn-Rate & Overage Alerter](https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html) | `Make` + `Notion` | 26.1 hrs ($2,219/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/agency-retainer-hours-burn-rate-tracker.json) |

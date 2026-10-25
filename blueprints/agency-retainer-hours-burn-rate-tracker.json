@@ -1,0 +1,87 @@
+{
+  "name": "Arkgon Systems // Real-Time Agency Retainer Burn-Rate & Overage Alerter (agency-retainer-hours-burn-rate-tracker)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hookLabel": "agency-retainer-hours-burn-rate-tracker-webhook",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Real-time event trigger from Make"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "hours_state",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "SHA-256 idempotency guard for agency_retainer"
+      }
+    },
+    {
+      "id": 3,
+      "module": "notion:ActionCreateDatabaseItem",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.notion.com/v1/pages",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.hours_state}}\",\"pipeline\":\"agency-retainer-hours-burn-rate-tracker\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Upsert into Notion (https://api.notion.com/v1/pages)"
+      }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    },
+    "arkgon_spec_id": 16,
+    "slug": "agency-retainer-hours-burn-rate-tracker"
+  }
+}
