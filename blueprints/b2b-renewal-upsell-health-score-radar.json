@@ -1,0 +1,87 @@
+{
+  "name": "Arkgon Systems // 90-Day B2B Account Renewal & Churn Risk Radar (b2b-renewal-upsell-health-score-radar)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hookLabel": "b2b-renewal-upsell-health-score-radar-webhook",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "notes": "Real-time event trigger from Make"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "variables": [
+          {
+            "name": "idempotency_key",
+            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
+          },
+          {
+            "name": "health_state",
+            "value": "{{lower(1.status)}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "notes": "SHA-256 idempotency guard for renewal_upsell"
+      }
+    },
+    {
+      "id": 3,
+      "module": "hubspotcrm:ActionCreateUpdateObject",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true
+      },
+      "mapper": {
+        "url": "https://api.hubapi.com/crm/v3/objects/deals/batch/upsert",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.health_state}}\",\"pipeline\":\"b2b-renewal-upsell-health-score-radar\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "notes": "Upsert into HubSpot (https://api.hubapi.com/crm/v3/objects/deals/batch/upsert)"
+      }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    },
+    "arkgon_spec_id": 19,
+    "slug": "b2b-renewal-upsell-health-score-radar"
+  }
+}
