@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/</loc><lastmod>2026-10-29</lastmod><priority>1.0</priority></url>
+  <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html</loc><lastmod>2026-10-29</lastmod><priority>0.95</priority></url>
+  <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html</loc><lastmod>2026-10-29</lastmod><priority>0.90</priority></url>
+  <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html</loc><lastmod>2026-10-29</lastmod><priority>0.90</priority></url>
   <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html</loc><lastmod>2026-10-29</lastmod><priority>0.85</priority></url>
   <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html</loc><lastmod>2026-10-29</lastmod><priority>0.85</priority></url>
   <url><loc>https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html</loc><lastmod>2026-10-29</lastmod><priority>0.85</priority></url>

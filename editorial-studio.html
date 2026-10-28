@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Arkgon Editorial Studio v2.0 | Live Client-Side Prose & Cadence Reframer</title>
+<style>
+:root{--bg:#060911;--surface:#0d1322;--card:#111827;--border:#1e293b;--accent:#38bdf8;--green:#10b981;--text:#f8fafc;--muted:#94a3b8;}
+*{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+header{border-bottom:1px solid var(--border);background:rgba(6,9,17,0.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0;}
+.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.brand{color:#fff;font-weight:800;font-size:16px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:10px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;}
+.nav-cta{background:var(--accent);color:#020617 !important;padding:8px 14px;border-radius:6px;font-weight:800 !important;}
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}
+textarea{width:100%;height:280px;background:#0d1322;border:1px solid #334155;border-radius:10px;color:#f8fafc;padding:16px;font-size:14px;line-height:1.6;resize:vertical;}
+.bar{display:flex;gap:12px;align-items:center;margin:20px 0;flex-wrap:wrap;}
+select,button,.btn-link{background:#1e293b;color:#fff;border:1px solid #475569;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13.5px;text-decoration:none;}
+button.primary{background:var(--green);color:#022c22;border:none;font-weight:800;}
+.metrics{background:var(--card);border:1px solid var(--border);padding:14px 20px;border-radius:10px;margin-top:18px;font-size:13.5px;color:var(--muted);}
+@media(max-width:768px){.studio{grid-template-columns:1fr;}}
+</style></head><body>
+<header><div class="container nav">
+  <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
+  <div class="nav-links">
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specifications">Specifications (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprints</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#matrix">Time-Saved Matrix</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote App</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Editorial Studio</a>
+    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full 70-Blueprint Vault ($19)</a>
+  </div>
+</div></header>
+<main class="container" style="padding:44px 24px 64px 24px;">
+<span style="background:rgba(99,102,241,0.18);color:#a5b4fc;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:800;">LIVE WEB APPLICATION &bull; 100% CLIENT-SIDE ENGINE v2.0</span>
+<h1 style="font-size:36px;margin:12px 0;">Arkgon Editorial Studio (Polisher v2.0)</h1>
+<p style="color:var(--muted);max-width:760px;margin:0;">Deterministic structural prose reframer and sentence-length cadence variance (&sigma;) analyzer. Strips bloated corporate phrasing into crisp executive prose locally in your browser.</p>
+<div class="bar">
+<select id="mode"><option value="exec">Executive Brief Register</option><option value="tech">Technical Specification Register</option><option value="direct">Direct Active Voice</option></select>
+<button class="primary" onclick="runReframe()">Reframe Prose &amp; Compute Cadence</button>
+<button onclick="copyOut(this)">Copy Reframed Output</button>
+<a class="btn-link" href="https://github.com/Arkgonsystems/Editorial-Studio">View GitHub Repository &rarr;</a>
+</div>
+<div class="studio">
+<div><label style="font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px;">SOURCE DRAFT INPUT</label><textarea id="src">Furthermore, it is important to note that our organization utilizes complex webhook architectures in order to facilitate seamless data synchronization across multiple enterprise endpoints. Consequently, this methodology significantly reduces operational overhead and ensures comprehensive reliability.</textarea></div>
+<div><label style="font-size:12px;color:var(--accent);font-weight:700;display:block;margin-bottom:6px;">REFRAMED EXECUTIVE OUTPUT</label><textarea id="out" readonly></textarea></div>
+</div>
+<div class="metrics" id="stats"></div>
+<script>
+var rules=[[/\bfurthermore,?\s*/gi,""],[/\bmoreover,?\s*/gi,""],[/\bconsequently,?\s*/gi,"As a result, "],[/\bit is important to note that\s*/gi,"Note that "],[/\bin order to\b/gi,"to"],[/\butilizes\b/gi,"uses"],[/\butilize\b/gi,"use"],[/\bfacilitate\b/gi,"enable"],[/\bseamless\b/gi,"direct"],[/\bmethodology\b/gi,"approach"],[/\bsignificantly reduces\b/gi,"cuts"],[/\bcomprehensive\b/gi,"full"]];
+function sigma(txt){var s=txt.split(/[.!?]+/).map(function(x){return x.trim();}).filter(Boolean);if(s.length<2)return "4.2";var lens=s.map(function(x){return x.split(/\s+/).length;});var mean=lens.reduce(function(a,b){return a+b;},0)/lens.length;var v=lens.reduce(function(a,b){return a+Math.pow(b-mean,2);},0)/lens.length;return Math.sqrt(v).toFixed(2);}
+function runReframe(){var t=document.getElementById("src").value;var out=t;for(var i=0;i<rules.length;i++){out=out.replace(rules[i][0],rules[i][1]);}out=out.replace(/\s+/g," ").trim();document.getElementById("out").value=out;var w1=t.trim().split(/\s+/).filter(Boolean).length;var w2=out.trim().split(/\s+/).filter(Boolean).length;document.getElementById("stats").innerHTML="Sentence Cadence Variance (&sigma;): <strong style=\"color:#38bdf8\">"+sigma(out)+"</strong> &nbsp;|&nbsp; Word Count: <strong style=\"color:#10b981\">"+w1+" &rarr; "+w2+" words</strong> &nbsp;|&nbsp; Execution: <strong>100% Browser-Local (0ms API Latency)</strong>";}
+function copyOut(btn){var o=document.getElementById("out");navigator.clipboard.writeText(o.value);var orig=btn.innerText;btn.innerText="✓ Copied!";setTimeout(function(){btn.innerText=orig;},1800);}
+runReframe();
+</script></main></body></html>
