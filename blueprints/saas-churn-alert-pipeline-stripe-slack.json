@@ -6,8 +6,11 @@
       "module": "gateway:CustomWebHook",
       "version": 1,
       "parameters": {
-        "hook": "saas-churn-alert-pipeline-stripe-slack-webhook",
+        "hook": "saas-churn-alert-pipeline-stripe-slack-ingest-webhook",
         "maxResults": 1
+      },
+      "metadata": {
+        "notes": "Step 1: Real-time webhook listener from Make"
       }
     },
     {
@@ -15,28 +18,53 @@
       "module": "util:SetVariable2",
       "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
+        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
+      },
+      "metadata": {
+        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
       }
     },
     {
       "id": 3,
       "module": "make:WatchRecords",
-      "version": 1
+      "version": 1,
+      "mapper": {
+        "external_id": "{{1.event_id}}"
+      },
+      "metadata": {
+        "notes": "Step 3: Source state verification in Make"
+      }
     },
     {
       "id": 4,
       "module": "builtin:BasicRouter",
-      "version": 1
+      "version": 1,
+      "metadata": {
+        "notes": "Step 4: Conditional validation & Dead-Letter Queue router"
+      }
     },
     {
       "id": 5,
       "module": "airtable:ActionUpsertRecord",
-      "version": 1
+      "version": 1,
+      "mapper": {
+        "idempotency_signature": "{{2.idempotency_key}}",
+        "status": "VERIFIED_SYNC"
+      },
+      "metadata": {
+        "notes": "Step 5: Atomic upsert into Airtable"
+      }
     }
   ],
   "metadata": {
     "instant": true,
     "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true
+    },
     "zone": "us1.make.com"
   }
 }

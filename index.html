@@ -1,29 +1,708 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="google-site-verification" content="google131615e77931aa3a" />
 <title>Arkgon Systems — B2B Workflow Architecture & Make.com Blueprints</title>
-<style>body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0e17;color:#f8fafc;line-height:1.6;}.wrap{max-width:1080px;margin:0 auto;padding:40px 24px;}a{color:#38bdf8;text-decoration:none;}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:28px;}.card{background:#111827;border:1px solid #1e293b;border-radius:10px;padding:22px;}.btn{display:inline-block;background:#10b981;color:#022c22;font-weight:800;padding:12px 20px;border-radius:8px;margin-right:12px;}</style></head><body><div class="wrap">
-<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b;padding-bottom:16px;margin-bottom:32px;"><strong>ARKGON SYSTEMS // ENTERPRISE WORKFLOW DIRECTORY</strong><a href="https://platypusprime.gumroad.com/l/dncmng" class="btn">Download JSON Pack ($19)</a></div>
-<h1>Deterministic B2B Automation Architectures &amp; Make.com Blueprints.</h1>
-<p style="color:#94a3b8;max-width:720px;">Production webhook orchestration specifications, SHA-256 idempotency schemas, and importable Make.com scenario blueprints (21 Live).</p>
-<div class="grid"><div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #01 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Automated Invoice Reconciliation for Small Agencies</a></h3><p style="color:#94a3b8;font-size:14px;">Event-driven Make to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #02 &bull; HubSpot &rarr; Make</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h3><p style="color:#94a3b8;font-size:14px;">Enriches inbound HubSpot prospect webhooks and assigns territory owners inside Make under strict SLA timers.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #03 &bull; Notion &rarr; Make</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Automated Contractor Onboarding & Document Collection</a></h3><p style="color:#94a3b8;font-size:14px;">Monitors priority Notion payloads, verifies contract tiers in Make, and triggers automated paging before breach.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #04 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h3><p style="color:#94a3b8;font-size:14px;">Extracts executed metadata from Make and provisions milestone billing schedules directly inside Airtable.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #05 &bull; Airtable &rarr; Make</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h3><p style="color:#94a3b8;font-size:14px;">Streams real-time stock adjustments from Airtable into Make with atomic backorder thresholds and retry queues.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #06 &bull; Make &rarr; Notion</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Automated Weekly Client KPI Executive Rollup</a></h3><p style="color:#94a3b8;font-size:14px;">Transforms closed-won Make webhooks into structured Notion client workspaces and milestone checklists.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #07 &bull; Notion &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">B2B RFP & Security Questionnaire Response Tracker</a></h3><p style="color:#94a3b8;font-size:14px;">Event-driven Notion to Airtable synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #08 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3><p style="color:#94a3b8;font-size:14px;">Enriches inbound Make prospect webhooks and assigns territory owners inside HubSpot under strict SLA timers.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #09 &bull; Airtable &rarr; Make</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h3><p style="color:#94a3b8;font-size:14px;">Monitors priority Airtable payloads, verifies contract tiers in Make, and triggers automated paging before breach.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #10 &bull; Notion &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3><p style="color:#94a3b8;font-size:14px;">Extracts executed metadata from Notion and provisions milestone billing schedules directly inside HubSpot.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #11 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h3><p style="color:#94a3b8;font-size:14px;">Streams real-time stock adjustments from Make into Airtable with atomic backorder thresholds and retry queues.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json" download="stripe-dispute-chargeback-evidence-automation.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #12 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h3><p style="color:#94a3b8;font-size:14px;">Transforms closed-won Make webhooks into structured HubSpot client workspaces and milestone checklists.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json" download="hubspot-deal-stage-slack-approval-workflow.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #13 &bull; Make &rarr; Notion</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></h3><p style="color:#94a3b8;font-size:14px;">Event-driven Make to Notion synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-podcast-guest-intake-crm-pipeline.json" download="b2b-podcast-guest-intake-crm-pipeline.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #14 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html">Automated Multi-Currency Employee Expense Triage</a></h3><p style="color:#94a3b8;font-size:14px;">Enriches inbound Make prospect webhooks and assigns territory owners inside Airtable under strict SLA timers.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/multi-currency-expense-reimbursement-ledger.json" download="multi-currency-expense-reimbursement-ledger.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #15 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></h3><p style="color:#94a3b8;font-size:14px;">Monitors priority Make payloads, verifies contract tiers in HubSpot, and triggers automated paging before breach.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-trial-usage-scoring-hubspot-alerts.json" download="saas-trial-usage-scoring-hubspot-alerts.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #16 &bull; Make &rarr; Notion</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></h3><p style="color:#94a3b8;font-size:14px;">Extracts executed metadata from Make and provisions milestone billing schedules directly inside Notion.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/agency-retainer-hours-burn-rate-tracker.json" download="agency-retainer-hours-burn-rate-tracker.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #17 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></h3><p style="color:#94a3b8;font-size:14px;">Streams real-time stock adjustments from Make into HubSpot with atomic backorder thresholds and retry queues.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-b2b-nda-contract-dispatch-pipeline.json" download="automated-b2b-nda-contract-dispatch-pipeline.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #18 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html">Automated Tier-3 Support to Engineering Bug Escalation</a></h3><p style="color:#94a3b8;font-size:14px;">Transforms closed-won Make webhooks into structured Airtable client workspaces and milestone checklists.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/zendesk-jira-engineering-escalation-bridge.json" download="zendesk-jira-engineering-escalation-bridge.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #19 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html">90-Day B2B Account Renewal & Churn Risk Radar</a></h3><p style="color:#94a3b8;font-size:14px;">Event-driven Make to HubSpot synchronization pipeline with SHA-256 idempotency guard and automated dead-letter retry handling.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-renewal-upsell-health-score-radar.json" download="b2b-renewal-upsell-health-score-radar.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #20 &bull; Make &rarr; Airtable</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html">Automated Partner & Affiliate Commission Payout Ledger</a></h3><p style="color:#94a3b8;font-size:14px;">Enriches inbound Make prospect webhooks and assigns territory owners inside Airtable under strict SLA timers.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-affiliate-payout-reconciliation.json" download="automated-affiliate-payout-reconciliation.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div>
-<div class="card"><div style="font-size:12px;color:#38bdf8;font-weight:700;">SPEC #21 &bull; Make &rarr; HubSpot</div><h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></h3><p style="color:#94a3b8;font-size:14px;">Monitors priority Make payloads, verifies contract tiers in HubSpot, and triggers automated paging before breach.</p><div style="margin-top:12px;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html" style="margin-right:16px;font-weight:700;">Read Architecture Spec &rarr;</a><a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/linkedin-lead-ads-instant-crm-enrichment.json" download="linkedin-lead-ads-instant-crm-enrichment.json" style="color:#10b981;font-weight:700;">JSON Blueprint</a></div></div></div>
-</div></body></html>
+<meta name="description" content="Deterministic B2B Automation Architectures, Make.com (.JSON) Blueprints, Arkgon SlideNote, and Arkgon Editorial Studio.">
+<style>
+:root{--bg:#060911;--surface:#0d1322;--card:#111827;--border:#1e293b;--accent:#38bdf8;--green:#10b981;--text:#f8fafc;--muted:#94a3b8;}
+*{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+header{border-bottom:1px solid var(--border);background:rgba(6,9,17,0.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0;}
+.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.brand{color:#fff;font-weight:800;font-size:16px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:10px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);}
+.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--accent);color:#020617 !important;padding:8px 16px;border-radius:6px;font-weight:800 !important;}
+.hero{padding:60px 0 44px 0;border-bottom:1px solid var(--border);}
+.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;}
+h1{font-size:42px;line-height:1.15;margin:12px 0 16px 0;max-width:840px;letter-spacing:-0.02em;color:#fff;}
+.hero p{color:var(--muted);font-size:17px;max-width:740px;margin:0 0 28px 0;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--green);color:#022c22;padding:13px 24px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;}
+.btn-secondary{background:#111827;color:#f8fafc;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid #334155;}
+.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin:36px 0 16px 0;}
+.suite-card{background:linear-gradient(145deg,#111827,#0b1120);border:1px solid #334155;border-radius:12px;padding:24px;}
+.suite-tag{display:inline-block;background:rgba(56,189,248,0.14);color:var(--accent);font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:0.05em;}
+.suite-card h2{margin:10px 0 8px 0;font-size:21px;color:#fff;}
+.suite-card p{margin:0 0 16px 0;color:var(--muted);font-size:13.5px;}
+.suite-link{color:var(--accent);text-decoration:none;font-weight:700;font-size:13.5px;}
+.sec-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin:44px 0 20px 0;flex-wrap:wrap;gap:12px;}
+.sec-hdr h2{margin:0;font-size:24px;color:#fff;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;}
+.spec-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color 0.15s ease,transform 0.15s ease;}
+.spec-card:hover{border-color:#38bdf8;transform:translateY(-2px);}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.pill{background:rgba(56,189,248,0.12);color:var(--accent);font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:99px;letter-spacing:0.05em;}
+.spec-num{font-family:ui-monospace,monospace;font-size:12px;color:var(--muted);font-weight:700;}
+.stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px;}
+.spec-card h3{margin:0 0 10px 0;font-size:18px;line-height:1.35;}
+.spec-card h3 a{color:#fff;text-decoration:none;}
+.spec-card h3 a:hover{color:var(--accent);}
+.desc{color:var(--muted);font-size:13.5px;margin:0 0 18px 0;}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:16px;}
+.metrics span{display:block;font-size:10px;color:var(--muted);font-weight:700;letter-spacing:0.05em;}
+.metrics strong{font-size:12.5px;color:#fff;}
+.card-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--border);}
+.btn-spec{color:var(--accent);text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;}
+.btn-json{background:rgba(16,185,129,0.14);color:var(--green);border:1px solid rgba(16,185,129,0.3);padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap;}
+.btn-json:hover{background:var(--green);color:#022c22;}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow-x:auto;margin:24px 0 64px 0;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border);}
+th{background:var(--surface);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;}
+.mono{font-family:ui-monospace,monospace;color:var(--accent);font-weight:700;}
+.tbl-stack{background:#1e293b;color:#e2e8f0;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;}
+footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:13px;text-align:center;}
+</style></head><body>
+<header><div class="container nav">
+  <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
+  <div class="nav-links">
+    <a href="#specifications">Specifications (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprints</a>
+    <a href="#matrix">ROI Matrix</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Editorial Studio</a>
+    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Download JSON Pack ($19)</a>
+  </div>
+</div></header>
+<main class="container">
+  <section class="hero">
+    <div class="eyebrow">ARKGON SYSTEMS // ENTERPRISE WORKFLOW DIRECTORY</div>
+    <h1>Deterministic B2B Automation Architectures &amp; Make.com Blueprints.</h1>
+    <p>Production webhook orchestration specifications, SHA-256 idempotency schemas, and importable Make.com scenario blueprints across HubSpot, Airtable, Stripe, and Notion.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://platypusprime.gumroad.com/l/dncmng">Get Complete Turnkey JSON Pack ($19)</a>
+      <a class="btn-secondary" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">Browse Interactive Blueprint Catalog (21 Live)</a>
+    </div>
+  </section>
+  <section class="suite-grid">
+    <div class="suite-card">
+      <span class="suite-tag">NATIVE DESKTOP UTILITY &bull; MACOS &amp; WINDOWS</span>
+      <h2>Arkgon SlideNote (DropDown HUD v1.0)</h2>
+      <p>120Hz top-edge drop-down workspace curtain with persistent clipboard history, drag-and-drop file rail, and multi-sheet Markdown studio.</p>
+      <a class="suite-link" href="https://github.com/Arkgonsystems/Slidenote">Explore SlideNote Repository &amp; v1.0.0 Release &rarr;</a>
+    </div>
+    <div class="suite-card">
+      <span class="suite-tag" style="color:#a5b4fc;background:rgba(99,102,241,0.16);">CLIENT-SIDE ENGINE &bull; ZERO TELEMETRY</span>
+      <h2>Arkgon Editorial Studio (Polisher v2.0)</h2>
+      <p>Deterministic client-side structural prose reframer and sentence-length cadence variance (&sigma;) analyzer with 130+ local transformation rules.</p>
+      <a class="suite-link" href="https://github.com/Arkgonsystems/Editorial-Studio">Explore Editorial Studio Repository &rarr;</a>
+    </div>
+  </section>
+  <div class="sec-hdr" id="specifications">
+    <div><h2>Published Architecture Specifications (21)</h2><p style="margin:4px 0 0 0;color:var(--muted);font-size:14px;">Every blueprint includes a downloadable Make.com .JSON scenario and SHA-256 webhook idempotency guard.</p></div>
+  </div>
+  <section class="grid"><article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">FINOPS LEDGER SYNC</span>
+      <span class="spec-num">SPEC #01</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Automated Invoice Reconciliation for Small Agencies</a></h3>
+    <p class="desc">Reconciles multi-currency invoice line items between Make and Airtable using SHA-256 payload deduplication and automated tax-variance quarantine.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.4s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">18.2 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">REVOPS LEAD ROUTER</span>
+      <span class="spec-num">SPEC #02</span>
+    </div>
+    <div class="stack-tag">HubSpot &rarr; Make</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h3>
+    <p class="desc">Enriches inbound HubSpot prospect webhooks, normalizes corporate domain records, and assigns territory owners inside Make under strict SLA timers.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.7s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">21.9 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">SLA ESCALATION ENGINE</span>
+      <span class="spec-num">SPEC #03</span>
+    </div>
+    <div class="stack-tag">Notion &rarr; Make</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Automated Contractor Onboarding & Document Collection</a></h3>
+    <p class="desc">Monitors priority Notion incident payloads, verifies customer contract tiers in Make, and triggers automated paging before SLA breach.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.0s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">25.6 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">CONTRACT LIFECYCLE OPS</span>
+      <span class="spec-num">SPEC #04</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h3>
+    <p class="desc">Extracts executed redline metadata from Make, validates approval signatures, and provisions milestone billing schedules directly inside Airtable.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.3s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">29.3 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">INVENTORY & SKU SYNC</span>
+      <span class="spec-num">SPEC #05</span>
+    </div>
+    <div class="stack-tag">Airtable &rarr; Make</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h3>
+    <p class="desc">Streams real-time warehouse stock adjustments from Airtable into Make with atomic backorder thresholds and dead-letter retry queues.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.2s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">15.0 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">CLIENT ONBOARDING PIPE</span>
+      <span class="spec-num">SPEC #06</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Notion</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Automated Weekly Client KPI Executive Rollup</a></h3>
+    <p class="desc">Transforms closed-won Make deal webhooks into structured Notion client workspaces, milestone checklists, and role-based access permissions.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.5s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">18.7 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">SUBSCRIPTION CHURN GUARD</span>
+      <span class="spec-num">SPEC #07</span>
+    </div>
+    <div class="stack-tag">Notion &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">B2B RFP & Security Questionnaire Response Tracker</a></h3>
+    <p class="desc">Captures failed Notion renewal events, classifies dunning error codes, and schedules automated recovery sequences inside Airtable.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.8s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">22.4 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">VENDOR COMPLIANCE AUDIT</span>
+      <span class="spec-num">SPEC #08</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3>
+    <p class="desc">Validates incoming Make supplier tax certificates and insurance expirations against HubSpot compliance matrices with automated renewal alerts.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.1s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">26.1 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">EXPENSE APPROVAL ROUTER</span>
+      <span class="spec-num">SPEC #09</span>
+    </div>
+    <div class="stack-tag">Airtable &rarr; Make</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h3>
+    <p class="desc">Parses employee reimbursement payloads from Airtable, enforces cost-center budget caps, and logs auditable approval trails inside Make.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.4s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">29.8 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">USAGE METERING ENGINE</span>
+      <span class="spec-num">SPEC #10</span>
+    </div>
+    <div class="stack-tag">Notion &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3>
+    <p class="desc">Rolls up high-frequency customer API consumption events from Notion into tiered billing summaries inside HubSpot at hourly checkpoints.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.3s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">15.5 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">DEAL DESK MARGIN GUARD</span>
+      <span class="spec-num">SPEC #11</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h3>
+    <p class="desc">Evaluates custom discount requests in Make against gross-margin thresholds and routes multi-stage executive sign-offs in Airtable.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.6s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">19.2 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json" download="stripe-dispute-chargeback-evidence-automation.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">DATA WAREHOUSE ETL BRIDGE</span>
+      <span class="spec-num">SPEC #12</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h3>
+    <p class="desc">Normalizes nested Make webhook arrays into flat relational schemas and performs batch upserts into HubSpot with rate-limit backoff.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.9s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">22.9 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json" download="hubspot-deal-stage-slack-approval-workflow.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">FINOPS LEDGER SYNC</span>
+      <span class="spec-num">SPEC #13</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Notion</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></h3>
+    <p class="desc">Reconciles multi-currency invoice line items between Make and Notion using SHA-256 payload deduplication and automated tax-variance quarantine.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.2s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">26.6 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-podcast-guest-intake-crm-pipeline.json" download="b2b-podcast-guest-intake-crm-pipeline.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">REVOPS LEAD ROUTER</span>
+      <span class="spec-num">SPEC #14</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html">Automated Multi-Currency Employee Expense Triage</a></h3>
+    <p class="desc">Enriches inbound Make prospect webhooks, normalizes corporate domain records, and assigns territory owners inside Airtable under strict SLA timers.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.1s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">30.3 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/multi-currency-expense-reimbursement-ledger.json" download="multi-currency-expense-reimbursement-ledger.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">SLA ESCALATION ENGINE</span>
+      <span class="spec-num">SPEC #15</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></h3>
+    <p class="desc">Monitors priority Make incident payloads, verifies customer contract tiers in HubSpot, and triggers automated paging before SLA breach.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.4s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">16.0 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-trial-usage-scoring-hubspot-alerts.json" download="saas-trial-usage-scoring-hubspot-alerts.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">CONTRACT LIFECYCLE OPS</span>
+      <span class="spec-num">SPEC #16</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Notion</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></h3>
+    <p class="desc">Extracts executed redline metadata from Make, validates approval signatures, and provisions milestone billing schedules directly inside Notion.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.7s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">19.7 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/agency-retainer-hours-burn-rate-tracker.json" download="agency-retainer-hours-burn-rate-tracker.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">INVENTORY & SKU SYNC</span>
+      <span class="spec-num">SPEC #17</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></h3>
+    <p class="desc">Streams real-time warehouse stock adjustments from Make into HubSpot with atomic backorder thresholds and dead-letter retry queues.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.0s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">23.4 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-b2b-nda-contract-dispatch-pipeline.json" download="automated-b2b-nda-contract-dispatch-pipeline.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">CLIENT ONBOARDING PIPE</span>
+      <span class="spec-num">SPEC #18</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html">Automated Tier-3 Support to Engineering Bug Escalation</a></h3>
+    <p class="desc">Transforms closed-won Make deal webhooks into structured Airtable client workspaces, milestone checklists, and role-based access permissions.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 2.3s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">27.1 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/zendesk-jira-engineering-escalation-bridge.json" download="zendesk-jira-engineering-escalation-bridge.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">SUBSCRIPTION CHURN GUARD</span>
+      <span class="spec-num">SPEC #19</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html">90-Day B2B Account Renewal & Churn Risk Radar</a></h3>
+    <p class="desc">Captures failed Make renewal events, classifies dunning error codes, and schedules automated recovery sequences inside HubSpot.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.2s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">30.8 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-renewal-upsell-health-score-radar.json" download="b2b-renewal-upsell-health-score-radar.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">VENDOR COMPLIANCE AUDIT</span>
+      <span class="spec-num">SPEC #20</span>
+    </div>
+    <div class="stack-tag">Make &rarr; Airtable</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html">Automated Partner & Affiliate Commission Payout Ledger</a></h3>
+    <p class="desc">Validates incoming Make supplier tax certificates and insurance expirations against Airtable compliance matrices with automated renewal alerts.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.5s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">16.5 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-affiliate-payout-reconciliation.json" download="automated-affiliate-payout-reconciliation.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article>
+<article class="spec-card">
+  <div>
+    <div class="card-top">
+      <span class="pill">EXPENSE APPROVAL ROUTER</span>
+      <span class="spec-num">SPEC #21</span>
+    </div>
+    <div class="stack-tag">Make &rarr; HubSpot</div>
+    <h3><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></h3>
+    <p class="desc">Parses employee reimbursement payloads from Make, enforces cost-center budget caps, and logs auditable approval trails inside HubSpot.</p>
+  </div>
+  <div>
+    <div class="metrics">
+      <div><span>LATENCY</span><strong>< 1.8s</strong></div>
+      <div><span>SAVINGS</span><strong style="color:#10b981;">20.2 hrs/mo</strong></div>
+      <div><span>SCHEMA</span><strong style="color:#38bdf8;">Make .JSON</strong></div>
+    </div>
+    <div class="card-footer">
+      <a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html">Read Architecture Spec &rarr;</a>
+      <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/linkedin-lead-ads-instant-crm-enrichment.json" download="linkedin-lead-ads-instant-crm-enrichment.json">JSON Blueprint</a>
+    </div>
+  </div>
+</article></section>
+  <div class="sec-hdr" id="matrix"><h2>Architecture Specification Index</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Workflow Architecture</th><th>Stack</th><th>Est. Savings</th><th>Access</th></tr></thead><tbody><tr>
+  <td class="mono">#01</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Invoice Reconciliation for Small Agencies</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">18.2 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-invoice-reconciliation-make-airtable.json" download="automated-invoice-reconciliation-make-airtable.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#02</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#fff;font-weight:600;text-decoration:none;">Real-Time B2B Inbound Lead Routing & Scoring</a></td>
+  <td><span class="tbl-stack">HubSpot + Make</span></td>
+  <td style="color:#10b981;font-weight:700;">21.9 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-cold-lead-routing-hubspot-make.json" download="b2b-cold-lead-routing-hubspot-make.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#03</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Contractor Onboarding & Document Collection</a></td>
+  <td><span class="tbl-stack">Notion + Make</span></td>
+  <td style="color:#10b981;font-weight:700;">25.6 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/contractor-onboarding-compliance-notion-deels.json" download="contractor-onboarding-compliance-notion-deels.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#04</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">29.3 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-churn-alert-pipeline-stripe-slack.json" download="saas-churn-alert-pipeline-stripe-slack.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#05</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#fff;font-weight:600;text-decoration:none;">Multi-SKU Low Inventory Reorder Forecasting System</a></td>
+  <td><span class="tbl-stack">Airtable + Make</span></td>
+  <td style="color:#10b981;font-weight:700;">15.0 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/ecommerce-inventory-reorder-alerts-airtable.json" download="ecommerce-inventory-reorder-alerts-airtable.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#06</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Weekly Client KPI Executive Rollup</a></td>
+  <td><span class="tbl-stack">Make + Notion</span></td>
+  <td style="color:#10b981;font-weight:700;">18.7 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/client-reporting-kpi-dashboard-looker-sheets.json" download="client-reporting-kpi-dashboard-looker-sheets.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#07</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#fff;font-weight:600;text-decoration:none;">B2B RFP & Security Questionnaire Response Tracker</a></td>
+  <td><span class="tbl-stack">Notion + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">22.4 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/rfp-proposal-response-matrix-notion-ai.json" download="rfp-proposal-response-matrix-notion-ai.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#08</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html" style="color:#fff;font-weight:600;text-decoration:none;">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">26.1 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/accounts-receivable-dunning-automation.json" download="accounts-receivable-dunning-automation.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#09</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html" style="color:#fff;font-weight:600;text-decoration:none;">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></td>
+  <td><span class="tbl-stack">Airtable + Make</span></td>
+  <td style="color:#10b981;font-weight:700;">29.8 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/vendor-contract-renewal-alert-system.json" download="vendor-contract-renewal-alert-system.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#10</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html" style="color:#fff;font-weight:600;text-decoration:none;">High-Ticket B2B Client Onboarding Milestone Tracker</a></td>
+  <td><span class="tbl-stack">Notion + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">15.5 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/customer-onboarding-milestone-tracker.json" download="customer-onboarding-milestone-tracker.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#11</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Stripe Chargeback & Dispute Evidence Assembly</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">19.2 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/stripe-dispute-chargeback-evidence-automation.json" download="stripe-dispute-chargeback-evidence-automation.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#12</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated B2B Deal Desk Discount Approval Pipeline</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">22.9 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/hubspot-deal-stage-slack-approval-workflow.json" download="hubspot-deal-stage-slack-approval-workflow.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#13</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></td>
+  <td><span class="tbl-stack">Make + Notion</span></td>
+  <td style="color:#10b981;font-weight:700;">26.6 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-podcast-guest-intake-crm-pipeline.json" download="b2b-podcast-guest-intake-crm-pipeline.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#14</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Multi-Currency Employee Expense Triage</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">30.3 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/multi-currency-expense-reimbursement-ledger.json" download="multi-currency-expense-reimbursement-ledger.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#15</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html" style="color:#fff;font-weight:600;text-decoration:none;">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">16.0 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/saas-trial-usage-scoring-hubspot-alerts.json" download="saas-trial-usage-scoring-hubspot-alerts.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#16</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html" style="color:#fff;font-weight:600;text-decoration:none;">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></td>
+  <td><span class="tbl-stack">Make + Notion</span></td>
+  <td style="color:#10b981;font-weight:700;">19.7 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/agency-retainer-hours-burn-rate-tracker.json" download="agency-retainer-hours-burn-rate-tracker.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#17</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html" style="color:#fff;font-weight:600;text-decoration:none;">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">23.4 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-b2b-nda-contract-dispatch-pipeline.json" download="automated-b2b-nda-contract-dispatch-pipeline.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#18</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Tier-3 Support to Engineering Bug Escalation</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">27.1 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/zendesk-jira-engineering-escalation-bridge.json" download="zendesk-jira-engineering-escalation-bridge.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#19</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html" style="color:#fff;font-weight:600;text-decoration:none;">90-Day B2B Account Renewal & Churn Risk Radar</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">30.8 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-renewal-upsell-health-score-radar.json" download="b2b-renewal-upsell-health-score-radar.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#20</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html" style="color:#fff;font-weight:600;text-decoration:none;">Automated Partner & Affiliate Commission Payout Ledger</a></td>
+  <td><span class="tbl-stack">Make + Airtable</span></td>
+  <td style="color:#10b981;font-weight:700;">16.5 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-affiliate-payout-reconciliation.json" download="automated-affiliate-payout-reconciliation.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr>
+<tr>
+  <td class="mono">#21</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html" style="color:#fff;font-weight:600;text-decoration:none;">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></td>
+  <td><span class="tbl-stack">Make + HubSpot</span></td>
+  <td style="color:#10b981;font-weight:700;">20.2 hrs/mo</td>
+  <td><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html" style="color:#38bdf8;text-decoration:none;font-weight:600;">Spec</a> &middot; <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/linkedin-lead-ads-instant-crm-enrichment.json" download="linkedin-lead-ads-instant-crm-enrichment.json" style="color:#10b981;text-decoration:none;font-weight:700;">.JSON</a></td>
+</tr></tbody></table></div>
+</main>
+<footer><div class="container">&copy; 2026 Arkgon Systems. All rights reserved. Independent B2B technical publication.</div></footer>
+</body></html>
