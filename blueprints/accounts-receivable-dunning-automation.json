@@ -1,87 +1,42 @@
 {
-  "name": "Arkgon Systems // Zero-Touch B2B Accounts Receivable Follow-Up Engine (accounts-receivable-dunning-automation)",
+  "name": "Arkgon Systems Turnkey Spec: Zero-Touch B2B Accounts Receivable Follow-Up Engine",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
       "version": 1,
       "parameters": {
-        "hookLabel": "accounts-receivable-dunning-automation-webhook",
+        "hook": "accounts-receivable-dunning-automation-webhook",
         "maxResults": 1
-      },
-      "mapper": {},
-      "metadata": {
-        "designer": {
-          "x": 0,
-          "y": 0
-        },
-        "notes": "Real-time event trigger from Make"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
       "version": 1,
-      "parameters": {},
       "mapper": {
-        "variables": [
-          {
-            "name": "idempotency_key",
-            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
-          },
-          {
-            "name": "dunning_state",
-            "value": "{{lower(1.status)}}"
-          }
-        ]
-      },
-      "metadata": {
-        "designer": {
-          "x": 300,
-          "y": 0
-        },
-        "notes": "SHA-256 idempotency guard for accounts_receivable"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "hubspotcrm:ActionCreateUpdateObject",
-      "version": 3,
-      "parameters": {
-        "handleErrors": true
-      },
-      "mapper": {
-        "url": "https://api.hubapi.com/crm/v3/objects/deals/batch/upsert",
-        "method": "post",
-        "headers": [
-          {
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "bodyType": "raw",
-        "contentType": "application/json",
-        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.dunning_state}}\",\"pipeline\":\"accounts-receivable-dunning-automation\"}"
-      },
-      "metadata": {
-        "designer": {
-          "x": 600,
-          "y": 0
-        },
-        "notes": "Upsert into HubSpot (https://api.hubapi.com/crm/v3/objects/deals/batch/upsert)"
-      }
+      "module": "make:WatchRecords",
+      "version": 1
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter",
+      "version": 1
+    },
+    {
+      "id": 5,
+      "module": "hubspot:ActionUpsertRecord",
+      "version": 1
     }
   ],
   "metadata": {
     "instant": true,
     "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true,
-      "sequential": false
-    },
-    "arkgon_spec_id": 8,
-    "slug": "accounts-receivable-dunning-automation"
+    "zone": "us1.make.com"
   }
 }

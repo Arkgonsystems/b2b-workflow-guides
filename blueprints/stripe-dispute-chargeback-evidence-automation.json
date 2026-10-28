@@ -1,87 +1,42 @@
 {
-  "name": "Arkgon Systems // Automated Stripe Chargeback & Dispute Evidence Assembly (stripe-dispute-chargeback-evidence-automation)",
+  "name": "Arkgon Systems Turnkey Spec: Automated Stripe Chargeback & Dispute Evidence Assembly",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
       "version": 1,
       "parameters": {
-        "hookLabel": "stripe-dispute-chargeback-evidence-automation-webhook",
+        "hook": "stripe-dispute-chargeback-evidence-automation-webhook",
         "maxResults": 1
-      },
-      "mapper": {},
-      "metadata": {
-        "designer": {
-          "x": 0,
-          "y": 0
-        },
-        "notes": "Real-time event trigger from Make"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
       "version": 1,
-      "parameters": {},
       "mapper": {
-        "variables": [
-          {
-            "name": "idempotency_key",
-            "value": "{{sha256(1.id + ':' + 1.updated_at)}}"
-          },
-          {
-            "name": "chargeback_state",
-            "value": "{{lower(1.status)}}"
-          }
-        ]
-      },
-      "metadata": {
-        "designer": {
-          "x": 300,
-          "y": 0
-        },
-        "notes": "SHA-256 idempotency guard for stripe_dispute"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
+      "module": "make:WatchRecords",
+      "version": 1
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter",
+      "version": 1
+    },
+    {
+      "id": 5,
       "module": "airtable:ActionUpsertRecord",
-      "version": 3,
-      "parameters": {
-        "handleErrors": true
-      },
-      "mapper": {
-        "url": "https://api.airtable.com/v0/appB2B/tblLedger",
-        "method": "post",
-        "headers": [
-          {
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "bodyType": "raw",
-        "contentType": "application/json",
-        "data": "{\"entity_id\":\"{{1.id}}\",\"idempotency_key\":\"{{2.idempotency_key}}\",\"state\":\"{{2.chargeback_state}}\",\"pipeline\":\"stripe-dispute-chargeback-evidence-automation\"}"
-      },
-      "metadata": {
-        "designer": {
-          "x": 600,
-          "y": 0
-        },
-        "notes": "Upsert into Airtable (https://api.airtable.com/v0/appB2B/tblLedger)"
-      }
+      "version": 1
     }
   ],
   "metadata": {
     "instant": true,
     "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true,
-      "sequential": false
-    },
-    "arkgon_spec_id": 11,
-    "slug": "stripe-dispute-chargeback-evidence-automation"
+    "zone": "us1.make.com"
   }
 }

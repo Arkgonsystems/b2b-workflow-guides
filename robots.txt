@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arkgonsystems.github.io/b2b-workflow-guides/sitemap.xml
