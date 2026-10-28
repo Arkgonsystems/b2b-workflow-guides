@@ -6,7 +6,7 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 - **Provision Make.com (Required to Import `.JSON` Files):** [Open Make.com Free Workspace](https://www.make.com/en/register?pc=loudplatypus6)
 - **All-in-One 70-Blueprint Agency Vault ($19):** [Download Complete Pack on Gumroad](https://platypusprime.gumroad.com/l/dncmng)
 
-## Published Make.com Architecture Specifications (20)
+## Published Make.com Architecture Specifications (21)
 
 | ID | B2B Workflow Architecture | Stack | Monthly ROI | Direct `.JSON` |
 | :--- | :--- | :--- | :--- | :--- |
@@ -30,3 +30,4 @@ Production-ready **Make.com (`.JSON`) scenario blueprints**, SHA-256 webhook ide
 | **#18** | [Automated Tier-3 Support to Engineering Bug Escalation](https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html) | `Make` + `Airtable` | 18.2 hrs ($1,547/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/zendesk-jira-engineering-escalation-bridge.json) |
 | **#19** | [90-Day B2B Account Renewal & Churn Risk Radar](https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html) | `Make` + `HubSpot` | 31.1 hrs ($2,644/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/b2b-renewal-upsell-health-score-radar.json) |
 | **#20** | [Automated Partner & Affiliate Commission Payout Ledger](https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html) | `Make` + `Airtable` | 21.4 hrs ($1,819/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/automated-affiliate-payout-reconciliation.json) |
+| **#21** | [Real-Time LinkedIn Lead Gen Form Enrichment & Routing](https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html) | `Make` + `HubSpot` | 33.2 hrs ($2,822/mo) | [Download `.JSON`](https://arkgonsystems.github.io/b2b-workflow-guides/blueprints/linkedin-lead-ads-instant-crm-enrichment.json) |
