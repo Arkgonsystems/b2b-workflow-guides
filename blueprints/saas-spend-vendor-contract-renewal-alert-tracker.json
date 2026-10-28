@@ -1,0 +1,31 @@
+{
+  "name": "SaaS Spend & Vendor Contract Renewal Alert Tracker",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "saas-spend-vendor-contract-renewal-alert-tracker-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "airtable:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "make:ActionUpsertRecord"
+    }
+  ]
+}

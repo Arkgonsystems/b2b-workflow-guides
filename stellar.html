@@ -1,142 +1,62 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Arkgon Stellar v1.0 | Sidereal Astronomical Ephemeris & Celestial Computation Engine</title>
+<title>Arkgon Stellar | 60fps Interactive 3D Starfield Engine</title>
 <style>
-:root{--bg:#060911;--surface:#0d1322;--card:#111827;--border:#1e293b;--accent:#38bdf8;--green:#10b981;--text:#f8fafc;--muted:#94a3b8;}
-*{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
-.container{max-width:1080px;margin:0 auto;padding:0 24px;}
-header{border-bottom:1px solid var(--border);background:rgba(6,9,17,0.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0;}
-.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-.brand{color:#fff;font-weight:800;font-size:16px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:10px;}
-.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);}
-.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;}
-.nav-cta{background:var(--accent);color:#020617 !important;padding:8px 14px;border-radius:6px;font-weight:800 !important;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;}
-.calc-box{background:var(--surface);border:1px solid #334155;border-radius:12px;padding:26px;margin:32px 0;}
-.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:16px 0;}
-label{display:block;font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:6px;}
-input{width:100%;background:#060911;border:1px solid #334155;color:#fff;padding:10px 12px;border-radius:8px;font-size:14px;}
-.btn-green{display:inline-block;background:var(--green);color:#022c22;font-weight:800;padding:12px 22px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;font-size:14px;margin-right:12px;}
-.btn-dark{display:inline-block;background:#1e293b;color:#fff;font-weight:700;padding:12px 22px;border-radius:8px;text-decoration:none;border:1px solid #475569;font-size:14px;}
-.out-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:20px;}
-.out-item{background:#060911;border:1px solid var(--border);border-radius:8px;padding:14px;}
-.out-item span{display:block;font-size:10.5px;color:var(--muted);text-transform:uppercase;font-weight:700;}
-.out-item strong{font-size:17px;color:var(--accent);font-family:ui-monospace,monospace;margin-top:4px;display:block;}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#04070f;color:#f8fafc;overflow:hidden}
+header{border-bottom:1px solid rgba(30,41,59,0.7);background:rgba(4,7,15,0.75);position:fixed;top:0;left:0;right:0;z-index:20;backdrop-filter:blur(10px);padding:16px 24px}
+.nav{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand{color:#fff;font-weight:800;text-decoration:none;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 10px #38bdf8}
+.nav-links{display:flex;gap:16px;align-items:center}.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600}
+.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 14px;border-radius:6px;font-weight:800 !important}
+#stage{position:fixed;inset:0;width:100vw;height:100vh;z-index:1}
+.hud{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:10;background:rgba(13,19,34,0.78);border:1px solid rgba(56,189,248,0.3);backdrop-filter:blur(12px);padding:20px 32px;border-radius:14px;text-align:center;max-width:560px;width:90%}
+.hud h1{margin:0 0 6px;font-size:22px;letter-spacing:0.04em}
+.hud p{margin:0 0 14px;color:#94a3b8;font-size:13px}
+.btn{background:#38bdf8;color:#020617;font-weight:800;padding:9px 18px;border-radius:6px;text-decoration:none;font-size:13px;display:inline-block}
 </style></head><body>
 <header><div class="container nav">
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specifications">Specifications (21)</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprints</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#matrix">Time-Saved Matrix</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Editorial Studio</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html" style="color:#38bdf8;">Stellar Engine</a>
-    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full 70-Blueprint Vault ($19)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html" style="color:#38bdf8;">Stellar 60fps</a>
+    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full Vault ($19)</a>
   </div>
 </div></header>
-<main class="container" style="padding:40px 24px 64px 24px;">
-<span style="background:rgba(16,185,129,0.14);color:#10b981;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:800;">DETERMINISTIC ASTRONOMICAL ENGINE &bull; TYPESCRIPT v1.0.0</span>
-<h1 style="font-size:38px;margin:12px 0;">Arkgon Stellar (VedaVidya Precision Engine v1.0)</h1>
-<p style="color:var(--muted);font-size:17px;max-width:780px;margin:0 0 24px 0;">High-precision sidereal planetary ephemeris, True Chitrapaksha (Lahiri) Ayanamsha solver, spherical trigonometry Ascendant (Lagna) calculator, and D1/D9 harmonic chart synthesizer.</p>
-<div style="margin:24px 0;"><svg viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:radial-gradient(circle at 50% 50%,#0d1b2a 0%,#060911 75%);border:1px solid #1e293b;border-radius:14px;display:block;">
-  <defs>
-    <radialGradient id="stGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
-      <stop offset="60%" stop-color="#10b981" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#060911" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="860" height="360" fill="url(#stGlow)"/>
-  <g stroke="#1e293b" stroke-width="0.7" opacity="0.6">
-    <line x1="0" y1="180" x2="860" y2="180" stroke-dasharray="3 5"/>
-    <line x1="430" y1="0" x2="430" y2="360" stroke-dasharray="3 5"/>
-    <line x1="270" y1="20" x2="590" y2="340" stroke-dasharray="2 6"/>
-    <line x1="590" y1="20" x2="270" y2="340" stroke-dasharray="2 6"/>
-  </g>
-  <g transform="translate(430,180)" fill="none">
-    <circle r="148" stroke="#38bdf8" stroke-width="1.4" opacity="0.85"/>
-    <circle r="136" stroke="#10b981" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.75"/>
-    <circle r="112" stroke="#38bdf8" stroke-width="1.1" opacity="0.6"/>
-    <circle r="84" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 4" opacity="0.7"/>
-    <circle r="52" stroke="#10b981" stroke-width="1.2" opacity="0.8"/>
-    <circle r="22" stroke="#38bdf8" stroke-width="1.2" opacity="0.9"/>
-    <circle r="4" fill="#38bdf8"/>
-    <polygon points="0,-136 117.7,68 -117.7,68" stroke="#38bdf8" stroke-width="0.9" opacity="0.55"/>
-    <polygon points="0,136 117.7,-68 -117.7,-68" stroke="#10b981" stroke-width="0.9" opacity="0.55"/>
-    <rect x="-79" y="-79" width="158" height="158" stroke="#38bdf8" stroke-width="0.8" opacity="0.45" transform="rotate(45)"/>
-    <rect x="-79" y="-79" width="158" height="158" stroke="#10b981" stroke-width="0.8" opacity="0.45"/>
-    <ellipse rx="165" ry="62" stroke="#38bdf8" stroke-width="0.8" opacity="0.4" transform="rotate(-24)"/>
-    <ellipse rx="165" ry="62" stroke="#10b981" stroke-width="0.8" opacity="0.4" transform="rotate(24)"/>
-  </g>
-  <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#94a3b8">
-    <text x="28" y="38" fill="#f8fafc" font-size="15" font-weight="700" letter-spacing="1.5">ARKGON SYSTEMS // <tspan fill="#10b981">STELLAR v1.0</tspan></text>
-    <text x="28" y="56" fill="#38bdf8" font-size="11" letter-spacing="1">SIDEREAL EPHEMERIS &amp; CELESTIAL COMPUTATION ENGINE</text>
-    <text x="28" y="96">FRAME: TRUE CHITRAPAKSHA (LAHIRI)</text>
-    <text x="28" y="114">HARMONICS: D1 RASHI / D9 NAVAMSHA</text>
-    <text x="28" y="132">PROGRESSION: 120-YR VIMSHOTTARI</text>
-    <text x="28" y="304" fill="#10b981">PRECISION: &lt; 0.01 ARCSECOND</text>
-    <text x="28" y="322">AYANAMSHA (J2000): 23.853056&deg; + &Delta;&psi;</text>
-    <text x="640" y="96" fill="#38bdf8">EPH. VECTOR // TOPOCENTRIC</text>
-    <text x="640" y="114">OBLIQUITY (&epsilon;): 23.439291&deg;</text>
-    <text x="640" y="132">ASHTAKVARGA: 337-BINDU MATRIX</text>
-    <text x="640" y="304" fill="#f8fafc">STACK: TYPESCRIPT &bull; ZERO-DEP</text>
-    <text x="640" y="322" fill="#38bdf8">REPO: Arkgonsystems/Stellar</text>
-  </g>
-</svg></div>
-<div style="margin:24px 0;"><a class="btn-green" href="https://github.com/Arkgonsystems/Stellar">Explore Arkgonsystems/Stellar on GitHub &rarr;</a><a class="btn-dark" href="https://github.com/Arkgonsystems/Stellar/releases/tag/v1.0.0">Download Stellar v1.0.0 Release</a></div>
-<div class="calc-box">
-<h2 style="margin:0 0 6px 0;font-size:22px;">Live Interactive Sidereal Ephemeris &amp; Lahiri Ayanamsha Calculator</h2>
-<p style="margin:0;color:var(--muted);font-size:13.5px;">Test the 4-stage astronomical engine live in your browser—enter any UTC/IST timestamp and geographic coordinates below:</p>
-<div class="inputs">
-  <div><label>Date (YYYY-MM-DD)</label><input type="date" id="st-date" value="2026-10-29"></div>
-  <div><label>Local Time (HH:MM)</label><input type="time" id="st-time" value="09:30"></div>
-  <div><label>UTC Offset (Hours)</label><input type="number" step="0.5" id="st-tz" value="5.5"></div>
-  <div><label>Latitude (&deg;N)</label><input type="number" step="0.0001" id="st-lat" value="28.6139"></div>
-  <div><label>Longitude (&deg;E)</label><input type="number" step="0.0001" id="st-lon" value="77.2090"></div>
-</div>
-<button class="btn-green" onclick="runStellarCalc()">Compute Sidereal Ephemeris</button>
-<div class="out-grid" id="st-results"></div>
-</div>
-<div class="grid">
-<div class="card"><h3 style="margin-top:0;color:#38bdf8;">Stage 1: Julian Ephemeris &amp; Nutation</h3><p style="color:#cbd5e1;font-size:13.5px;margin:0;">Computes Julian Day (<code>JD</code>), Terrestrial Dynamical Time, and nutation in longitude (<code>&Delta;&psi;</code>) for True Lahiri Ayanamsha.</p></div>
-<div class="card"><h3 style="margin-top:0;color:#10b981;">Stage 2: Topocentric Sidereal Lagna</h3><p style="color:#cbd5e1;font-size:13.5px;margin:0;">Solves local sidereal time (<code>RAMC</code>), obliquity of the ecliptic (<code>&epsilon;</code>), and spherical ascendant cusps.</p></div>
-<div class="card"><h3 style="margin-top:0;color:#a5b4fc;">Stage 3: D1 Rashi &amp; D9 Navamsha</h3><p style="color:#cbd5e1;font-size:13.5px;margin:0;">Maps 3&deg;20&prime; harmonic Navamsha divisions and 13&deg;20&prime; lunar Nakshatra padas deterministically.</p></div>
-<div class="card"><h3 style="margin-top:0;color:#f59e0b;">Stage 4: Vimshottari &amp; Ashtakvarga</h3><p style="color:#cbd5e1;font-size:13.5px;margin:0;">Generates 120-year Vimshottari Dasha balance progressions and 337-bindu Sarvashtakvarga matrices.</p></div>
+<div id="stage"><canvas id="star-canvas"></canvas></div>
+<div class="hud">
+  <div style="font-size:11px;color:#38bdf8;font-weight:800;letter-spacing:0.1em;margin-bottom:4px">ARKGON STELLAR // 60FPS CANVAS ENGINE</div>
+  <h1>Interactive 3D Starfield</h1>
+  <p>Move cursor for 3D parallax &bull; Click and hold anywhere for Warp Drive</p>
+  <a class="btn" href="https://github.com/Arkgonsystems/Stellar">View Source on GitHub &rarr;</a>
 </div>
 <script>
-var RASHIS=["Aries (Mesha)","Taurus (Vrishabha)","Gemini (Mithuna)","Cancer (Karka)","Leo (Simha)","Virgo (Kanya)","Libra (Tula)","Scorpio (Vrishchika)","Sagittarius (Dhanu)","Capricorn (Makara)","Aquarius (Kumbha)","Pisces (Meena)"];
-function norm360(d){return ((d%360)+360)%360;}
-function runStellarCalc(){
-  var dStr=document.getElementById("st-date").value||"2026-10-29";
-  var tStr=document.getElementById("st-time").value||"09:30";
-  var tz=parseFloat(document.getElementById("st-tz").value||"5.5");
-  var lat=parseFloat(document.getElementById("st-lat").value||"28.6139");
-  var lon=parseFloat(document.getElementById("st-lon").value||"77.2090");
-  var dp=dStr.split("-").map(Number); var tp=tStr.split(":").map(Number);
-  var y=dp[0], m=dp[1], day=dp[2], hr=tp[0]||0, mn=tp[1]||0;
-  var ut=hr + mn/60 - tz;
-  if(m<=2){y-=1;m+=12;}
-  var A=Math.floor(y/100); var B=2-A+Math.floor(A/4);
-  var jd=Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+day+ut/24+B-1524.5;
-  var T=(jd-2451545.0)/36525.0;
-  var omega=norm360(125.04452-1934.136261*T)*Math.PI/180;
-  var ayan=23.8530556+(50.290966*T+0.000111*T*T)/3600.0+(-17.20*Math.sin(omega))/3600.0;
-  var gmst=norm360(280.46061837+360.98564736629*(jd-2451545.0));
-  var ramc=norm360(gmst+lon)*Math.PI/180;
-  var eps=(23.4392911-0.0130042*T)*Math.PI/180;
-  var phi=lat*Math.PI/180;
-  var tropAsc=norm360(Math.atan2(Math.cos(ramc),-Math.sin(ramc)*Math.cos(eps)-Math.tan(phi)*Math.sin(eps))*180/Math.PI);
-  var sidLagna=norm360(tropAsc-ayan);
-  var rashiIdx=Math.floor(sidLagna/30);
-  var degInSign=(sidLagna%30).toFixed(2);
-  var navIdx=Math.floor(sidLagna/(30/9))%12;
-  document.getElementById("st-results").innerHTML=
-    "<div class=\"out-item\"><span>Julian Day (JD)</span><strong>"+jd.toFixed(5)+"</strong></div>"+
-    "<div class=\"out-item\"><span>True Lahiri Ayanamsha</span><strong style=\"color:#10b981\">"+ayan.toFixed(5)+"&deg;</strong></div>"+
-    "<div class=\"out-item\"><span>Sidereal Lagna (D1)</span><strong>"+RASHIS[rashiIdx]+" ("+degInSign+"&deg;)</strong></div>"+
-    "<div class=\"out-item\"><span>D9 Navamsha Varga</span><strong style=\"color:#a5b4fc\">"+RASHIS[navIdx]+"</strong></div>";
-}
-runStellarCalc();
-</script></main></body></html>
+(function(){
+  var c=document.getElementById("star-canvas");if(!c)return;
+  var ctx=c.getContext("2d"),w,h,stars=[],count=700,speed=2.2,warp=false,mx=0,my=0;
+  function resize(){w=c.width=c.parentElement.clientWidth||window.innerWidth;h=c.height=c.parentElement.clientHeight||420;}
+  window.addEventListener("resize",resize);resize();
+  for(var i=0;i<count;i++)stars.push({x:(Math.random()-0.5)*w*2,y:(Math.random()-0.5)*h*2,z:Math.random()*w,pz:0,col:i%5===0?"#38bdf8":(i%7===0?"#10b981":"#f8fafc")});
+  window.addEventListener("mousemove",function(e){mx=(e.clientX-w/2)*0.08;my=(e.clientY-h/2)*0.08;});
+  window.addEventListener("mousedown",function(){warp=true;});
+  window.addEventListener("mouseup",function(){warp=false;});
+  function tick(){
+    ctx.fillStyle=warp?"rgba(4,7,15,0.22)":"rgba(4,7,15,0.45)";
+    ctx.fillRect(0,0,w,h);
+    var v=warp?18:speed,cx=w/2+mx,cy=h/2+my;
+    for(var i=0;i<count;i++){
+      var s=stars[i];s.pz=s.z;s.z-=v;
+      if(s.z<=1){s.z=w;s.pz=w;s.x=(Math.random()-0.5)*w*2;s.y=(Math.random()-0.5)*h*2;}
+      var sx=(s.x/s.z)*w+cx,sy=(s.y/s.z)*h+cy;
+      var px=(s.x/s.pz)*w+cx,py=(s.y/s.pz)*h+cy;
+      var r=Math.max(0.6,(1-s.z/w)*2.6);
+      ctx.beginPath();ctx.strokeStyle=s.col;ctx.lineWidth=r;ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.stroke();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body></html>

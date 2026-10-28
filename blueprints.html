@@ -1,1896 +1,910 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Interactive Make.com (.JSON) Blueprint Catalog | Arkgon Systems</title>
-<style>:root{--bg:#060911;--surface:#0d1322;--card:#111827;--border:#1e293b;--accent:#38bdf8;--green:#10b981;--text:#f8fafc;--muted:#94a3b8;}
-*{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-.container{max-width:1160px;margin:0 auto;padding:0 24px;}
-header{border-bottom:1px solid var(--border);background:rgba(6,9,17,0.92);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0;}
-.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-.brand{color:#fff;font-weight:800;font-size:16px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:10px;}
-.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);}
-.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;}
-.nav-links a:hover{color:#fff;}
-.nav-cta{background:var(--accent);color:#020617 !important;padding:8px 16px;border-radius:6px;font-weight:800 !important;}
-.hero{padding:56px 0 40px 0;border-bottom:1px solid var(--border);}
-.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;}
-h1{font-size:40px;line-height:1.15;margin:12px 0 16px 0;max-width:840px;letter-spacing:-0.02em;color:#fff;}
-.hero p{color:var(--muted);font-size:17px;max-width:740px;margin:0 0 28px 0;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-primary{background:var(--green);color:#022c22;padding:13px 24px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;}
-.btn-secondary{background:#111827;color:#f8fafc;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid #334155;}
-.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin:36px 0 16px 0;}
-.suite-card{background:linear-gradient(145deg,#111827,#0b1120);border:1px solid #334155;border-radius:12px;padding:24px;}
-.suite-tag{display:inline-block;background:rgba(56,189,248,0.14);color:var(--accent);font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:0.05em;}
-.suite-card h2{margin:10px 0 8px 0;font-size:21px;color:#fff;}
-.suite-card p{margin:0 0 16px 0;color:var(--muted);font-size:13.5px;}
-.suite-link{color:var(--accent);text-decoration:none;font-weight:700;font-size:13.5px;}
-.sec-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin:44px 0 20px 0;flex-wrap:wrap;gap:12px;}
-.sec-hdr h2{margin:0;font-size:24px;color:#fff;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;}
-.spec-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;}
-.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.pill{background:rgba(56,189,248,0.12);color:var(--accent);font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:99px;letter-spacing:0.05em;}
-.spec-num{font-family:ui-monospace,monospace;font-size:12px;color:var(--muted);font-weight:700;}
-.stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px;}
-.spec-card h3{margin:0 0 10px 0;font-size:18px;line-height:1.35;}
-.spec-card h3 a{color:#fff;text-decoration:none;}
-.desc{color:var(--muted);font-size:13.5px;margin:0 0 18px 0;}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:16px;}
-.metrics span{display:block;font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:0.05em;}
-.metrics strong{font-size:12px;color:#fff;}
-.card-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--border);}
-.btn-spec{color:var(--accent);text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;}
-.btn-json{background:rgba(16,185,129,0.14);color:var(--green);border:1px solid rgba(16,185,129,0.3);padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap;}
-.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow-x:auto;margin:24px 0 64px 0;}
-table{width:100%;border-collapse:collapse;font-size:13.5px;}
-th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border);}
-th{background:var(--surface);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;}
-.mono{font-family:ui-monospace,monospace;color:var(--accent);font-weight:700;}
-.tbl-stack{background:#1e293b;color:#e2e8f0;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;}
-footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:13px;text-align:center;}</style></head><body>
+<title>Make.com (.JSON) Blueprint Catalog | Arkgon Systems</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#04070f;color:#f8fafc;line-height:1.6}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid #1e293b;background:rgba(4,7,15,0.88);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0}
+.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 10px #38bdf8}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#fff}
+.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 14px;border-radius:6px;font-weight:800 !important}
+.star-hero{position:relative;overflow:hidden;border-bottom:1px solid #1e293b;min-height:390px;display:flex;align-items:center}
+#hero-stars{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hero-inner{position:relative;z-index:2;padding:56px 24px;max-width:1140px;margin:0 auto;width:100%}
+h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spacing:-0.02em}
+.btn-main{background:#10b981;color:#022c22;padding:12px 22px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;display:inline-block;margin-right:10px}
+.btn-sec{background:rgba(17,24,39,0.85);color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid #334155;display:inline-block}
+.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:32px 0}
+.suite-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:60px}
+.spec-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pill{background:rgba(56,189,248,0.12);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px}
+.spec-num{font-family:monospace;font-size:12px;color:#94a3b8}
+.stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px}
+.spec-card h3{margin:0 0 8px;font-size:17px}.spec-card h3 a{color:#fff;text-decoration:none}
+.desc{color:#94a3b8;font-size:13px;margin:0 0 16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #1e293b}
+.btn-spec{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:700}
+.btn-json{background:rgba(16,185,129,0.14);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:5px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800}</style></head><body>
 <header><div class="container nav">
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specifications">Specifications (21)</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Blueprints</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#matrix">Time-Saved Matrix</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote App</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Editorial Studio</a>
-    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full 70-Blueprint Vault ($19)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html" style="color:#38bdf8;">Stellar 60fps</a>
+    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full Vault ($19)</a>
   </div>
 </div></header>
-<main class="container" style="padding-top:40px;padding-bottom:64px;">
-  <div class="eyebrow">INSTANT DOWNLOAD &amp; COPY-PASTE CATALOG</div>
-  <h1 style="font-size:34px;margin:8px 0 12px 0;">Make.com (.JSON) Workflow Blueprints (21 Live)</h1>
-  <p style="color:var(--muted);max-width:780px;margin:0 0 32px 0;">Every blueprint below explains the exact 5-stage module pipeline and includes a 1-click <strong>Download .json</strong> button plus a <strong>Copy .JSON</strong> button for importing straight into Make.com.</p>
-<div class="spec-card" id="automated-invoice-reconciliation-make-airtable" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #01 &bull; FINOPS LEDGER SYNC &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-automated-invoice-reconciliation-make-airtable', 'automated-invoice-reconciliation-make-airtable.json')">&darr; Download automated-invoice-reconciliation-make-airtable.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-automated-invoice-reconciliation-make-airtable', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Open Full Guide &rarr;</a>
+<main class="container" style="padding-top:36px;padding-bottom:60px">
+  <h1 style="font-size:30px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (21)</h1>
+  <p style="color:#94a3b8;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
+<div class="spec-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #01 &bull; Make &rarr; Airtable &bull; Saves 17 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-invoice-reconciliation-for-small-agencies','automated-invoice-reconciliation-for-small-agencies.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-invoice-reconciliation-for-small-agencies',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-make-airtable.html">Automated Invoice Reconciliation for Small Agencies</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Manual spreadsheet exports and copy-pasting between Make and Airtable cause duplicate invoice entries, missed tax-rate mismatches, and delayed month-end close.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-automated-invoice-reconciliation-make-airtable" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Invoice Reconciliation for Small Agencies",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-for-small-agencies.html">Automated Invoice Reconciliation for Small Agencies</a></h3>
+  <pre id="pre-automated-invoice-reconciliation-for-small-agencies" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Invoice Reconciliation for Small Agencies",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "automated-invoice-reconciliation-make-airtable-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-invoice-reconciliation-for-small-agencies-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="b2b-cold-lead-routing-hubspot-make" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #02 &bull; REVOPS LEAD ROUTER &bull; HubSpot &rarr; Make</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-b2b-cold-lead-routing-hubspot-make', 'b2b-cold-lead-routing-hubspot-make.json')">&darr; Download b2b-cold-lead-routing-hubspot-make.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-b2b-cold-lead-routing-hubspot-make', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="real-time-b2b-inbound-lead-routing-scoring" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #02 &bull; HubSpot &rarr; Make &bull; Saves 20 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-b2b-inbound-lead-routing-scoring','real-time-b2b-inbound-lead-routing-scoring.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-b2b-inbound-lead-routing-scoring',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-cold-lead-routing-hubspot-make.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Inbound leads sitting unrouted in HubSpot for hours lose buyer intent when reps have to manually check domains and copy records into Make.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~23 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>HubSpot</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>HubSpot</code>):</strong> Queries <strong>HubSpot</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Make</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Make</code>):</strong> Creates or updates the matching record inside <strong>Make</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-b2b-cold-lead-routing-hubspot-make" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Real-Time B2B Inbound Lead Routing &amp; Scoring",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-b2b-inbound-lead-routing-scoring.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h3>
+  <pre id="pre-real-time-b2b-inbound-lead-routing-scoring" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Real-Time B2B Inbound Lead Routing &amp; Scoring",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "b2b-cold-lead-routing-hubspot-make-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from HubSpot"
+        "hook": "real-time-b2b-inbound-lead-routing-scoring-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "hubspot:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in HubSpot"
-      }
+      "module": "hubspot:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "make:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Make"
-      }
+      "module": "make:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="contractor-onboarding-compliance-notion-deels" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #03 &bull; SLA ESCALATION ENGINE &bull; Notion &rarr; Make</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-contractor-onboarding-compliance-notion-deels', 'contractor-onboarding-compliance-notion-deels.json')">&darr; Download contractor-onboarding-compliance-notion-deels.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-contractor-onboarding-compliance-notion-deels', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-contractor-onboarding-document-collection" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #03 &bull; Notion &rarr; Make &bull; Saves 23 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-contractor-onboarding-document-collection','automated-contractor-onboarding-document-collection.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-contractor-onboarding-document-collection',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/contractor-onboarding-compliance-notion-deels.html">Automated Contractor Onboarding & Document Collection</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> High-priority client issues logged in Notion get buried in general queues when engineering and account tiers in Make are not cross-checked automatically.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~27 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Notion</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Notion</code>):</strong> Queries <strong>Notion</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Make</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Make</code>):</strong> Creates or updates the matching record inside <strong>Make</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-contractor-onboarding-compliance-notion-deels" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Contractor Onboarding &amp; Document Collection",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-contractor-onboarding-document-collection.html">Automated Contractor Onboarding & Document Collection</a></h3>
+  <pre id="pre-automated-contractor-onboarding-document-collection" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Contractor Onboarding &amp; Document Collection",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "contractor-onboarding-compliance-notion-deels-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Notion"
+        "hook": "automated-contractor-onboarding-document-collection-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "notion:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Notion"
-      }
+      "module": "notion:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "make:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Make"
-      }
+      "module": "make:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="saas-churn-alert-pipeline-stripe-slack" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #04 &bull; CONTRACT LIFECYCLE OPS &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-saas-churn-alert-pipeline-stripe-slack', 'saas-churn-alert-pipeline-stripe-slack.json')">&darr; Download saas-churn-alert-pipeline-stripe-slack.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-saas-churn-alert-pipeline-stripe-slack', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-saas-failed-payment-churn-recovery-pipeline" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #04 &bull; Make &rarr; Airtable &bull; Saves 26 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-saas-failed-payment-churn-recovery-pipeline','automated-saas-failed-payment-churn-recovery-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-saas-failed-payment-churn-recovery-pipeline',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-churn-alert-pipeline-stripe-slack.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Signed agreements in Make stall in email threads when finance teams have to manually key billing milestones and deliverables into Airtable.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~15 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-saas-churn-alert-pipeline-stripe-slack" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated SaaS Failed Payment &amp; Churn Recovery Pipeline",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-saas-failed-payment-churn-recovery-pipeline.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h3>
+  <pre id="pre-automated-saas-failed-payment-churn-recovery-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated SaaS Failed Payment &amp; Churn Recovery Pipeline",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "saas-churn-alert-pipeline-stripe-slack-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-saas-failed-payment-churn-recovery-pipeline-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="ecommerce-inventory-reorder-alerts-airtable" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #05 &bull; INVENTORY & SKU SYNC &bull; Airtable &rarr; Make</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-ecommerce-inventory-reorder-alerts-airtable', 'ecommerce-inventory-reorder-alerts-airtable.json')">&darr; Download ecommerce-inventory-reorder-alerts-airtable.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-ecommerce-inventory-reorder-alerts-airtable', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="multi-sku-low-inventory-reorder-forecasting-system" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #05 &bull; Airtable &rarr; Make &bull; Saves 14 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-multi-sku-low-inventory-reorder-forecasting-system','multi-sku-low-inventory-reorder-forecasting-system.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-multi-sku-low-inventory-reorder-forecasting-system',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/ecommerce-inventory-reorder-alerts-airtable.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Delayed stock counts between Airtable and Make lead to oversold SKUs, unfulfilled orders, and manual spreadsheet stock counts.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Airtable</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Airtable</code>):</strong> Queries <strong>Airtable</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Make</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Make</code>):</strong> Creates or updates the matching record inside <strong>Make</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-ecommerce-inventory-reorder-alerts-airtable" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Multi-SKU Low Inventory Reorder Forecasting System",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-sku-low-inventory-reorder-forecasting-system.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h3>
+  <pre id="pre-multi-sku-low-inventory-reorder-forecasting-system" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Multi-SKU Low Inventory Reorder Forecasting System",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "ecommerce-inventory-reorder-alerts-airtable-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Airtable"
+        "hook": "multi-sku-low-inventory-reorder-forecasting-system-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "airtable:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Airtable"
-      }
+      "module": "airtable:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "make:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Make"
-      }
+      "module": "make:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="client-reporting-kpi-dashboard-looker-sheets" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #06 &bull; CLIENT ONBOARDING PIPE &bull; Make &rarr; Notion</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-client-reporting-kpi-dashboard-looker-sheets', 'client-reporting-kpi-dashboard-looker-sheets.json')">&darr; Download client-reporting-kpi-dashboard-looker-sheets.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-client-reporting-kpi-dashboard-looker-sheets', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-weekly-client-kpi-executive-rollup" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #06 &bull; Make &rarr; Notion &bull; Saves 17 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-weekly-client-kpi-executive-rollup','automated-weekly-client-kpi-executive-rollup.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-weekly-client-kpi-executive-rollup',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/client-reporting-kpi-dashboard-looker-sheets.html">Automated Weekly Client KPI Executive Rollup</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Every closed deal in Make requires 30+ minutes of repetitive folder creation, task setup, and permission granting inside Notion.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~23 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Notion</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Notion</code>):</strong> Creates or updates the matching record inside <strong>Notion</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-client-reporting-kpi-dashboard-looker-sheets" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Weekly Client KPI Executive Rollup",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-weekly-client-kpi-executive-rollup.html">Automated Weekly Client KPI Executive Rollup</a></h3>
+  <pre id="pre-automated-weekly-client-kpi-executive-rollup" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Weekly Client KPI Executive Rollup",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "client-reporting-kpi-dashboard-looker-sheets-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-weekly-client-kpi-executive-rollup-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "notion:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Notion"
-      }
+      "module": "notion:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="rfp-proposal-response-matrix-notion-ai" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #07 &bull; FINOPS LEDGER SYNC &bull; Notion &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-rfp-proposal-response-matrix-notion-ai', 'rfp-proposal-response-matrix-notion-ai.json')">&darr; Download rfp-proposal-response-matrix-notion-ai.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-rfp-proposal-response-matrix-notion-ai', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="b2b-rfp-security-questionnaire-response-tracker" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #07 &bull; Notion &rarr; Airtable &bull; Saves 20 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-b2b-rfp-security-questionnaire-response-tracker','b2b-rfp-security-questionnaire-response-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-b2b-rfp-security-questionnaire-response-tracker',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/rfp-proposal-response-matrix-notion-ai.html">B2B RFP & Security Questionnaire Response Tracker</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Manual spreadsheet exports and copy-pasting between Notion and Airtable cause duplicate invoice entries, missed tax-rate mismatches, and delayed month-end close.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~27 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Notion</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Notion</code>):</strong> Queries <strong>Notion</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-rfp-proposal-response-matrix-notion-ai" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: B2B RFP &amp; Security Questionnaire Response Tracker",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-rfp-security-questionnaire-response-tracker.html">B2B RFP & Security Questionnaire Response Tracker</a></h3>
+  <pre id="pre-b2b-rfp-security-questionnaire-response-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "B2B RFP &amp; Security Questionnaire Response Tracker",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "rfp-proposal-response-matrix-notion-ai-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Notion"
+        "hook": "b2b-rfp-security-questionnaire-response-tracker-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "notion:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Notion"
-      }
+      "module": "notion:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="accounts-receivable-dunning-automation" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #08 &bull; REVOPS LEAD ROUTER &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-accounts-receivable-dunning-automation', 'accounts-receivable-dunning-automation.json')">&darr; Download accounts-receivable-dunning-automation.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-accounts-receivable-dunning-automation', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="zero-touch-b2b-accounts-receivable-follow-up-engine" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #08 &bull; Make &rarr; HubSpot &bull; Saves 23 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine','zero-touch-b2b-accounts-receivable-follow-up-engine.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/accounts-receivable-dunning-automation.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Inbound leads sitting unrouted in Make for hours lose buyer intent when reps have to manually check domains and copy records into HubSpot.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~15 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-accounts-receivable-dunning-automation" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Zero-Touch B2B Accounts Receivable Follow-Up Engine",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zero-touch-b2b-accounts-receivable-follow-up-engine.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3>
+  <pre id="pre-zero-touch-b2b-accounts-receivable-follow-up-engine" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Zero-Touch B2B Accounts Receivable Follow-Up Engine",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "accounts-receivable-dunning-automation-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "zero-touch-b2b-accounts-receivable-follow-up-engine-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="vendor-contract-renewal-alert-system" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #09 &bull; SLA ESCALATION ENGINE &bull; Airtable &rarr; Make</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-vendor-contract-renewal-alert-system', 'vendor-contract-renewal-alert-system.json')">&darr; Download vendor-contract-renewal-alert-system.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-vendor-contract-renewal-alert-system', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="saas-spend-vendor-contract-renewal-alert-tracker" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #09 &bull; Airtable &rarr; Make &bull; Saves 26 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-saas-spend-vendor-contract-renewal-alert-tracker','saas-spend-vendor-contract-renewal-alert-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-saas-spend-vendor-contract-renewal-alert-tracker',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/vendor-contract-renewal-alert-system.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> High-priority client issues logged in Airtable get buried in general queues when engineering and account tiers in Make are not cross-checked automatically.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Airtable</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Airtable</code>):</strong> Queries <strong>Airtable</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Make</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Make</code>):</strong> Creates or updates the matching record inside <strong>Make</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-vendor-contract-renewal-alert-system" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: SaaS Spend &amp; Vendor Contract Renewal Alert Tracker",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-spend-vendor-contract-renewal-alert-tracker.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h3>
+  <pre id="pre-saas-spend-vendor-contract-renewal-alert-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "SaaS Spend &amp; Vendor Contract Renewal Alert Tracker",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "vendor-contract-renewal-alert-system-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Airtable"
+        "hook": "saas-spend-vendor-contract-renewal-alert-tracker-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "airtable:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Airtable"
-      }
+      "module": "airtable:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "make:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Make"
-      }
+      "module": "make:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="customer-onboarding-milestone-tracker" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #10 &bull; CONTRACT LIFECYCLE OPS &bull; Notion &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-customer-onboarding-milestone-tracker', 'customer-onboarding-milestone-tracker.json')">&darr; Download customer-onboarding-milestone-tracker.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-customer-onboarding-milestone-tracker', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="high-ticket-b2b-client-onboarding-milestone-tracker" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #10 &bull; Notion &rarr; HubSpot &bull; Saves 14 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker','high-ticket-b2b-client-onboarding-milestone-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/customer-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Signed agreements in Notion stall in email threads when finance teams have to manually key billing milestones and deliverables into HubSpot.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~23 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Notion</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Notion</code>):</strong> Queries <strong>Notion</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-customer-onboarding-milestone-tracker" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: High-Ticket B2B Client Onboarding Milestone Tracker",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/high-ticket-b2b-client-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3>
+  <pre id="pre-high-ticket-b2b-client-onboarding-milestone-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "High-Ticket B2B Client Onboarding Milestone Tracker",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "customer-onboarding-milestone-tracker-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Notion"
+        "hook": "high-ticket-b2b-client-onboarding-milestone-tracker-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "notion:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Notion"
-      }
+      "module": "notion:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="stripe-dispute-chargeback-evidence-automation" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #11 &bull; INVENTORY & SKU SYNC &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-stripe-dispute-chargeback-evidence-automation', 'stripe-dispute-chargeback-evidence-automation.json')">&darr; Download stripe-dispute-chargeback-evidence-automation.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-stripe-dispute-chargeback-evidence-automation', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-stripe-chargeback-dispute-evidence-assembly" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #11 &bull; Make &rarr; Airtable &bull; Saves 17 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-stripe-chargeback-dispute-evidence-assembly','automated-stripe-chargeback-dispute-evidence-assembly.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-stripe-chargeback-dispute-evidence-assembly',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/stripe-dispute-chargeback-evidence-automation.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Delayed stock counts between Make and Airtable lead to oversold SKUs, unfulfilled orders, and manual spreadsheet stock counts.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~27 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-stripe-dispute-chargeback-evidence-automation" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Stripe Chargeback &amp; Dispute Evidence Assembly",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-stripe-chargeback-dispute-evidence-assembly.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h3>
+  <pre id="pre-automated-stripe-chargeback-dispute-evidence-assembly" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Stripe Chargeback &amp; Dispute Evidence Assembly",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "stripe-dispute-chargeback-evidence-automation-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-stripe-chargeback-dispute-evidence-assembly-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="hubspot-deal-stage-slack-approval-workflow" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #12 &bull; CLIENT ONBOARDING PIPE &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-hubspot-deal-stage-slack-approval-workflow', 'hubspot-deal-stage-slack-approval-workflow.json')">&darr; Download hubspot-deal-stage-slack-approval-workflow.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-hubspot-deal-stage-slack-approval-workflow', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-b2b-deal-desk-discount-approval-pipeline" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #12 &bull; Make &rarr; HubSpot &bull; Saves 20 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-b2b-deal-desk-discount-approval-pipeline','automated-b2b-deal-desk-discount-approval-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-deal-desk-discount-approval-pipeline',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/hubspot-deal-stage-slack-approval-workflow.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Every closed deal in Make requires 30+ minutes of repetitive folder creation, task setup, and permission granting inside HubSpot.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~15 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-hubspot-deal-stage-slack-approval-workflow" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated B2B Deal Desk Discount Approval Pipeline",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-deal-desk-discount-approval-pipeline.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h3>
+  <pre id="pre-automated-b2b-deal-desk-discount-approval-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated B2B Deal Desk Discount Approval Pipeline",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "hubspot-deal-stage-slack-approval-workflow-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-b2b-deal-desk-discount-approval-pipeline-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="b2b-podcast-guest-intake-crm-pipeline" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #13 &bull; FINOPS LEDGER SYNC &bull; Make &rarr; Notion</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-b2b-podcast-guest-intake-crm-pipeline', 'b2b-podcast-guest-intake-crm-pipeline.json')">&darr; Download b2b-podcast-guest-intake-crm-pipeline.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-b2b-podcast-guest-intake-crm-pipeline', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-b2b-podcast-webinar-guest-intake-pipeline" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #13 &bull; Make &rarr; Notion &bull; Saves 23 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline','automated-b2b-podcast-webinar-guest-intake-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-podcast-guest-intake-crm-pipeline.html">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Manual spreadsheet exports and copy-pasting between Make and Notion cause duplicate invoice entries, missed tax-rate mismatches, and delayed month-end close.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Notion</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Notion</code>):</strong> Creates or updates the matching record inside <strong>Notion</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-b2b-podcast-guest-intake-crm-pipeline" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated B2B Podcast &amp; Webinar Guest Intake Pipeline",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-podcast-webinar-guest-intake-pipeline.html">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></h3>
+  <pre id="pre-automated-b2b-podcast-webinar-guest-intake-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated B2B Podcast &amp; Webinar Guest Intake Pipeline",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "b2b-podcast-guest-intake-crm-pipeline-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-b2b-podcast-webinar-guest-intake-pipeline-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "notion:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Notion"
-      }
+      "module": "notion:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="multi-currency-expense-reimbursement-ledger" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #14 &bull; REVOPS LEAD ROUTER &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-multi-currency-expense-reimbursement-ledger', 'multi-currency-expense-reimbursement-ledger.json')">&darr; Download multi-currency-expense-reimbursement-ledger.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-multi-currency-expense-reimbursement-ledger', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-multi-currency-employee-expense-triage" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #14 &bull; Make &rarr; Airtable &bull; Saves 26 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-multi-currency-employee-expense-triage','automated-multi-currency-employee-expense-triage.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-multi-currency-employee-expense-triage',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-currency-expense-reimbursement-ledger.html">Automated Multi-Currency Employee Expense Triage</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Inbound leads sitting unrouted in Make for hours lose buyer intent when reps have to manually check domains and copy records into Airtable.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~23 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-multi-currency-expense-reimbursement-ledger" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Multi-Currency Employee Expense Triage",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-multi-currency-employee-expense-triage.html">Automated Multi-Currency Employee Expense Triage</a></h3>
+  <pre id="pre-automated-multi-currency-employee-expense-triage" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Multi-Currency Employee Expense Triage",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "multi-currency-expense-reimbursement-ledger-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-multi-currency-employee-expense-triage-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="saas-trial-usage-scoring-hubspot-alerts" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #15 &bull; SLA ESCALATION ENGINE &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-saas-trial-usage-scoring-hubspot-alerts', 'saas-trial-usage-scoring-hubspot-alerts.json')">&darr; Download saas-trial-usage-scoring-hubspot-alerts.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-saas-trial-usage-scoring-hubspot-alerts', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="product-qualified-lead-pql-trial-usage-alert-engine" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #15 &bull; Make &rarr; HubSpot &bull; Saves 14 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-product-qualified-lead-pql-trial-usage-alert-engine','product-qualified-lead-pql-trial-usage-alert-engine.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-product-qualified-lead-pql-trial-usage-alert-engine',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-trial-usage-scoring-hubspot-alerts.html">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> High-priority client issues logged in Make get buried in general queues when engineering and account tiers in HubSpot are not cross-checked automatically.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~27 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-saas-trial-usage-scoring-hubspot-alerts" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Product-Qualified Lead (PQL) Trial Usage Alert Engine",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/product-qualified-lead-pql-trial-usage-alert-engine.html">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></h3>
+  <pre id="pre-product-qualified-lead-pql-trial-usage-alert-engine" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Product-Qualified Lead (PQL) Trial Usage Alert Engine",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "saas-trial-usage-scoring-hubspot-alerts-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "product-qualified-lead-pql-trial-usage-alert-engine-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="agency-retainer-hours-burn-rate-tracker" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #16 &bull; CONTRACT LIFECYCLE OPS &bull; Make &rarr; Notion</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-agency-retainer-hours-burn-rate-tracker', 'agency-retainer-hours-burn-rate-tracker.json')">&darr; Download agency-retainer-hours-burn-rate-tracker.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-agency-retainer-hours-burn-rate-tracker', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="real-time-agency-retainer-burn-rate-overage-alerter" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #16 &bull; Make &rarr; Notion &bull; Saves 17 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-agency-retainer-burn-rate-overage-alerter','real-time-agency-retainer-burn-rate-overage-alerter.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-agency-retainer-burn-rate-overage-alerter',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/agency-retainer-hours-burn-rate-tracker.html">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Signed agreements in Make stall in email threads when finance teams have to manually key billing milestones and deliverables into Notion.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~15 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Notion</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Notion</code>):</strong> Creates or updates the matching record inside <strong>Notion</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-agency-retainer-hours-burn-rate-tracker" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Real-Time Agency Retainer Burn-Rate &amp; Overage Alerter",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-agency-retainer-burn-rate-overage-alerter.html">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></h3>
+  <pre id="pre-real-time-agency-retainer-burn-rate-overage-alerter" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Real-Time Agency Retainer Burn-Rate &amp; Overage Alerter",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "agency-retainer-hours-burn-rate-tracker-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "real-time-agency-retainer-burn-rate-overage-alerter-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "notion:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Notion"
-      }
+      "module": "notion:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-b2b-nda-contract-dispatch-pipeline" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #17 &bull; INVENTORY & SKU SYNC &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-automated-b2b-nda-contract-dispatch-pipeline', 'automated-b2b-nda-contract-dispatch-pipeline.json')">&darr; Download automated-b2b-nda-contract-dispatch-pipeline.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-automated-b2b-nda-contract-dispatch-pipeline', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="zero-touch-b2b-mutual-nda-generation-crm-sync" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #17 &bull; Make &rarr; HubSpot &bull; Saves 20 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync','zero-touch-b2b-mutual-nda-generation-crm-sync.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-nda-contract-dispatch-pipeline.html">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Delayed stock counts between Make and HubSpot lead to oversold SKUs, unfulfilled orders, and manual spreadsheet stock counts.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-automated-b2b-nda-contract-dispatch-pipeline" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Zero-Touch B2B Mutual NDA Generation &amp; CRM Sync",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zero-touch-b2b-mutual-nda-generation-crm-sync.html">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></h3>
+  <pre id="pre-zero-touch-b2b-mutual-nda-generation-crm-sync" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Zero-Touch B2B Mutual NDA Generation &amp; CRM Sync",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "automated-b2b-nda-contract-dispatch-pipeline-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "zero-touch-b2b-mutual-nda-generation-crm-sync-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="zendesk-jira-engineering-escalation-bridge" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #18 &bull; CLIENT ONBOARDING PIPE &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-zendesk-jira-engineering-escalation-bridge', 'zendesk-jira-engineering-escalation-bridge.json')">&darr; Download zendesk-jira-engineering-escalation-bridge.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-zendesk-jira-engineering-escalation-bridge', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-tier-3-support-to-engineering-bug-escalation" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #18 &bull; Make &rarr; Airtable &bull; Saves 23 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-tier-3-support-to-engineering-bug-escalation','automated-tier-3-support-to-engineering-bug-escalation.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-tier-3-support-to-engineering-bug-escalation',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zendesk-jira-engineering-escalation-bridge.html">Automated Tier-3 Support to Engineering Bug Escalation</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Every closed deal in Make requires 30+ minutes of repetitive folder creation, task setup, and permission granting inside Airtable.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~23 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-zendesk-jira-engineering-escalation-bridge" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Tier-3 Support to Engineering Bug Escalation",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-tier-3-support-to-engineering-bug-escalation.html">Automated Tier-3 Support to Engineering Bug Escalation</a></h3>
+  <pre id="pre-automated-tier-3-support-to-engineering-bug-escalation" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Tier-3 Support to Engineering Bug Escalation",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "zendesk-jira-engineering-escalation-bridge-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-tier-3-support-to-engineering-bug-escalation-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="b2b-renewal-upsell-health-score-radar" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #19 &bull; FINOPS LEDGER SYNC &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-b2b-renewal-upsell-health-score-radar', 'b2b-renewal-upsell-health-score-radar.json')">&darr; Download b2b-renewal-upsell-health-score-radar.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-b2b-renewal-upsell-health-score-radar', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="90-day-b2b-account-renewal-churn-risk-radar" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #19 &bull; Make &rarr; HubSpot &bull; Saves 26 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-90-day-b2b-account-renewal-churn-risk-radar','90-day-b2b-account-renewal-churn-risk-radar.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-90-day-b2b-account-renewal-churn-risk-radar',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-renewal-upsell-health-score-radar.html">90-Day B2B Account Renewal & Churn Risk Radar</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Manual spreadsheet exports and copy-pasting between Make and HubSpot cause duplicate invoice entries, missed tax-rate mismatches, and delayed month-end close.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~27 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-b2b-renewal-upsell-health-score-radar" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: 90-Day B2B Account Renewal &amp; Churn Risk Radar",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/90-day-b2b-account-renewal-churn-risk-radar.html">90-Day B2B Account Renewal & Churn Risk Radar</a></h3>
+  <pre id="pre-90-day-b2b-account-renewal-churn-risk-radar" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "90-Day B2B Account Renewal &amp; Churn Risk Radar",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "b2b-renewal-upsell-health-score-radar-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "90-day-b2b-account-renewal-churn-risk-radar-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-affiliate-payout-reconciliation" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #20 &bull; REVOPS LEAD ROUTER &bull; Make &rarr; Airtable</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-automated-affiliate-payout-reconciliation', 'automated-affiliate-payout-reconciliation.json')">&darr; Download automated-affiliate-payout-reconciliation.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-automated-affiliate-payout-reconciliation', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="automated-partner-affiliate-commission-payout-ledger" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #20 &bull; Make &rarr; Airtable &bull; Saves 14 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-partner-affiliate-commission-payout-ledger','automated-partner-affiliate-commission-payout-ledger.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-partner-affiliate-commission-payout-ledger',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-affiliate-payout-reconciliation.html">Automated Partner & Affiliate Commission Payout Ledger</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> Inbound leads sitting unrouted in Make for hours lose buyer intent when reps have to manually check domains and copy records into Airtable.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~15 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>Airtable</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>Airtable</code>):</strong> Creates or updates the matching record inside <strong>Airtable</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-automated-affiliate-payout-reconciliation" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Automated Partner &amp; Affiliate Commission Payout Ledger",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-partner-affiliate-commission-payout-ledger.html">Automated Partner & Affiliate Commission Payout Ledger</a></h3>
+  <pre id="pre-automated-partner-affiliate-commission-payout-ledger" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Automated Partner &amp; Affiliate Commission Payout Ledger",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "automated-affiliate-payout-reconciliation-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "automated-partner-affiliate-commission-payout-ledger-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "airtable:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into Airtable"
-      }
+      "module": "airtable:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
-<div class="spec-card" id="linkedin-lead-ads-instant-crm-enrichment" style="margin-bottom:28px;">
-  <div class="card-top" style="flex-wrap:wrap;gap:12px;">
-    <span class="pill">SPEC #21 &bull; SLA ESCALATION ENGINE &bull; Make &rarr; HubSpot</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn-json" style="cursor:pointer;" onclick="downloadJsonFromPre('pre-linkedin-lead-ads-instant-crm-enrichment', 'linkedin-lead-ads-instant-crm-enrichment.json')">&darr; Download linkedin-lead-ads-instant-crm-enrichment.json</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff;border-color:#475569;" onclick="copyJsonFromPre('pre-linkedin-lead-ads-instant-crm-enrichment', this)">Copy .JSON</button>
-      <a class="btn-spec" style="padding:6px 10px;" href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html">Open Full Guide &rarr;</a>
+<div class="spec-card" id="real-time-linkedin-lead-gen-form-enrichment-routing" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #21 &bull; Make &rarr; HubSpot &bull; Saves 17 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing','real-time-linkedin-lead-gen-form-enrichment-routing.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing',this)">Copy</button>
     </div>
   </div>
-  <h3 style="font-size:22px;margin:10px 0 6px 0;"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/linkedin-lead-ads-instant-crm-enrichment.html">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></h3>
-  <p style="color:#cbd5e1;font-size:14px;margin:0 0 12px 0;"><strong>Why Teams Need This:</strong> High-priority client issues logged in Make get buried in general queues when engineering and account tiers in HubSpot are not cross-checked automatically.</p>
-  <div style="background:#0d1322;border:1px solid #1e293b;border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-    <div style="font-size:12px;color:#38bdf8;font-weight:800;margin-bottom:8px;text-transform:uppercase;">How This 5-Stage Make.com Blueprint Works (Saves ~19 hrs / month):</div>
-    <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:13px;"><li style="margin-bottom:6px;"><strong>Stage 1 — Real-Time Webhook Listener (<code>gateway:CustomWebHook</code>):</strong> Captures live event payloads from <strong>Make</strong> the instant a record is created or updated, eliminating slow polling delays.</li><li style="margin-bottom:6px;"><strong>Stage 2 — SHA-256 Deduplication Guard (<code>util:SetVariable2</code>):</strong> Computes a deterministic <code>SHA-256(event_id + updated_at)</code> fingerprint so duplicate webhook retries never create duplicate entries.</li><li style="margin-bottom:6px;"><strong>Stage 3 — Source Record Verification (<code>Make</code>):</strong> Queries <strong>Make</strong> to verify the live status and required fields before allowing downstream changes.</li><li style="margin-bottom:6px;"><strong>Stage 4 — Validation Router &amp; Error Quarantine (<code>builtin:BasicRouter</code>):</strong> Routes verified payloads to <strong>HubSpot</strong> while isolating incomplete or failed payloads into a Dead-Letter Queue.</li><li style="margin-bottom:6px;"><strong>Stage 5 — Atomic Target Upsert (<code>HubSpot</code>):</strong> Creates or updates the matching record inside <strong>HubSpot</strong> using the idempotency key and logs the sync timestamp.</li></ul>
-  </div>
-  <pre id="pre-linkedin-lead-ads-instant-crm-enrichment" style="background:#020617;border:1px solid #1e293b;padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:220px;margin:0;">{
-  "name": "Arkgon Systems Turnkey Spec: Real-Time LinkedIn Lead Gen Form Enrichment &amp; Routing",
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-linkedin-lead-gen-form-enrichment-routing.html">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></h3>
+  <pre id="pre-real-time-linkedin-lead-gen-form-enrichment-routing" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  "name": "Real-Time LinkedIn Lead Gen Form Enrichment &amp; Routing",
   "flow": [
     {
       "id": 1,
       "module": "gateway:CustomWebHook",
-      "version": 1,
       "parameters": {
-        "hook": "linkedin-lead-ads-instant-crm-enrichment-ingest-webhook",
-        "maxResults": 1
-      },
-      "metadata": {
-        "notes": "Step 1: Real-time webhook listener from Make"
+        "hook": "real-time-linkedin-lead-gen-form-enrichment-routing-webhook"
       }
     },
     {
       "id": 2,
       "module": "util:SetVariable2",
-      "version": 1,
       "mapper": {
-        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}",
-        "timestamp": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ssZ\")}}"
-      },
-      "metadata": {
-        "notes": "Step 2: Deterministic SHA-256 idempotency hash"
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
       }
     },
     {
       "id": 3,
-      "module": "make:WatchRecords",
-      "version": 1,
-      "mapper": {
-        "external_id": "{{1.event_id}}"
-      },
-      "metadata": {
-        "notes": "Step 3: Source state verification in Make"
-      }
+      "module": "make:WatchRecords"
     },
     {
       "id": 4,
-      "module": "builtin:BasicRouter",
-      "version": 1,
-      "metadata": {
-        "notes": "Step 4: Conditional validation &amp; Dead-Letter Queue router"
-      }
+      "module": "builtin:BasicRouter"
     },
     {
       "id": 5,
-      "module": "hubspot:ActionUpsertRecord",
-      "version": 1,
-      "mapper": {
-        "idempotency_signature": "{{2.idempotency_key}}",
-        "status": "VERIFIED_SYNC"
-      },
-      "metadata": {
-        "notes": "Step 5: Atomic upsert into HubSpot"
-      }
+      "module": "hubspot:ActionUpsertRecord"
     }
-  ],
-  "metadata": {
-    "instant": true,
-    "version": 1,
-    "scenario": {
-      "roundtrips": 1,
-      "maxErrors": 3,
-      "autoCommit": true
-    },
-    "zone": "us1.make.com"
-  }
+  ]
 }</pre>
 </div>
 </main>
 <script>
-function downloadJsonFromPre(preId, filename) {
-  var el = document.getElementById(preId);
-  if (!el) return;
-  var blob = new Blob([el.innerText], { type: "application/json;charset=utf-8" });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
-}
-function copyJsonFromPre(preId, btn) {
-  var el = document.getElementById(preId);
-  if (!el) return;
-  navigator.clipboard.writeText(el.innerText).then(function() {
-    var orig = btn.innerText;
-    btn.innerText = "✓ Copied .JSON!";
-    setTimeout(function() { btn.innerText = orig; }, 2000);
-  });
-}
+function dlJson(id,fn){var el=document.getElementById(id);if(!el)return;var b=new Blob([el.innerText],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();document.body.removeChild(a);}
+function cpJson(id,btn){var el=document.getElementById(id);if(!el)return;navigator.clipboard.writeText(el.innerText).then(function(){var o=btn.innerText;btn.innerText="✓ Copied!";setTimeout(function(){btn.innerText=o;},1800);});}
 </script>
 </body></html>
