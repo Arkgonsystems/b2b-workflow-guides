@@ -1,36 +1,81 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="google-site-verification" content="google131615e77931aa3a" />
-<title>Arkgon Systems — Automation Blueprints & Native Tools</title>
-<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#04070f;color:#f8fafc;line-height:1.6}
+<title>Arkgon Systems — 60fps Interactive Landing Page & Automation Suite</title>
+<style>*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#03060e;color:#f8fafc;line-height:1.6;overflow-x:hidden}
+.page-wrap{position:relative;z-index:2}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid #1e293b;background:rgba(4,7,15,0.88);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0}
+header{border-bottom:1px solid rgba(56,189,248,0.18);background:rgba(3,6,14,0.72);position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);padding:16px 0}
 .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:8px}
-.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 10px #38bdf8}
-.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#fff}
-.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 14px;border-radius:6px;font-weight:800 !important}
-.star-hero{position:relative;overflow:hidden;border-bottom:1px solid #1e293b;min-height:390px;display:flex;align-items:center}
-#hero-stars{position:absolute;inset:0;width:100%;height:100%;z-index:1}
-.hero-inner{position:relative;z-index:2;padding:56px 24px;max-width:1140px;margin:0 auto;width:100%}
-h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spacing:-0.02em}
-.btn-main{background:#10b981;color:#022c22;padding:12px 22px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;display:inline-block;margin-right:10px}
-.btn-sec{background:rgba(17,24,39,0.85);color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid #334155;display:inline-block}
-.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:32px 0}
-.suite-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:60px}
-.spec-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 12px #38bdf8}
+.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.nav-links a{color:#cbd5e1;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#38bdf8}
+.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 15px;border-radius:6px;font-weight:800 !important}
+.landing-hero{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.hero-glass{background:rgba(9,14,28,0.58);border:1px solid rgba(56,189,248,0.26);backdrop-filter:blur(12px);border-radius:20px;padding:48px 36px;max-width:860px;box-shadow:0 20px 60px rgba(0,0,0,0.55)}
+.eyebrow{display:inline-block;background:rgba(56,189,248,0.14);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase}
+h1{font-size:46px;line-height:1.12;margin:16px 0 16px;letter-spacing:-0.02em;color:#fff}
+.sub{color:#cbd5e1;font-size:17px;max-width:660px;margin:0 auto 28px}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-main{background:#10b981;color:#022c22;padding:13px 24px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;border:none;cursor:pointer;display:inline-block}
+.btn-sec{background:rgba(15,23,42,0.8);color:#fff;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid rgba(148,163,184,0.35);cursor:pointer;display:inline-block}
+.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:24px 0 48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:64px}
+.glass-card{background:rgba(11,17,32,0.72);border:1px solid rgba(56,189,248,0.2);backdrop-filter:blur(12px);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color 0.15s,transform 0.15s}
+.glass-card:hover{border-color:#38bdf8;transform:translateY(-2px)}
 .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pill{background:rgba(56,189,248,0.12);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px}
+.pill{background:rgba(56,189,248,0.14);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:99px}
 .spec-num{font-family:monospace;font-size:12px;color:#94a3b8}
 .stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px}
-.spec-card h3{margin:0 0 8px;font-size:17px}.spec-card h3 a{color:#fff;text-decoration:none}
-.desc{color:#94a3b8;font-size:13px;margin:0 0 16px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #1e293b}
+.glass-card h3{margin:0 0 8px;font-size:17.5px}.glass-card h3 a{color:#fff;text-decoration:none}
+.desc{color:#94a3b8;font-size:13.5px;margin:0 0 16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)}
 .btn-spec{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:700}
-.btn-json{background:rgba(16,185,129,0.14);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:5px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800}</style></head><body>
+.btn-json{background:rgba(16,185,129,0.16);color:#10b981;border:1px solid rgba(16,185,129,0.35);padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800;cursor:pointer}
+pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px}
+@media(max-width:768px){h1{font-size:32px}.hero-glass{padding:32px 20px}}</style></head><body>
+<canvas id="bg-stars" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
+<script>
+(function(){
+  var c=document.getElementById("bg-stars");if(!c)return;
+  var ctx=c.getContext("2d"),w,h,stars=[],count=1600,speed=2.4,warp=false,mx=0,my=0;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;}
+  window.addEventListener("resize",resize);resize();
+  for(var i=0;i<count;i++){
+    stars.push({
+      x:(Math.random()-0.5)*w*2.6,
+      y:(Math.random()-0.5)*h*2.6,
+      z:Math.random()*w,
+      pz:0,
+      col:i%4===0?"#38bdf8":(i%6===0?"#10b981":(i%9===0?"#a5b4fc":"#ffffff"))
+    });
+  }
+  window.addEventListener("mousemove",function(e){mx=(e.clientX-w/2)*0.11;my=(e.clientY-h/2)*0.11;});
+  window.addEventListener("mousedown",function(e){if(e.target.tagName!=="BUTTON"&&e.target.tagName!=="A"&&e.target.tagName!=="TEXTAREA"&&e.target.tagName!=="SELECT")warp=true;});
+  window.addEventListener("mouseup",function(){warp=false;});
+  function tick(){
+    ctx.fillStyle=warp?"rgba(3,6,14,0.2)":"rgba(3,6,14,0.42)";
+    ctx.fillRect(0,0,w,h);
+    var v=warp?22:speed,cx=w/2+mx,cy=h/2+my;
+    for(var i=0;i<count;i++){
+      var s=stars[i];s.pz=s.z;s.z-=v;
+      if(s.z<=1){s.z=w;s.pz=w;s.x=(Math.random()-0.5)*w*2.6;s.y=(Math.random()-0.5)*h*2.6;}
+      var sx=(s.x/s.z)*w+cx,sy=(s.y/s.z)*h+cy;
+      var px=(s.x/s.pz)*w+cx,py=(s.y/s.pz)*h+cy;
+      var r=Math.max(0.55,(1-s.z/w)*2.8);
+      ctx.beginPath();ctx.strokeStyle=s.col;ctx.lineWidth=r;ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.stroke();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<div class="page-wrap">
 <header><div class="container nav">
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
@@ -39,24 +84,27 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full Vault ($19)</a>
   </div>
 </div></header>
-<section class="star-hero">
-  <canvas id="hero-stars"></canvas>
-  <div class="hero-inner">
-    <div style="color:#38bdf8;font-size:11px;font-weight:800;letter-spacing:0.1em">ARKGON SYSTEMS // 60FPS INTERACTIVE ENGINE</div>
-    <h1>B2B Make.com Blueprints &amp; Minimalist Software Suite.</h1>
-    <p style="color:#94a3b8;max-width:640px;margin:0 0 24px">Importable Make.com (.JSON) automation scenarios and zero-bloat desktop &amp; browser utilities. Move cursor or click-and-hold to warp the starfield.</p>
-    <a class="btn-main" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">Browse .JSON Catalog (21)</a>
-    <a class="btn-sec" href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html">Full-Screen 60fps Starfield &rarr;</a>
+<section class="landing-hero">
+  <div class="hero-glass">
+    <span class="eyebrow">ARKGON SYSTEMS // 60FPS INTERACTIVE LANDING PAGE</span>
+    <h1>Deterministic Automation &amp; Minimalist Software Suite.</h1>
+    <p class="sub">Move your cursor to steer the 1,600-star 3D field or click-and-hold anywhere for Warp Drive. Explore our native desktop curtain, prose reframer, and 21 ready-to-import Make.com (.JSON) blueprints below.</p>
+    <div class="btn-row">
+      <a class="btn-main" href="#suite">Explore Software Suite &darr;</a>
+      <a class="btn-sec" href="#specs">Browse 21 Make.com Blueprints &darr;</a>
+      <a class="btn-sec" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">Direct .JSON Catalog &rarr;</a>
+    </div>
   </div>
 </section>
 <main class="container">
+  <h2 id="suite" style="margin:16px 0 14px;font-size:22px;text-align:center">Flagship Software Suite</h2>
   <section class="suite-grid">
-    <div class="suite-card"><div><span class="pill">MACOS &amp; WINDOWS</span><h3 style="margin:10px 0 6px">SlideNote v1.0</h3><p class="desc">120Hz top-edge drop-down workspace curtain and Markdown scratchpad.</p></div><a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">Open SlideNote &rarr;</a></div>
-    <div class="suite-card"><div><span class="pill" style="color:#a5b4fc">LIVE WEB APP</span><h3 style="margin:10px 0 6px">Polisher v2.0 (Editorial Studio)</h3><p class="desc">Client-side prose reframer and sentence cadence optimizer.</p></div><a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Launch Polisher v2.0 &rarr;</a></div>
-    <div class="suite-card"><div><span class="pill" style="color:#10b981">60FPS CANVAS</span><h3 style="margin:10px 0 6px">Stellar 3D Starfield</h3><p class="desc">Interactive 60fps 3D warp-speed starfield &amp; parallax canvas engine.</p></div><a class="btn-spec" style="color:#10b981" href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html">Launch Full-Screen Starfield &rarr;</a></div>
+    <div class="glass-card"><div><span class="pill">MACOS &amp; WINDOWS</span><h3 style="margin:10px 0 6px">SlideNote v1.0</h3><p class="desc">120Hz top-edge drop-down workspace curtain and multi-sheet Markdown scratchpad.</p></div><a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">Open SlideNote &rarr;</a></div>
+    <div class="glass-card"><div><span class="pill" style="color:#a5b4fc">LIVE WEB APP</span><h3 style="margin:10px 0 6px">Polisher v2.0 (Editorial Studio)</h3><p class="desc">Client-side prose reframer and sentence cadence optimizer.</p></div><a class="btn-spec" href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Launch Polisher v2.0 &rarr;</a></div>
+    <div class="glass-card"><div><span class="pill" style="color:#10b981">60FPS CANVAS</span><h3 style="margin:10px 0 6px">Stellar 3D Starfield</h3><p class="desc">Full-screen interactive 1,600-star warp-speed canvas experience.</p></div><a class="btn-spec" style="color:#10b981" href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html">Open Full-Screen Starfield &rarr;</a></div>
   </section>
-  <h2 id="specs" style="margin:36px 0 16px;font-size:22px">Make.com (.JSON) Workflow Blueprints (21)</h2>
-  <section class="grid"><article class="spec-card">
+  <h2 id="specs" style="margin:36px 0 16px;font-size:22px;text-align:center">Make.com (.JSON) Workflow Blueprints (21)</h2>
+  <section class="grid"><article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEDGER SYNC</span><span class="spec-num">SPEC #01</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 17 hrs/mo</span></div>
@@ -68,7 +116,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-invoice-reconciliation-for-small-agencies">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEAD ROUTER</span><span class="spec-num">SPEC #02</span></div>
     <div class="stack-tag">HubSpot &rarr; Make &bull; <span style="color:#10b981">Saves 20 hrs/mo</span></div>
@@ -80,7 +128,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#real-time-b2b-inbound-lead-routing-scoring">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SLA ALERT</span><span class="spec-num">SPEC #03</span></div>
     <div class="stack-tag">Notion &rarr; Make &bull; <span style="color:#10b981">Saves 23 hrs/mo</span></div>
@@ -92,7 +140,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-contractor-onboarding-document-collection">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">CONTRACT OPS</span><span class="spec-num">SPEC #04</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 26 hrs/mo</span></div>
@@ -104,7 +152,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-saas-failed-payment-churn-recovery-pipeline">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SKU SYNC</span><span class="spec-num">SPEC #05</span></div>
     <div class="stack-tag">Airtable &rarr; Make &bull; <span style="color:#10b981">Saves 14 hrs/mo</span></div>
@@ -116,7 +164,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#multi-sku-low-inventory-reorder-forecasting-system">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">ONBOARDING</span><span class="spec-num">SPEC #06</span></div>
     <div class="stack-tag">Make &rarr; Notion &bull; <span style="color:#10b981">Saves 17 hrs/mo</span></div>
@@ -128,7 +176,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-weekly-client-kpi-executive-rollup">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEDGER SYNC</span><span class="spec-num">SPEC #07</span></div>
     <div class="stack-tag">Notion &rarr; Airtable &bull; <span style="color:#10b981">Saves 20 hrs/mo</span></div>
@@ -140,7 +188,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#b2b-rfp-security-questionnaire-response-tracker">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEAD ROUTER</span><span class="spec-num">SPEC #08</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 23 hrs/mo</span></div>
@@ -152,7 +200,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#zero-touch-b2b-accounts-receivable-follow-up-engine">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SLA ALERT</span><span class="spec-num">SPEC #09</span></div>
     <div class="stack-tag">Airtable &rarr; Make &bull; <span style="color:#10b981">Saves 26 hrs/mo</span></div>
@@ -164,7 +212,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#saas-spend-vendor-contract-renewal-alert-tracker">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">CONTRACT OPS</span><span class="spec-num">SPEC #10</span></div>
     <div class="stack-tag">Notion &rarr; HubSpot &bull; <span style="color:#10b981">Saves 14 hrs/mo</span></div>
@@ -176,7 +224,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#high-ticket-b2b-client-onboarding-milestone-tracker">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SKU SYNC</span><span class="spec-num">SPEC #11</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 17 hrs/mo</span></div>
@@ -188,7 +236,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-stripe-chargeback-dispute-evidence-assembly">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">ONBOARDING</span><span class="spec-num">SPEC #12</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 20 hrs/mo</span></div>
@@ -200,7 +248,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-b2b-deal-desk-discount-approval-pipeline">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEDGER SYNC</span><span class="spec-num">SPEC #13</span></div>
     <div class="stack-tag">Make &rarr; Notion &bull; <span style="color:#10b981">Saves 23 hrs/mo</span></div>
@@ -212,7 +260,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-b2b-podcast-webinar-guest-intake-pipeline">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEAD ROUTER</span><span class="spec-num">SPEC #14</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 26 hrs/mo</span></div>
@@ -224,7 +272,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-multi-currency-employee-expense-triage">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SLA ALERT</span><span class="spec-num">SPEC #15</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 14 hrs/mo</span></div>
@@ -236,7 +284,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#product-qualified-lead-pql-trial-usage-alert-engine">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">CONTRACT OPS</span><span class="spec-num">SPEC #16</span></div>
     <div class="stack-tag">Make &rarr; Notion &bull; <span style="color:#10b981">Saves 17 hrs/mo</span></div>
@@ -248,7 +296,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#real-time-agency-retainer-burn-rate-overage-alerter">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SKU SYNC</span><span class="spec-num">SPEC #17</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 20 hrs/mo</span></div>
@@ -260,7 +308,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#zero-touch-b2b-mutual-nda-generation-crm-sync">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">ONBOARDING</span><span class="spec-num">SPEC #18</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 23 hrs/mo</span></div>
@@ -272,7 +320,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-tier-3-support-to-engineering-bug-escalation">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEDGER SYNC</span><span class="spec-num">SPEC #19</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 26 hrs/mo</span></div>
@@ -284,7 +332,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#90-day-b2b-account-renewal-churn-risk-radar">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">LEAD ROUTER</span><span class="spec-num">SPEC #20</span></div>
     <div class="stack-tag">Make &rarr; Airtable &bull; <span style="color:#10b981">Saves 14 hrs/mo</span></div>
@@ -296,7 +344,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#automated-partner-affiliate-commission-payout-ledger">Get .JSON</a>
   </div>
 </article>
-<article class="spec-card">
+<article class="glass-card">
   <div>
     <div class="card-top"><span class="pill">SLA ALERT</span><span class="spec-num">SPEC #21</span></div>
     <div class="stack-tag">Make &rarr; HubSpot &bull; <span style="color:#10b981">Saves 17 hrs/mo</span></div>
@@ -308,32 +356,4 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
     <a class="btn-json" href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html#real-time-linkedin-lead-gen-form-enrichment-routing">Get .JSON</a>
   </div>
 </article></section>
-</main>
-<script>
-(function(){
-  var c=document.getElementById("hero-stars");if(!c)return;
-  var ctx=c.getContext("2d"),w,h,stars=[],count=700,speed=2.2,warp=false,mx=0,my=0;
-  function resize(){w=c.width=c.parentElement.clientWidth||window.innerWidth;h=c.height=c.parentElement.clientHeight||420;}
-  window.addEventListener("resize",resize);resize();
-  for(var i=0;i<count;i++)stars.push({x:(Math.random()-0.5)*w*2,y:(Math.random()-0.5)*h*2,z:Math.random()*w,pz:0,col:i%5===0?"#38bdf8":(i%7===0?"#10b981":"#f8fafc")});
-  window.addEventListener("mousemove",function(e){mx=(e.clientX-w/2)*0.08;my=(e.clientY-h/2)*0.08;});
-  window.addEventListener("mousedown",function(){warp=true;});
-  window.addEventListener("mouseup",function(){warp=false;});
-  function tick(){
-    ctx.fillStyle=warp?"rgba(4,7,15,0.22)":"rgba(4,7,15,0.45)";
-    ctx.fillRect(0,0,w,h);
-    var v=warp?18:speed,cx=w/2+mx,cy=h/2+my;
-    for(var i=0;i<count;i++){
-      var s=stars[i];s.pz=s.z;s.z-=v;
-      if(s.z<=1){s.z=w;s.pz=w;s.x=(Math.random()-0.5)*w*2;s.y=(Math.random()-0.5)*h*2;}
-      var sx=(s.x/s.z)*w+cx,sy=(s.y/s.z)*h+cy;
-      var px=(s.x/s.pz)*w+cx,py=(s.y/s.pz)*h+cy;
-      var r=Math.max(0.6,(1-s.z/w)*2.6);
-      ctx.beginPath();ctx.strokeStyle=s.col;ctx.lineWidth=r;ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.stroke();
-    }
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
-</script>
-</body></html>
+</main></div></body></html>

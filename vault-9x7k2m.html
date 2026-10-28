@@ -1,35 +1,80 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Make.com (.JSON) Blueprint Catalog | Arkgon Systems</title>
-<style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#04070f;color:#f8fafc;line-height:1.6}
+<style>*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#03060e;color:#f8fafc;line-height:1.6;overflow-x:hidden}
+.page-wrap{position:relative;z-index:2}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid #1e293b;background:rgba(4,7,15,0.88);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);padding:16px 0}
+header{border-bottom:1px solid rgba(56,189,248,0.18);background:rgba(3,6,14,0.72);position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);padding:16px 0}
 .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.05em;text-decoration:none;display:flex;align-items:center;gap:8px}
-.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 10px #38bdf8}
-.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.nav-links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#fff}
-.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 14px;border-radius:6px;font-weight:800 !important}
-.star-hero{position:relative;overflow:hidden;border-bottom:1px solid #1e293b;min-height:390px;display:flex;align-items:center}
-#hero-stars{position:absolute;inset:0;width:100%;height:100%;z-index:1}
-.hero-inner{position:relative;z-index:2;padding:56px 24px;max-width:1140px;margin:0 auto;width:100%}
-h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spacing:-0.02em}
-.btn-main{background:#10b981;color:#022c22;padding:12px 22px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;display:inline-block;margin-right:10px}
-.btn-sec{background:rgba(17,24,39,0.85);color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid #334155;display:inline-block}
-.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:32px 0}
-.suite-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:60px}
-.spec-card{background:#0d1322;border:1px solid #1e293b;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 12px #38bdf8}
+.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.nav-links a{color:#cbd5e1;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#38bdf8}
+.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 15px;border-radius:6px;font-weight:800 !important}
+.landing-hero{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.hero-glass{background:rgba(9,14,28,0.58);border:1px solid rgba(56,189,248,0.26);backdrop-filter:blur(12px);border-radius:20px;padding:48px 36px;max-width:860px;box-shadow:0 20px 60px rgba(0,0,0,0.55)}
+.eyebrow{display:inline-block;background:rgba(56,189,248,0.14);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase}
+h1{font-size:46px;line-height:1.12;margin:16px 0 16px;letter-spacing:-0.02em;color:#fff}
+.sub{color:#cbd5e1;font-size:17px;max-width:660px;margin:0 auto 28px}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-main{background:#10b981;color:#022c22;padding:13px 24px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;border:none;cursor:pointer;display:inline-block}
+.btn-sec{background:rgba(15,23,42,0.8);color:#fff;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid rgba(148,163,184,0.35);cursor:pointer;display:inline-block}
+.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:24px 0 48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:64px}
+.glass-card{background:rgba(11,17,32,0.72);border:1px solid rgba(56,189,248,0.2);backdrop-filter:blur(12px);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color 0.15s,transform 0.15s}
+.glass-card:hover{border-color:#38bdf8;transform:translateY(-2px)}
 .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pill{background:rgba(56,189,248,0.12);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px}
+.pill{background:rgba(56,189,248,0.14);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:99px}
 .spec-num{font-family:monospace;font-size:12px;color:#94a3b8}
 .stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px}
-.spec-card h3{margin:0 0 8px;font-size:17px}.spec-card h3 a{color:#fff;text-decoration:none}
-.desc{color:#94a3b8;font-size:13px;margin:0 0 16px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #1e293b}
+.glass-card h3{margin:0 0 8px;font-size:17.5px}.glass-card h3 a{color:#fff;text-decoration:none}
+.desc{color:#94a3b8;font-size:13.5px;margin:0 0 16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)}
 .btn-spec{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:700}
-.btn-json{background:rgba(16,185,129,0.14);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:5px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800}</style></head><body>
+.btn-json{background:rgba(16,185,129,0.16);color:#10b981;border:1px solid rgba(16,185,129,0.35);padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800;cursor:pointer}
+pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px}
+@media(max-width:768px){h1{font-size:32px}.hero-glass{padding:32px 20px}}</style></head><body>
+<canvas id="bg-stars" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
+<script>
+(function(){
+  var c=document.getElementById("bg-stars");if(!c)return;
+  var ctx=c.getContext("2d"),w,h,stars=[],count=1600,speed=2.4,warp=false,mx=0,my=0;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;}
+  window.addEventListener("resize",resize);resize();
+  for(var i=0;i<count;i++){
+    stars.push({
+      x:(Math.random()-0.5)*w*2.6,
+      y:(Math.random()-0.5)*h*2.6,
+      z:Math.random()*w,
+      pz:0,
+      col:i%4===0?"#38bdf8":(i%6===0?"#10b981":(i%9===0?"#a5b4fc":"#ffffff"))
+    });
+  }
+  window.addEventListener("mousemove",function(e){mx=(e.clientX-w/2)*0.11;my=(e.clientY-h/2)*0.11;});
+  window.addEventListener("mousedown",function(e){if(e.target.tagName!=="BUTTON"&&e.target.tagName!=="A"&&e.target.tagName!=="TEXTAREA"&&e.target.tagName!=="SELECT")warp=true;});
+  window.addEventListener("mouseup",function(){warp=false;});
+  function tick(){
+    ctx.fillStyle=warp?"rgba(3,6,14,0.2)":"rgba(3,6,14,0.42)";
+    ctx.fillRect(0,0,w,h);
+    var v=warp?22:speed,cx=w/2+mx,cy=h/2+my;
+    for(var i=0;i<count;i++){
+      var s=stars[i];s.pz=s.z;s.z-=v;
+      if(s.z<=1){s.z=w;s.pz=w;s.x=(Math.random()-0.5)*w*2.6;s.y=(Math.random()-0.5)*h*2.6;}
+      var sx=(s.x/s.z)*w+cx,sy=(s.y/s.z)*h+cy;
+      var px=(s.x/s.pz)*w+cx,py=(s.y/s.pz)*h+cy;
+      var r=Math.max(0.55,(1-s.z/w)*2.8);
+      ctx.beginPath();ctx.strokeStyle=s.col;ctx.lineWidth=r;ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.stroke();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<div class="page-wrap">
 <header><div class="container nav">
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
@@ -39,18 +84,18 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   </div>
 </div></header>
 <main class="container" style="padding-top:36px;padding-bottom:60px">
-  <h1 style="font-size:30px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (21)</h1>
-  <p style="color:#94a3b8;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
-<div class="spec-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
+  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (21)</h1>
+  <p style="color:#cbd5e1;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
+<div class="glass-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #01 &bull; Make &rarr; Airtable &bull; Saves 17 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-invoice-reconciliation-for-small-agencies','automated-invoice-reconciliation-for-small-agencies.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-invoice-reconciliation-for-small-agencies',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-invoice-reconciliation-for-small-agencies','automated-invoice-reconciliation-for-small-agencies.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-invoice-reconciliation-for-small-agencies',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-invoice-reconciliation-for-small-agencies.html">Automated Invoice Reconciliation for Small Agencies</a></h3>
-  <pre id="pre-automated-invoice-reconciliation-for-small-agencies" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-invoice-reconciliation-for-small-agencies" style="max-height:180px;margin:0">{
   "name": "Automated Invoice Reconciliation for Small Agencies",
   "flow": [
     {
@@ -82,16 +127,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="real-time-b2b-inbound-lead-routing-scoring" style="margin-bottom:20px">
+<div class="glass-card" id="real-time-b2b-inbound-lead-routing-scoring" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #02 &bull; HubSpot &rarr; Make &bull; Saves 20 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-b2b-inbound-lead-routing-scoring','real-time-b2b-inbound-lead-routing-scoring.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-b2b-inbound-lead-routing-scoring',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-real-time-b2b-inbound-lead-routing-scoring','real-time-b2b-inbound-lead-routing-scoring.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-b2b-inbound-lead-routing-scoring',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-b2b-inbound-lead-routing-scoring.html">Real-Time B2B Inbound Lead Routing & Scoring</a></h3>
-  <pre id="pre-real-time-b2b-inbound-lead-routing-scoring" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-real-time-b2b-inbound-lead-routing-scoring" style="max-height:180px;margin:0">{
   "name": "Real-Time B2B Inbound Lead Routing &amp; Scoring",
   "flow": [
     {
@@ -123,16 +168,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-contractor-onboarding-document-collection" style="margin-bottom:20px">
+<div class="glass-card" id="automated-contractor-onboarding-document-collection" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #03 &bull; Notion &rarr; Make &bull; Saves 23 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-contractor-onboarding-document-collection','automated-contractor-onboarding-document-collection.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-contractor-onboarding-document-collection',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-contractor-onboarding-document-collection','automated-contractor-onboarding-document-collection.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-contractor-onboarding-document-collection',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-contractor-onboarding-document-collection.html">Automated Contractor Onboarding & Document Collection</a></h3>
-  <pre id="pre-automated-contractor-onboarding-document-collection" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-contractor-onboarding-document-collection" style="max-height:180px;margin:0">{
   "name": "Automated Contractor Onboarding &amp; Document Collection",
   "flow": [
     {
@@ -164,16 +209,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-saas-failed-payment-churn-recovery-pipeline" style="margin-bottom:20px">
+<div class="glass-card" id="automated-saas-failed-payment-churn-recovery-pipeline" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #04 &bull; Make &rarr; Airtable &bull; Saves 26 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-saas-failed-payment-churn-recovery-pipeline','automated-saas-failed-payment-churn-recovery-pipeline.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-saas-failed-payment-churn-recovery-pipeline',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-saas-failed-payment-churn-recovery-pipeline','automated-saas-failed-payment-churn-recovery-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-saas-failed-payment-churn-recovery-pipeline',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-saas-failed-payment-churn-recovery-pipeline.html">Automated SaaS Failed Payment & Churn Recovery Pipeline</a></h3>
-  <pre id="pre-automated-saas-failed-payment-churn-recovery-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-saas-failed-payment-churn-recovery-pipeline" style="max-height:180px;margin:0">{
   "name": "Automated SaaS Failed Payment &amp; Churn Recovery Pipeline",
   "flow": [
     {
@@ -205,16 +250,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="multi-sku-low-inventory-reorder-forecasting-system" style="margin-bottom:20px">
+<div class="glass-card" id="multi-sku-low-inventory-reorder-forecasting-system" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #05 &bull; Airtable &rarr; Make &bull; Saves 14 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-multi-sku-low-inventory-reorder-forecasting-system','multi-sku-low-inventory-reorder-forecasting-system.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-multi-sku-low-inventory-reorder-forecasting-system',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-multi-sku-low-inventory-reorder-forecasting-system','multi-sku-low-inventory-reorder-forecasting-system.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-multi-sku-low-inventory-reorder-forecasting-system',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/multi-sku-low-inventory-reorder-forecasting-system.html">Multi-SKU Low Inventory Reorder Forecasting System</a></h3>
-  <pre id="pre-multi-sku-low-inventory-reorder-forecasting-system" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-multi-sku-low-inventory-reorder-forecasting-system" style="max-height:180px;margin:0">{
   "name": "Multi-SKU Low Inventory Reorder Forecasting System",
   "flow": [
     {
@@ -246,16 +291,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-weekly-client-kpi-executive-rollup" style="margin-bottom:20px">
+<div class="glass-card" id="automated-weekly-client-kpi-executive-rollup" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #06 &bull; Make &rarr; Notion &bull; Saves 17 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-weekly-client-kpi-executive-rollup','automated-weekly-client-kpi-executive-rollup.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-weekly-client-kpi-executive-rollup',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-weekly-client-kpi-executive-rollup','automated-weekly-client-kpi-executive-rollup.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-weekly-client-kpi-executive-rollup',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-weekly-client-kpi-executive-rollup.html">Automated Weekly Client KPI Executive Rollup</a></h3>
-  <pre id="pre-automated-weekly-client-kpi-executive-rollup" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-weekly-client-kpi-executive-rollup" style="max-height:180px;margin:0">{
   "name": "Automated Weekly Client KPI Executive Rollup",
   "flow": [
     {
@@ -287,16 +332,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="b2b-rfp-security-questionnaire-response-tracker" style="margin-bottom:20px">
+<div class="glass-card" id="b2b-rfp-security-questionnaire-response-tracker" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #07 &bull; Notion &rarr; Airtable &bull; Saves 20 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-b2b-rfp-security-questionnaire-response-tracker','b2b-rfp-security-questionnaire-response-tracker.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-b2b-rfp-security-questionnaire-response-tracker',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-b2b-rfp-security-questionnaire-response-tracker','b2b-rfp-security-questionnaire-response-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-b2b-rfp-security-questionnaire-response-tracker',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-rfp-security-questionnaire-response-tracker.html">B2B RFP & Security Questionnaire Response Tracker</a></h3>
-  <pre id="pre-b2b-rfp-security-questionnaire-response-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-b2b-rfp-security-questionnaire-response-tracker" style="max-height:180px;margin:0">{
   "name": "B2B RFP &amp; Security Questionnaire Response Tracker",
   "flow": [
     {
@@ -328,16 +373,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="zero-touch-b2b-accounts-receivable-follow-up-engine" style="margin-bottom:20px">
+<div class="glass-card" id="zero-touch-b2b-accounts-receivable-follow-up-engine" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #08 &bull; Make &rarr; HubSpot &bull; Saves 23 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine','zero-touch-b2b-accounts-receivable-follow-up-engine.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine','zero-touch-b2b-accounts-receivable-follow-up-engine.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-accounts-receivable-follow-up-engine',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zero-touch-b2b-accounts-receivable-follow-up-engine.html">Zero-Touch B2B Accounts Receivable Follow-Up Engine</a></h3>
-  <pre id="pre-zero-touch-b2b-accounts-receivable-follow-up-engine" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-zero-touch-b2b-accounts-receivable-follow-up-engine" style="max-height:180px;margin:0">{
   "name": "Zero-Touch B2B Accounts Receivable Follow-Up Engine",
   "flow": [
     {
@@ -369,16 +414,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="saas-spend-vendor-contract-renewal-alert-tracker" style="margin-bottom:20px">
+<div class="glass-card" id="saas-spend-vendor-contract-renewal-alert-tracker" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #09 &bull; Airtable &rarr; Make &bull; Saves 26 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-saas-spend-vendor-contract-renewal-alert-tracker','saas-spend-vendor-contract-renewal-alert-tracker.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-saas-spend-vendor-contract-renewal-alert-tracker',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-saas-spend-vendor-contract-renewal-alert-tracker','saas-spend-vendor-contract-renewal-alert-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-saas-spend-vendor-contract-renewal-alert-tracker',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/saas-spend-vendor-contract-renewal-alert-tracker.html">SaaS Spend & Vendor Contract Renewal Alert Tracker</a></h3>
-  <pre id="pre-saas-spend-vendor-contract-renewal-alert-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-saas-spend-vendor-contract-renewal-alert-tracker" style="max-height:180px;margin:0">{
   "name": "SaaS Spend &amp; Vendor Contract Renewal Alert Tracker",
   "flow": [
     {
@@ -410,16 +455,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="high-ticket-b2b-client-onboarding-milestone-tracker" style="margin-bottom:20px">
+<div class="glass-card" id="high-ticket-b2b-client-onboarding-milestone-tracker" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #10 &bull; Notion &rarr; HubSpot &bull; Saves 14 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker','high-ticket-b2b-client-onboarding-milestone-tracker.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker','high-ticket-b2b-client-onboarding-milestone-tracker.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-high-ticket-b2b-client-onboarding-milestone-tracker',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/high-ticket-b2b-client-onboarding-milestone-tracker.html">High-Ticket B2B Client Onboarding Milestone Tracker</a></h3>
-  <pre id="pre-high-ticket-b2b-client-onboarding-milestone-tracker" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-high-ticket-b2b-client-onboarding-milestone-tracker" style="max-height:180px;margin:0">{
   "name": "High-Ticket B2B Client Onboarding Milestone Tracker",
   "flow": [
     {
@@ -451,16 +496,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-stripe-chargeback-dispute-evidence-assembly" style="margin-bottom:20px">
+<div class="glass-card" id="automated-stripe-chargeback-dispute-evidence-assembly" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #11 &bull; Make &rarr; Airtable &bull; Saves 17 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-stripe-chargeback-dispute-evidence-assembly','automated-stripe-chargeback-dispute-evidence-assembly.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-stripe-chargeback-dispute-evidence-assembly',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-stripe-chargeback-dispute-evidence-assembly','automated-stripe-chargeback-dispute-evidence-assembly.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-stripe-chargeback-dispute-evidence-assembly',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-stripe-chargeback-dispute-evidence-assembly.html">Automated Stripe Chargeback & Dispute Evidence Assembly</a></h3>
-  <pre id="pre-automated-stripe-chargeback-dispute-evidence-assembly" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-stripe-chargeback-dispute-evidence-assembly" style="max-height:180px;margin:0">{
   "name": "Automated Stripe Chargeback &amp; Dispute Evidence Assembly",
   "flow": [
     {
@@ -492,16 +537,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-b2b-deal-desk-discount-approval-pipeline" style="margin-bottom:20px">
+<div class="glass-card" id="automated-b2b-deal-desk-discount-approval-pipeline" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #12 &bull; Make &rarr; HubSpot &bull; Saves 20 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-b2b-deal-desk-discount-approval-pipeline','automated-b2b-deal-desk-discount-approval-pipeline.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-deal-desk-discount-approval-pipeline',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-b2b-deal-desk-discount-approval-pipeline','automated-b2b-deal-desk-discount-approval-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-deal-desk-discount-approval-pipeline',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-deal-desk-discount-approval-pipeline.html">Automated B2B Deal Desk Discount Approval Pipeline</a></h3>
-  <pre id="pre-automated-b2b-deal-desk-discount-approval-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-b2b-deal-desk-discount-approval-pipeline" style="max-height:180px;margin:0">{
   "name": "Automated B2B Deal Desk Discount Approval Pipeline",
   "flow": [
     {
@@ -533,16 +578,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-b2b-podcast-webinar-guest-intake-pipeline" style="margin-bottom:20px">
+<div class="glass-card" id="automated-b2b-podcast-webinar-guest-intake-pipeline" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #13 &bull; Make &rarr; Notion &bull; Saves 23 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline','automated-b2b-podcast-webinar-guest-intake-pipeline.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline','automated-b2b-podcast-webinar-guest-intake-pipeline.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-b2b-podcast-webinar-guest-intake-pipeline',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-b2b-podcast-webinar-guest-intake-pipeline.html">Automated B2B Podcast & Webinar Guest Intake Pipeline</a></h3>
-  <pre id="pre-automated-b2b-podcast-webinar-guest-intake-pipeline" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-b2b-podcast-webinar-guest-intake-pipeline" style="max-height:180px;margin:0">{
   "name": "Automated B2B Podcast &amp; Webinar Guest Intake Pipeline",
   "flow": [
     {
@@ -574,16 +619,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-multi-currency-employee-expense-triage" style="margin-bottom:20px">
+<div class="glass-card" id="automated-multi-currency-employee-expense-triage" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #14 &bull; Make &rarr; Airtable &bull; Saves 26 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-multi-currency-employee-expense-triage','automated-multi-currency-employee-expense-triage.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-multi-currency-employee-expense-triage',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-multi-currency-employee-expense-triage','automated-multi-currency-employee-expense-triage.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-multi-currency-employee-expense-triage',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-multi-currency-employee-expense-triage.html">Automated Multi-Currency Employee Expense Triage</a></h3>
-  <pre id="pre-automated-multi-currency-employee-expense-triage" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-multi-currency-employee-expense-triage" style="max-height:180px;margin:0">{
   "name": "Automated Multi-Currency Employee Expense Triage",
   "flow": [
     {
@@ -615,16 +660,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="product-qualified-lead-pql-trial-usage-alert-engine" style="margin-bottom:20px">
+<div class="glass-card" id="product-qualified-lead-pql-trial-usage-alert-engine" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #15 &bull; Make &rarr; HubSpot &bull; Saves 14 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-product-qualified-lead-pql-trial-usage-alert-engine','product-qualified-lead-pql-trial-usage-alert-engine.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-product-qualified-lead-pql-trial-usage-alert-engine',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-product-qualified-lead-pql-trial-usage-alert-engine','product-qualified-lead-pql-trial-usage-alert-engine.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-product-qualified-lead-pql-trial-usage-alert-engine',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/product-qualified-lead-pql-trial-usage-alert-engine.html">Product-Qualified Lead (PQL) Trial Usage Alert Engine</a></h3>
-  <pre id="pre-product-qualified-lead-pql-trial-usage-alert-engine" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-product-qualified-lead-pql-trial-usage-alert-engine" style="max-height:180px;margin:0">{
   "name": "Product-Qualified Lead (PQL) Trial Usage Alert Engine",
   "flow": [
     {
@@ -656,16 +701,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="real-time-agency-retainer-burn-rate-overage-alerter" style="margin-bottom:20px">
+<div class="glass-card" id="real-time-agency-retainer-burn-rate-overage-alerter" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #16 &bull; Make &rarr; Notion &bull; Saves 17 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-agency-retainer-burn-rate-overage-alerter','real-time-agency-retainer-burn-rate-overage-alerter.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-agency-retainer-burn-rate-overage-alerter',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-real-time-agency-retainer-burn-rate-overage-alerter','real-time-agency-retainer-burn-rate-overage-alerter.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-agency-retainer-burn-rate-overage-alerter',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-agency-retainer-burn-rate-overage-alerter.html">Real-Time Agency Retainer Burn-Rate & Overage Alerter</a></h3>
-  <pre id="pre-real-time-agency-retainer-burn-rate-overage-alerter" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-real-time-agency-retainer-burn-rate-overage-alerter" style="max-height:180px;margin:0">{
   "name": "Real-Time Agency Retainer Burn-Rate &amp; Overage Alerter",
   "flow": [
     {
@@ -697,16 +742,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="zero-touch-b2b-mutual-nda-generation-crm-sync" style="margin-bottom:20px">
+<div class="glass-card" id="zero-touch-b2b-mutual-nda-generation-crm-sync" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #17 &bull; Make &rarr; HubSpot &bull; Saves 20 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync','zero-touch-b2b-mutual-nda-generation-crm-sync.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync','zero-touch-b2b-mutual-nda-generation-crm-sync.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-zero-touch-b2b-mutual-nda-generation-crm-sync',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/zero-touch-b2b-mutual-nda-generation-crm-sync.html">Zero-Touch B2B Mutual NDA Generation & CRM Sync</a></h3>
-  <pre id="pre-zero-touch-b2b-mutual-nda-generation-crm-sync" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-zero-touch-b2b-mutual-nda-generation-crm-sync" style="max-height:180px;margin:0">{
   "name": "Zero-Touch B2B Mutual NDA Generation &amp; CRM Sync",
   "flow": [
     {
@@ -738,16 +783,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-tier-3-support-to-engineering-bug-escalation" style="margin-bottom:20px">
+<div class="glass-card" id="automated-tier-3-support-to-engineering-bug-escalation" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #18 &bull; Make &rarr; Airtable &bull; Saves 23 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-tier-3-support-to-engineering-bug-escalation','automated-tier-3-support-to-engineering-bug-escalation.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-tier-3-support-to-engineering-bug-escalation',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-tier-3-support-to-engineering-bug-escalation','automated-tier-3-support-to-engineering-bug-escalation.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-tier-3-support-to-engineering-bug-escalation',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-tier-3-support-to-engineering-bug-escalation.html">Automated Tier-3 Support to Engineering Bug Escalation</a></h3>
-  <pre id="pre-automated-tier-3-support-to-engineering-bug-escalation" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-tier-3-support-to-engineering-bug-escalation" style="max-height:180px;margin:0">{
   "name": "Automated Tier-3 Support to Engineering Bug Escalation",
   "flow": [
     {
@@ -779,16 +824,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="90-day-b2b-account-renewal-churn-risk-radar" style="margin-bottom:20px">
+<div class="glass-card" id="90-day-b2b-account-renewal-churn-risk-radar" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #19 &bull; Make &rarr; HubSpot &bull; Saves 26 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-90-day-b2b-account-renewal-churn-risk-radar','90-day-b2b-account-renewal-churn-risk-radar.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-90-day-b2b-account-renewal-churn-risk-radar',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-90-day-b2b-account-renewal-churn-risk-radar','90-day-b2b-account-renewal-churn-risk-radar.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-90-day-b2b-account-renewal-churn-risk-radar',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/90-day-b2b-account-renewal-churn-risk-radar.html">90-Day B2B Account Renewal & Churn Risk Radar</a></h3>
-  <pre id="pre-90-day-b2b-account-renewal-churn-risk-radar" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-90-day-b2b-account-renewal-churn-risk-radar" style="max-height:180px;margin:0">{
   "name": "90-Day B2B Account Renewal &amp; Churn Risk Radar",
   "flow": [
     {
@@ -820,16 +865,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="automated-partner-affiliate-commission-payout-ledger" style="margin-bottom:20px">
+<div class="glass-card" id="automated-partner-affiliate-commission-payout-ledger" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #20 &bull; Make &rarr; Airtable &bull; Saves 14 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-automated-partner-affiliate-commission-payout-ledger','automated-partner-affiliate-commission-payout-ledger.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-automated-partner-affiliate-commission-payout-ledger',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-partner-affiliate-commission-payout-ledger','automated-partner-affiliate-commission-payout-ledger.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-partner-affiliate-commission-payout-ledger',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-partner-affiliate-commission-payout-ledger.html">Automated Partner & Affiliate Commission Payout Ledger</a></h3>
-  <pre id="pre-automated-partner-affiliate-commission-payout-ledger" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-automated-partner-affiliate-commission-payout-ledger" style="max-height:180px;margin:0">{
   "name": "Automated Partner &amp; Affiliate Commission Payout Ledger",
   "flow": [
     {
@@ -861,16 +906,16 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-<div class="spec-card" id="real-time-linkedin-lead-gen-form-enrichment-routing" style="margin-bottom:20px">
+<div class="glass-card" id="real-time-linkedin-lead-gen-form-enrichment-routing" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
     <span class="pill">SPEC #21 &bull; Make &rarr; HubSpot &bull; Saves 17 hrs/mo</span>
     <div>
-      <button class="btn-json" style="cursor:pointer;margin-right:8px" onclick="dlJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing','real-time-linkedin-lead-gen-form-enrichment-routing.json')">&darr; Download .JSON</button>
-      <button class="btn-json" style="cursor:pointer;background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing',this)">Copy</button>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing','real-time-linkedin-lead-gen-form-enrichment-routing.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-real-time-linkedin-lead-gen-form-enrichment-routing',this)">Copy</button>
     </div>
   </div>
   <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/real-time-linkedin-lead-gen-form-enrichment-routing.html">Real-Time LinkedIn Lead Gen Form Enrichment & Routing</a></h3>
-  <pre id="pre-real-time-linkedin-lead-gen-form-enrichment-routing" style="background:#020409;border:1px solid #1e293b;padding:12px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px;max-height:180px;margin:0">{
+  <pre id="pre-real-time-linkedin-lead-gen-form-enrichment-routing" style="max-height:180px;margin:0">{
   "name": "Real-Time LinkedIn Lead Gen Form Enrichment &amp; Routing",
   "flow": [
     {
@@ -902,7 +947,7 @@ h1{font-size:40px;line-height:1.15;margin:10px 0 14px;max-width:760px;letter-spa
   ]
 }</pre>
 </div>
-</main>
+</main></div>
 <script>
 function dlJson(id,fn){var el=document.getElementById(id);if(!el)return;var b=new Blob([el.innerText],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();document.body.removeChild(a);}
 function cpJson(id,btn){var el=document.getElementById(id);if(!el)return;navigator.clipboard.writeText(el.innerText).then(function(){var o=btn.innerText;btn.innerText="✓ Copied!";setTimeout(function(){btn.innerText=o;},1800);});}
