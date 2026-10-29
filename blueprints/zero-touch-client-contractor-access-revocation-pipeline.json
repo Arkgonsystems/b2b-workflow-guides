@@ -1,0 +1,31 @@
+{
+  "name": "Zero-Touch Client & Contractor Access Revocation Pipeline",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "zero-touch-client-contractor-access-revocation-pipeline-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "make:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "airtable:ActionUpsertRecord"
+    }
+  ]
+}
