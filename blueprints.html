@@ -75,7 +75,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (22)</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
@@ -84,7 +84,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   </div>
 </div></header>
 <main class="container" style="padding-top:36px;padding-bottom:60px">
-  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (21)</h1>
+  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (22)</h1>
   <p style="color:#cbd5e1;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
 <div class="glass-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
@@ -943,6 +943,47 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
     {
       "id": 5,
       "module": "hubspot:ActionUpsertRecord"
+    }
+  ]
+}</pre>
+</div>
+<div class="glass-card" id="automated-soc-2-continuous-compliance-evidence-collector" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #22 &bull; Make &rarr; Notion &bull; Saves 20 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-soc-2-continuous-compliance-evidence-collector','automated-soc-2-continuous-compliance-evidence-collector.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-soc-2-continuous-compliance-evidence-collector',this)">Copy</button>
+    </div>
+  </div>
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-soc-2-continuous-compliance-evidence-collector.html">Automated SOC 2 Continuous Compliance Evidence Collector</a></h3>
+  <pre id="pre-automated-soc-2-continuous-compliance-evidence-collector" style="max-height:180px;margin:0">{
+  "name": "Automated SOC 2 Continuous Compliance Evidence Collector",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "automated-soc-2-continuous-compliance-evidence-collector-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "make:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "notion:ActionUpsertRecord"
     }
   ]
 }</pre>
