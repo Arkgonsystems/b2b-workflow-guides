@@ -75,7 +75,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (23)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (24)</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
@@ -84,7 +84,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   </div>
 </div></header>
 <main class="container" style="padding-top:36px;padding-bottom:60px">
-  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (23)</h1>
+  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (24)</h1>
   <p style="color:#cbd5e1;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
 <div class="glass-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
@@ -1025,6 +1025,47 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
     {
       "id": 5,
       "module": "airtable:ActionUpsertRecord"
+    }
+  ]
+}</pre>
+</div>
+<div class="glass-card" id="automated-monthly-investor-board-metrics-rollup" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #24 &bull; Make &rarr; Notion &bull; Saves 26 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-automated-monthly-investor-board-metrics-rollup','automated-monthly-investor-board-metrics-rollup.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-automated-monthly-investor-board-metrics-rollup',this)">Copy</button>
+    </div>
+  </div>
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/automated-monthly-investor-board-metrics-rollup.html">Automated Monthly Investor & Board Metrics Rollup</a></h3>
+  <pre id="pre-automated-monthly-investor-board-metrics-rollup" style="max-height:180px;margin:0">{
+  "name": "Automated Monthly Investor &amp; Board Metrics Rollup",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "automated-monthly-investor-board-metrics-rollup-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "make:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "notion:ActionUpsertRecord"
     }
   ]
 }</pre>
