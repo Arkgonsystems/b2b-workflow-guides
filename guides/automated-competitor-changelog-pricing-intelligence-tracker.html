@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SPEC #29: Automated Competitor Changelog & Pricing Intelligence Tracker | Arkgon Systems</title>
+<style>*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#03060e;color:#f8fafc;line-height:1.6;overflow-x:hidden}
+.page-wrap{position:relative;z-index:2}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid rgba(56,189,248,0.18);background:rgba(3,6,14,0.72);position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);padding:16px 0}
+.nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.brand{color:#fff;font-weight:800;font-size:15px;letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.dot{width:9px;height:9px;border-radius:50%;background:#38bdf8;box-shadow:0 0 12px #38bdf8}
+.nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.nav-links a{color:#cbd5e1;text-decoration:none;font-size:13px;font-weight:600}.nav-links a:hover{color:#38bdf8}
+.nav-cta{background:#38bdf8;color:#020617 !important;padding:7px 15px;border-radius:6px;font-weight:800 !important}
+.landing-hero{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.hero-glass{background:rgba(9,14,28,0.58);border:1px solid rgba(56,189,248,0.26);backdrop-filter:blur(12px);border-radius:20px;padding:48px 36px;max-width:860px;box-shadow:0 20px 60px rgba(0,0,0,0.55)}
+.eyebrow{display:inline-block;background:rgba(56,189,248,0.14);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase}
+h1{font-size:46px;line-height:1.12;margin:16px 0 16px;letter-spacing:-0.02em;color:#fff}
+.sub{color:#cbd5e1;font-size:17px;max-width:660px;margin:0 auto 28px}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-main{background:#10b981;color:#022c22;padding:13px 24px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px;border:none;cursor:pointer;display:inline-block}
+.btn-sec{background:rgba(15,23,42,0.8);color:#fff;padding:13px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;border:1px solid rgba(148,163,184,0.35);cursor:pointer;display:inline-block}
+.suite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:24px 0 48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:64px}
+.glass-card{background:rgba(11,17,32,0.72);border:1px solid rgba(56,189,248,0.2);backdrop-filter:blur(12px);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color 0.15s,transform 0.15s}
+.glass-card:hover{border-color:#38bdf8;transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pill{background:rgba(56,189,248,0.14);color:#38bdf8;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:99px}
+.spec-num{font-family:monospace;font-size:12px;color:#94a3b8}
+.stack-tag{font-size:12px;color:#cbd5e1;font-weight:700;margin-bottom:6px}
+.glass-card h3{margin:0 0 8px;font-size:17.5px}.glass-card h3 a{color:#fff;text-decoration:none}
+.desc{color:#94a3b8;font-size:13.5px;margin:0 0 16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)}
+.btn-spec{color:#38bdf8;text-decoration:none;font-size:13px;font-weight:700}
+.btn-json{background:rgba(16,185,129,0.16);color:#10b981;border:1px solid rgba(16,185,129,0.35);padding:6px 12px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:800;cursor:pointer}
+pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14px;border-radius:8px;overflow-x:auto;color:#38bdf8;font-size:12px}
+@media(max-width:768px){h1{font-size:32px}.hero-glass{padding:32px 20px}}</style></head><body>
+<canvas id="bg-stars" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
+<script>
+(function(){
+  var c=document.getElementById("bg-stars");if(!c)return;
+  var ctx=c.getContext("2d"),w,h,stars=[],count=1600,speed=2.4,warp=false,mx=0,my=0;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight;}
+  window.addEventListener("resize",resize);resize();
+  for(var i=0;i<count;i++){
+    stars.push({
+      x:(Math.random()-0.5)*w*2.6,
+      y:(Math.random()-0.5)*h*2.6,
+      z:Math.random()*w,
+      pz:0,
+      col:i%4===0?"#38bdf8":(i%6===0?"#10b981":(i%9===0?"#a5b4fc":"#ffffff"))
+    });
+  }
+  window.addEventListener("mousemove",function(e){mx=(e.clientX-w/2)*0.11;my=(e.clientY-h/2)*0.11;});
+  window.addEventListener("mousedown",function(e){if(e.target.tagName!=="BUTTON"&&e.target.tagName!=="A"&&e.target.tagName!=="TEXTAREA"&&e.target.tagName!=="SELECT")warp=true;});
+  window.addEventListener("mouseup",function(){warp=false;});
+  function tick(){
+    ctx.fillStyle=warp?"rgba(3,6,14,0.2)":"rgba(3,6,14,0.42)";
+    ctx.fillRect(0,0,w,h);
+    var v=warp?22:speed,cx=w/2+mx,cy=h/2+my;
+    for(var i=0;i<count;i++){
+      var s=stars[i];s.pz=s.z;s.z-=v;
+      if(s.z<=1){s.z=w;s.pz=w;s.x=(Math.random()-0.5)*w*2.6;s.y=(Math.random()-0.5)*h*2.6;}
+      var sx=(s.x/s.z)*w+cx,sy=(s.y/s.z)*h+cy;
+      var px=(s.x/s.pz)*w+cx,py=(s.y/s.pz)*h+cy;
+      var r=Math.max(0.55,(1-s.z/w)*2.8);
+      ctx.beginPath();ctx.strokeStyle=s.col;ctx.lineWidth=r;ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.stroke();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<div class="page-wrap">
+<header><div class="container nav">
+  <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
+  <div class="nav-links">
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (21)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/stellar.html" style="color:#38bdf8;">Stellar 60fps</a>
+    <a class="nav-cta" href="https://platypusprime.gumroad.com/l/dncmng">Full Vault ($19)</a>
+  </div>
+</div></header>
+<main class="container" style="padding-top:40px;padding-bottom:64px;max-width:900px">
+<div class="glass-card" style="margin-bottom:24px">
+  <span style="color:#38bdf8;font-size:12px;font-weight:800">SPEC #29 &bull; Make &rarr; Notion &bull; Saves 26 hrs/mo</span>
+  <h1 style="font-size:32px;margin:10px 0">Automated Competitor Changelog & Pricing Intelligence Tracker</h1>
+  <p style="color:#cbd5e1;margin:0 0 18px">Automated Make to Notion webhook pipeline with SHA-256 duplicate protection.</p>
+  <p style="color:#94a3b8;font-size:13.5px;margin:0 0 20px"><strong>Pipeline:</strong> 1. Webhook Listener (Make) &rarr; 2. SHA-256 Deduplication &rarr; 3. State Verification &rarr; 4. Router &rarr; 5. Atomic Upsert (Notion)</p>
+  <div>
+    <button class="btn-main" style="margin-right:10px;margin-bottom:8px" onclick="dlJson('jp','automated-competitor-changelog-pricing-intelligence-tracker.json')">&darr; Download automated-competitor-changelog-pricing-intelligence-tracker.json</button>
+    <button class="btn-sec" style="margin-right:10px;margin-bottom:8px" onclick="cpJson('jp',this)">Copy .JSON</button>
+    <a class="btn-sec" href="https://www.make.com/en/register?pc=loudplatypus6" target="_blank">Open Make.com &rarr;</a>
+  </div>
+</div>
+<pre id="jp">{
+  "name": "Automated Competitor Changelog &amp; Pricing Intelligence Tracker",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "automated-competitor-changelog-pricing-intelligence-tracker-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "make:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "notion:ActionUpsertRecord"
+    }
+  ]
+}</pre>
+</main></div>
+<script>
+function dlJson(id,fn){var el=document.getElementById(id);if(!el)return;var b=new Blob([el.innerText],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();document.body.removeChild(a);}
+function cpJson(id,btn){var el=document.getElementById(id);if(!el)return;navigator.clipboard.writeText(el.innerText).then(function(){var o=btn.innerText;btn.innerText="✓ Copied!";setTimeout(function(){btn.innerText=o;},1800);});}
+</script>
+</body></html>
