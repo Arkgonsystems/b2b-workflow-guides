@@ -75,7 +75,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   <a class="brand" href="https://arkgonsystems.github.io/b2b-workflow-guides/"><span class="dot"></span>ARKGON SYSTEMS</a>
   <div class="nav-links">
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#suite">Software Suite</a>
-    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (32)</a>
+    <a href="https://arkgonsystems.github.io/b2b-workflow-guides/#specs">Blueprints (33)</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/blueprints.html">JSON Catalog</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/slidenote.html">SlideNote</a>
     <a href="https://arkgonsystems.github.io/b2b-workflow-guides/editorial-studio.html">Polisher v2.0</a>
@@ -84,7 +84,7 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
   </div>
 </div></header>
 <main class="container" style="padding-top:36px;padding-bottom:60px">
-  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (32)</h1>
+  <h1 style="font-size:32px;margin:0 0 8px">Make.com (.JSON) Blueprint Catalog (33)</h1>
   <p style="color:#cbd5e1;margin:0 0 24px">Click Download .JSON or Copy on any blueprint below.</p>
 <div class="glass-card" id="automated-invoice-reconciliation-for-small-agencies" style="margin-bottom:20px">
   <div class="card-top" style="flex-wrap:wrap;gap:10px">
@@ -1394,6 +1394,47 @@ pre{background:rgba(2,4,9,0.88);border:1px solid rgba(56,189,248,0.2);padding:14
     {
       "id": 5,
       "module": "hubspot:ActionUpsertRecord"
+    }
+  ]
+}</pre>
+</div>
+<div class="glass-card" id="b2b-support-sla-breach-escalation-workflow-in-notion" style="margin-bottom:20px">
+  <div class="card-top" style="flex-wrap:wrap;gap:10px">
+    <span class="pill">SPEC #33 &bull; Make &rarr; Notion &bull; Saves 23 hrs/mo</span>
+    <div>
+      <button class="btn-json" style="margin-right:8px" onclick="dlJson('pre-b2b-support-sla-breach-escalation-workflow-in-notion','b2b-support-sla-breach-escalation-workflow-in-notion.json')">&darr; Download .JSON</button>
+      <button class="btn-json" style="background:#1e293b;color:#fff" onclick="cpJson('pre-b2b-support-sla-breach-escalation-workflow-in-notion',this)">Copy</button>
+    </div>
+  </div>
+  <h3 style="margin:8px 0"><a href="https://arkgonsystems.github.io/b2b-workflow-guides/guides/b2b-support-sla-breach-escalation-workflow-in-notion.html">B2B Support SLA Breach Escalation Workflow in Notion</a></h3>
+  <pre id="pre-b2b-support-sla-breach-escalation-workflow-in-notion" style="max-height:180px;margin:0">{
+  "name": "B2B Support SLA Breach Escalation Workflow in Notion",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "parameters": {
+        "hook": "b2b-support-sla-breach-escalation-workflow-in-notion-webhook"
+      }
+    },
+    {
+      "id": 2,
+      "module": "util:SetVariable2",
+      "mapper": {
+        "idempotency_key": "{{sha256(1.event_id + \"_\" + 1.updated_at)}}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "make:WatchRecords"
+    },
+    {
+      "id": 4,
+      "module": "builtin:BasicRouter"
+    },
+    {
+      "id": 5,
+      "module": "notion:ActionUpsertRecord"
     }
   ]
 }</pre>
